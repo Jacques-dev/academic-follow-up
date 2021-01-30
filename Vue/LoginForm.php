@@ -4,14 +4,20 @@
 <?php
   if (isset($_SESSION["email"])) {
 ?>
-  <form action="Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
-    <button type="submit" class="popupLoginLogoutButton" name="logout">logout</button>
-  </form>
+  <li class="nav-item">
+    <form action="Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
+      <button type="submit" class="nav-link popupLoginLogoutButton" name="logout">logout</button>
+    </form>
+  </li>
 <?php
   } else {
 ?>
-  <button type="button" class="popupLoginLogoutButton" onclick="popupLogin()">Login</button>
-  <button type="button" class="popupRegisterButton" onclick="popupRegister()">Register</button>
+  <li class="nav-item">
+    <button type="button" class="nav-link popupLoginLogoutButton" onclick="popupLogin()">Login</button>
+  </li>
+  <li class="nav-item">
+    <button type="button" class="nav-link popupRegisterButton" onclick="popupRegister()">Register</button>
+  </li>
 <?php
   }
 ?>

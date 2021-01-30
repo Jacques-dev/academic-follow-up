@@ -14,17 +14,17 @@ html, body {
 }
 
 .popupLoginLogoutButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
+  background: none !important;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .popupRegisterButton {
-  position: absolute;
-  top: 0;
-  right: 60px;
-  z-index: 1;
+  background: none !important;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #popupLogin {
@@ -47,7 +47,6 @@ html, body {
 
 #head-column {
   background-color: #63d55f;
-  height: 5vh;
 }
 
 #cookies {
@@ -59,4 +58,5 @@ html, body {
 #logo1 {
   width: 50px !important;
   height: 50px !important;
+  border-radius: 25% !important;
 }

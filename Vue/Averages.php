@@ -26,9 +26,6 @@
     unset($_SESSION["logout"]);
   }
 
-  include("LoginForm.php");
-  include("RegisterForm.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -62,27 +59,43 @@
       </script>
     <?php } ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <img class="navbar-brand" id="logo1" src="IMAGES/Logo1.png">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../Home.php">Home <span class="sr-only">(current)</span></a>
+            <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Home.php">Home</a>
           </li>
           <?php if(isset($_SESSION["email"])): ?>
-          <li class="nav-item active">
-            <a class="nav-link" href="Averages.php">Mes moyennes</a>
+          <li class="nav-item">
+            <a class="nav-link active" href="Averages.php">Mes notes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Ranking.php">Mon classement</a>
+            <a class="nav-link" href="Ranking.php">Mes classements</a>
           </li>
           <?php endif; ?>
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li> -->
+        </ul>
+      </div>
+      <div class="mx-auto order-0">
+        <div class="navbar-brand mx-auto">
+          My Academic Follow-Up<br>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <?php if(isset($_SESSION["email"])): ?>
+            <li class="nav-item">
+              <a class="nav-link" href="Profil.php">Mon profil</a>
+            </li>
+          <?php endif; ?>
+          <?php include("LoginForm.php"); ?>
+          <?php include("RegisterForm.php"); ?>
         </ul>
       </div>
     </nav>
@@ -90,12 +103,17 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12" align="center" id="head-column">
-          My Academic Follow-Up<br>
           <?php
             if (isset($_SESSION["email"])):
               echo $_SESSION["email"];
             endif;
           ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+
         </div>
       </div>
     </div>

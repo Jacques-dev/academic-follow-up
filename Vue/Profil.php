@@ -1,6 +1,6 @@
 
 <?php
-  include("BDD/Connexion.php");
+  include("../BDD/Connexion.php");
 
   session_start();
 
@@ -17,7 +17,7 @@
   }
 
   if (isset($_SESSION["cookiechecked"]) && $_SESSION["cookiechecked"] === false) {
-    header('Location: Controller/CheckCookie.php');
+    header('Location: ../Controller/CheckCookie.php');
   }
 
   if (isset($_SESSION["logout"])) {
@@ -32,9 +32,9 @@
 <html lang="fr">
   <head>
 
-    <?php include("Vue/Header.php"); ?>
+    <?php include("Header.php"); ?>
     <!-- Main css -->
-    <link rel="stylesheet" href="Vue/CSS/Main.css">
+    <link rel="stylesheet" href="CSS/Main.css">
 
   </head>
   <body>
@@ -63,17 +63,17 @@
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <img class="nav-link" src="Vue/IMAGES/logo1.png" id="logo1">
+            <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="Home.php">Home</a>
+          <li class="nav-item">
+            <a class="nav-link" href="../Home.php">Home</a>
           </li>
           <?php if(isset($_SESSION["email"])): ?>
           <li class="nav-item">
-            <a class="nav-link" href="Vue/Averages.php">Mes notes</a>
+            <a class="nav-link" href="Averages.php">Mes notes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Vue/Ranking.php">Mes classements</a>
+            <a class="nav-link" href="Ranking.php">Mes classements</a>
           </li>
           <?php endif; ?>
         </ul>
@@ -91,11 +91,11 @@
         <ul class="navbar-nav ml-auto">
           <?php if(isset($_SESSION["email"])): ?>
             <li class="nav-item">
-              <a class="nav-link" href="Vue/Profil.php">Mon profil</a>
+              <a class="nav-link active" href="Profil.php">Mon profil</a>
             </li>
           <?php endif; ?>
-          <?php include("Vue/LoginForm.php"); ?>
-          <?php include("Vue/RegisterForm.php"); ?>
+          <?php include("LoginForm.php"); ?>
+          <?php include("RegisterForm.php"); ?>
         </ul>
       </div>
     </nav>
@@ -110,9 +110,15 @@
           ?>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+
+        </div>
+      </div>
     </div>
 
-    <script src="Controller/js/app.js"></script>
+    <script src="../Controller/js/app.js"></script>
 
   </body>
 </htm>
