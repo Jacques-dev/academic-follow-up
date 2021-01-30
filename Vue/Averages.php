@@ -1,106 +1,12 @@
 
-<?php
-  include("../BDD/Connexion.php");
 
-  session_start();
+  <?php
+    include("../Controller/Fonctions.php");
+    render(false, "Header", ["activePage" => "Average"]);
+  ?>
 
-  if (isset($_SESSION["cookie"])) {
-    $emailCookie = $_SESSION["cookie"][0];
-    $passwordCookie = $_SESSION["cookie"][1];
-    $timeCookie = $_SESSION["cookie"][2];
 
-    $array = array($emailCookie, $passwordCookie, $timeCookie);
-    $values = implode(",", $array);
-
-    setcookie("RememberMe", $values, time() + 60 * 60 * 24 * 365);
-    unset($_SESSION["cookie"]);
-  }
-
-  if (isset($_SESSION["cookiechecked"]) && $_SESSION["cookiechecked"] === false) {
-    header('Location: ../Controller/CheckCookie.php');
-  }
-
-  if (isset($_SESSION["logout"])) {
-    unset($_COOKIE["RememberMe"]);
-    setcookie("RememberMe", "", time() - 3600);
-    unset($_SESSION["logout"]);
-  }
-
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-
-    <?php include("Header.php"); ?>
-    <!-- Main css -->
-    <link rel="stylesheet" href="CSS/Main.css">
-
-  </head>
-  <body>
-
-    <?php
-    if (isset($_SESSION["popupResult"])) {
-      $type = $_SESSION["popupResult"]["type"];
-      $title = $_SESSION["popupResult"]["title"];
-      $message = $_SESSION["popupResult"]["message"];
-      $time = isset($_SESSION["popupResult"]["time"]) ? $_SESSION["popupResult"]["time"] : 2000;
-      ?>
-      <script type="text/javascript">
-        asAlertMsg({
-          type: "<?= $type ?>",
-          title: "<?= $title ?>",
-          message: "<?= $message ?>",
-          timer: <?= $time ?>
-        })
-        setTimeout(function() {
-          <?php unset($_SESSION["popupResult"]); ?>
-        }, 2000);
-      </script>
-    <?php } ?>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Home.php">Home</a>
-          </li>
-          <?php if(isset($_SESSION["email"])): ?>
-          <li class="nav-item">
-            <a class="nav-link active" href="Averages.php">Mes notes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Ranking.php">Mes classements</a>
-          </li>
-          <?php endif; ?>
-        </ul>
-      </div>
-      <div class="mx-auto order-0">
-        <div class="navbar-brand mx-auto">
-          My Academic Follow-Up<br>
-        </div>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-          <?php if(isset($_SESSION["email"])): ?>
-            <li class="nav-item">
-              <a class="nav-link" href="Profil.php">Mon profil</a>
-            </li>
-          <?php endif; ?>
-          <?php include("LoginForm.php"); ?>
-          <?php include("RegisterForm.php"); ?>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12" align="center" id="head-column">
           <?php
@@ -112,13 +18,82 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-3">
+          <div class="container">
 
+          	<div class="horizontal">
+          		<div class="verticals four">
+          			<div class="menu-parent style1">
+          				<ul class="menu">
+
+          					<li class="active menu-child">
+          						<a href="#"><i class="fas fa-layer-group"></i>Semestre</a>
+          						<ul>
+                        <form action="../Controller/AverageManagement.php" method="post">
+                          <li><button type="submit" value="Semestre 5">Semestre 5</button></li>
+                          <li><button type="submit" value="Semestre 6">Semestre 6</button></li>
+                        </form>
+          						</ul>
+          					</li>
+
+                    <li class="active menu-child">
+          						<a href="#"><i class="fas fa-layer-group"></i>UE</a>
+          						<ul>
+                        <form action="../Controller/AverageManagement.php" method="post">
+                          <li>
+                            <label for="ue1">UE 1</label>
+                            <input type="checkbox" name="ue1" id="ue1">
+                          </li>
+                          <li>
+                            <label for="ue2">UE 2</label>
+                            <input type="checkbox" name="ue2" id="ue2">
+                          </li>
+                        </form>
+          						</ul>
+          					</li>
+
+          				</ul>
+          			</div>
+          		</div>
+          	</div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="row">
+
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-2 ml-lg-auto mr-lg-auto">UE</div>
+                <div class="col-lg-2 ml-lg-auto mr-lg-auto">Matière</div>
+                <div class="col-lg-2 ml-lg-auto mr-lg-auto">Type</div>
+                <div class="col-lg-2 ml-lg-auto mr-lg-auto">Coef</div>
+                <div class="col-lg-2 ml-lg-auto mr-lg-auto">Moyenne</div>
+              </div>
+
+              <div class="row">
+                <button class="btn btn-secondary dropdown-toggle" type="button" onclick="dropdown('ue1')">
+                  UE 1
+                </button>
+
+                <div class="col-lg-12 dropdown" id="ue1">
+                  <div class="row">
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto"></div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Matière</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Type</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Coef</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Moyenne</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
 
-    <script src="../Controller/js/app.js"></script>
 
-  </body>
-</htm>
+    <?php render(false, "Footer", []); ?>

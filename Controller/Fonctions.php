@@ -26,9 +26,13 @@
     return (!preg_match( "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $email)) ? false : true;
   }
 
-  function render(string $view, $parameters = []) {
+  function render(bool $home, string $view, $parameters = []) {
     extract($parameters);
-    include("../Vue/{$view}.php");
+    if ($home) {
+      include("Vue/{$view}.php");
+    } else {
+      include("{$view}.php");
+    }
   }
 
   function show($x) {

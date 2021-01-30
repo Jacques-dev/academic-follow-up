@@ -5,7 +5,7 @@
   if (isset($_SESSION["email"])) {
 ?>
   <li class="nav-item">
-    <form action="Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
+    <form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
       <button type="submit" class="nav-link popupLoginLogoutButton" name="logout">logout</button>
     </form>
   </li>
@@ -23,7 +23,7 @@
 ?>
 
 
-<form action="Controller/LoginRegister.php" method="post" id="popupLogin">
+<form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupLogin">
   Se connecter<br>
   <input type="text" name="email" placeholder="email"><br>
   <input type="password" name="password" placeholder="mot de passe"><br>
