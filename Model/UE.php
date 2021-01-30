@@ -2,11 +2,11 @@
 
 <?php
 
-  class Subject {
+  class UE {
 
     private $name;
 
-    private $notes = [];
+    private $subjects = [];
 
     private $coefficient;
 
@@ -27,28 +27,25 @@
       return $this->coefficient;
     }
 
-    public function add(float $note, int $coef): bool {
-      if ($note > 0 && $note != null) {
-        if ($coef > 0 && $note != null) {
-          $this->notes[$note] => $coef;
-          return true;
-        }
-        return false;
+    public function add(Subject $subject): bool {
+      if ($subject != null) {
+        $this->subjects[$subject] => $subject.getCoefficient();
+        return true;
       }
       return false;
     }
 
     public function getAverage(): float {
       $res = 0;
-      foreach ($this->notes as $note) {
-        $res += ($note * $this->notes[$note]);
+      foreach ($this->subjects as $subject) {
+        $res += ($subject.getAverage() * $this->subjects[$subject.getCoefficient()]);
       }
-      $res = $res / count($this->notes);
+      $res = $res / count($this->subjects);
       return $res;
     }
 
     public function toString(): string {
-      return "Nom: ".$this->name."<br>Notes: ".$this->notes."<br>Moyenne: ".$this->getAverage();
+      return "Nom: ".$this->name."<br>Matières: ".$this->subjects."<br>Moyenne: ".$this->getAverage();
     }
 
   }
