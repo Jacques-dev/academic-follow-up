@@ -20,7 +20,7 @@
     }
 
     public function getNotes(): array {
-      return $this->notes;
+      return $this->subjects;
     }
 
     public function getCoefficient(): int {

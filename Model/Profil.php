@@ -4,21 +4,18 @@
 
   class Profil {
 
-    private $id;
+    private $email;
 
-    private $password;
-
-    public function __construct($id, $password) {
-      $this->id = $id;
-      $this->password = $password;
+    public function __construct($email) {
+      $this->email = $email;
     }
 
-    public function getId(): string {
-      return $this->id;
+    public function getEmail(): string {
+      return $this->email;
     }
 
     public function toString(): string {
-      return "Email: ".$this->id;
+      return "Email: ".$this->email;
     }
 
   }
