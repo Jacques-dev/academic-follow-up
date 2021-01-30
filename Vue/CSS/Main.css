@@ -50,58 +50,13 @@ html, body {
   height: 5vh;
 }
 
-#left-column {
-  background-color: #5f98d5;
-  height: 95vh;
-}
-
-#middle-column {
-  background-color: #ffffff;
-  height: 95vh;
-}
-
-#right-column {
-  background-color: #d55f5f;
-  height: 95vh;
-}
-
 #cookies {
   position: fixed !important;
   bottom: 0 !important;
   left: 0 !important;
 }
 
-#debuger {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-}
-
-.chooseProject {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  text-decoration: none;
-  cursor: pointer;
-  color: #fff;
-  margin-right: 25px;
-}
-
-.chooseProject:hover {
-  color: #27acea;
-  text-decoration: underline;
-}
-
-.deleteProject {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  text-decoration: none;
-  cursor: pointer;
-  color: #dd4141;
-}
-
-.deleteProject:hover {
-  color: #a83535;
+#logo1 {
+  width: 50px !important;
+  height: 50px !important;
 }
