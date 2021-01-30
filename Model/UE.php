@@ -23,7 +23,7 @@
       return $this->subjects;
     }
 
-    public function getCoefficient(): int {
+    public function getCoefficient(): float {
       return $this->coefficient;
     }
 

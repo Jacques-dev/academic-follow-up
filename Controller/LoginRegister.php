@@ -14,7 +14,7 @@
       if (check_email_address($_POST['email']) == true) {
 
         $email = $_POST['email'];
-        $sql = "SELECT password FROM utilisateur WHERE email = '$email'";
+        $sql = "SELECT password FROM user WHERE email = '$email'";
         $result = $con->query($sql);
         $row = $result->fetch_assoc();
 
@@ -55,13 +55,13 @@
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
       if (check_email_address($_POST["email"]) == true) {
-        $sql = $con->prepare("INSERT INTO utilisateur (email, password) VALUES (?, ?)");
+        $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
         $sql->bind_param('ss', $email, $encrypted_txt);
 
         $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
         $email = $_POST['email'];
 
-        $sqlTest = "SELECT * FROM utilisateur WHERE email = '".$email."'";
+        $sqlTest = "SELECT * FROM user WHERE email = '".$email."'";
         $result = $con->query($sqlTest);
 
         if ($result->num_rows == 0) {

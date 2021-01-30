@@ -23,11 +23,11 @@
       return $this->notes;
     }
 
-    public function getCoefficient(): int {
+    public function getCoefficient(): float {
       return $this->coefficient;
     }
 
-    public function add(float $note, int $coef): bool {
+    public function add(float $note, float $coef): bool {
       if ($note > 0 && $note != null) {
         if ($coef > 0 && $note != null) {
           $this->notes[$note] => $coef;
