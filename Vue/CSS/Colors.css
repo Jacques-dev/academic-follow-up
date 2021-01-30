@@ -1,4 +1,35 @@
 :root {
   --noir: #000;
   --blanc: #fff;
+  --jaune: #E8C542;
+  --jaune2: #F1BC71;
+  --beige: #FBFBF3;
+  --beige_fonce: #F2EDDB;
+  --vert: #09371F;
+  --violet: #90769D;
+  --cyan: #51A9AB;
+  --vert2: #57AC8A;
+  --rose: #CFA0B6;
+  --bleu_ciel: #73BBBC;
+  --cam_color: #C4C395;
+  --bleu_logo: #2E4143;
+  --cam_color2:#BC6D3E;
+  --orange_logo:#B17047;
+
+  --orange_logo_o: rgba(177, 112, 71,0.8);
+  --bleu_logo_o: rgba(46, 65, 67,0.9);
+  --cam_color2_o: rgba(188, 109, 62, 0.70);
+  --cam_color_o: rgba(196, 195, 149,0.8);
+  --violet_o:rgba(144, 118, 157,0.65);
+  --bleu_ciel_o:rgba(115, 187, 188, 0.65);
+  --cyan_o:rgba(81, 169, 171,0.55);
+  --cyan_o2:rgba(81, 169, 171,0.80);
+  --jaune_o: rgba(232,197,66,0.7);
+  --beige_fonce_o: rgba(242,237,219,0.82);
+  --vert_o: rgba(9,55,31,0.70);
+  --vert_o2: rgba(9,55,31,0.65);
+  --vert_clair:rgba(154, 188, 157,0.92);
+  --vert_clair_o:rgba(154, 188, 157,0.2);
+  --rouge: rgb(225, 51, 45);
+  --rouge_clair:rgb(234, 116, 112);
 }

@@ -6,7 +6,6 @@
   include("../BDD/Connexion.php");
   include('Fonctions.php');
 
-
   if (isset($_POST["submitConnexion"])) {
 
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
@@ -90,7 +89,6 @@
       $_SESSION["logout"] = true;
     }
   }
-
 
   header('Location: ../Home.php');
   exit();

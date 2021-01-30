@@ -113,7 +113,7 @@
 
       <div class="row">
         <div class="col-lg-6">
-
+          <p>test daffichage</p>
         </div>
       </div>
     </div>

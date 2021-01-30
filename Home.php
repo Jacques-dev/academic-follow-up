@@ -14,6 +14,7 @@
 
     setcookie("RememberMe", $values, time() + 60 * 60 * 24 * 365);
     unset($_SESSION["cookie"]);
+
   }
 
   if (isset($_SESSION["cookiechecked"]) && $_SESSION["cookiechecked"] === false) {
@@ -25,7 +26,6 @@
     setcookie("RememberMe", "", time() - 3600);
     unset($_SESSION["logout"]);
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
   </head>
   <body>
 
-    <?php
+  <?php
     if (isset($_SESSION["popupResult"])) {
       $type = $_SESSION["popupResult"]["type"];
       $title = $_SESSION["popupResult"]["title"];
@@ -57,7 +57,7 @@
           <?php unset($_SESSION["popupResult"]); ?>
         }, 2000);
       </script>
-    <?php } ?>
+  <?php } ?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -110,6 +110,15 @@
           ?>
         </div>
       </div>
+
+    
+      <!-- <div class="row">
+        <form action="index.html" method="post">
+
+        </form>
+      </div> -->
+
+
     </div>
 
     <script src="Controller/js/app.js"></script>
