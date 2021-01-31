@@ -1,7 +1,4 @@
-
-
 <?php
-
   class Profil {
 
     private $email;
@@ -47,7 +44,5 @@
     public function toString(): string {
       return "Email : ".$this->email + " password : " + .$this->password + "name : ".$this->name + "firstname : " + .$this->firstname + "school : ".$this->school + "td_group : " + .$this->td_group + "promo : " + .$this->promo;
     }
-
   }
-
 ?>

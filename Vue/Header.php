@@ -90,7 +90,7 @@
               <a class="nav-link <?= $activePage === 'Average' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Averages.php">Mes notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Ranking.php">Mes classements</a>
+              <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Ranking.php">Mon classement</a>
             </li>
             <?php endif; ?>
           </ul>

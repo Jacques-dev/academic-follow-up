@@ -22,15 +22,26 @@
   }
 ?>
 
-
-<form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupLogin">
-  Se connecter<br>
-  <input type="text" name="email" placeholder="email"><br>
-  <input type="password" name="password" placeholder="mot de passe"><br>
-  <input type="checkbox" name="remember" id="remember">
-  <label for="remember">Se souvenir de moi</label><br>
-
-  <button type="submit" name="submitConnexion">Se connecter</button>
-
-  <button type="submit">Annuler</button>
-</form>
+<div class="container">
+  <!-- <div class="row"> -->
+    <form class="row" action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupLogin">
+      Se connecter
+      <div class="col-lg-12">
+        <input type="text" name="email" placeholder="email">
+      </div>
+      <div class="col-lg-12">
+          <input type="password" name="password" placeholder="mot de passe">
+      </div>
+      <div class="col-lg-12">
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember">Se souvenir de moi</label>
+      </div>
+      <div class="col-lg-12">
+        <button type="submit" name="submitConnexion">Se connecter</button>
+      </div>
+      <div class="col-lg-12">
+        <button type="submit">Annuler</button>
+      </div>
+    </form>
+  <!-- </div> -->
+</div>

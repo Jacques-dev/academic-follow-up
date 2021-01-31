@@ -10,7 +10,7 @@
 
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
-      if (check_email_address($_POST['email']) == true) {
+      if (check_email_address($_POST['email'])) {
 
         $email = $_POST['email'];
         $sql = "SELECT password FROM user WHERE email = '$email'";
@@ -23,7 +23,16 @@
 
           if ($decrypted_txt == $_POST['password']) {
 
+            $profil= array("firstname" => $_POST["firstname"],
+             "name" => $_POST["name"],
+             "school" => $_POST["school"],
+             "td_group" => $_POST["td_group"],
+             "promotion" => $_POST["promotion"]);
+
+             $_SESSION["profil"] = $profil;
+
             $_SESSION["email"] = $_POST["email"];
+
             $popupResult = array("type" => "success", "title" => "Validé", "message" => "Vous êtes connecté.", "time" => 1000);
 
             if (isset($_POST["remember"])) {
@@ -53,18 +62,28 @@
 
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
-      if (check_email_address($_POST["email"]) == true) {
-        $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
-        $sql->bind_param('ss', $email, $encrypted_txt);
-
+      if (check_email_address($_POST["email"])) {
+        $firstname = $_POST['firstname'];
+        $name = $_POST['name'];
+        $school = $_POST['school'];
+        $promotion = $_POST['promotion'];
+        $td_group = $_POST['td_group'];
         $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
         $email = $_POST['email'];
+
+        // creer un profil à chaque utilisateur et remplir les champs du profil avec les informations de $_SESSION
+        // Profil p = new Profil($name,$school,$promotio);
+        $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
+        $sql->bind_param('ss', $email, $encrypted_txt);
+        $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
+        $sqll->bind_param('ssssss', $name , $firstname, $school, $promotion, $td_group, $email);
 
         $sqlTest = "SELECT * FROM user WHERE email = '".$email."'";
         $result = $con->query($sqlTest);
 
         if ($result->num_rows == 0) {
           $sql->execute();
+          $sqll->execute();
           $popupResult = array("type" => "success", "title" => "Validé", "message" => "Vous êtes enregistré.", "time" => 1000);
         } else {
           $popupResult = array("type" => "warning", "title" => "Attention", "message" => "Ce compte existe déjà.");

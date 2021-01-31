@@ -5,23 +5,28 @@
   ?>
 
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12" align="center" id="head-column">
+        <h3>
         <?php
           if (isset($_SESSION["email"])):
             echo $_SESSION["email"];
           endif;
         ?>
+      </h3>
+      blabla
+        <?php show($_SESSION["profil"]); ?>
       </div>
     </div>
 
+    <!-- <?php
+      if (!isset($_SESSION["profil"]) && isset($_SESSION["email"])) {
+    ?>
 
-    <!-- <div class="row">
-      <form action="index.html" method="post">
-
-      </form>
-    </div> -->
-
+    <?php
+      }
+    ?> -->
 
   </div>
 

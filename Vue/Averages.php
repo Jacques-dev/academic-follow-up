@@ -51,12 +51,10 @@
                         </form>
           						</ul>
           					</li>
-
           				</ul>
           			</div>
           		</div>
           	</div>
-
           </div>
         </div>
 
@@ -80,9 +78,9 @@
                 <div class="col-lg-12 dropdown" id="ue1">
                   <div class="row">
                     <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto"></div>
-                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Matière</div>
-                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Type</div>
-                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Coef</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Matières</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Types</div>
+                    <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Coefficients</div>
                     <div class="dropdown-item col-lg-2 ml-lg-auto mr-lg-auto">Moyenne</div>
                   </div>
                 </div>
