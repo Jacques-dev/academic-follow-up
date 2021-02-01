@@ -49,13 +49,17 @@
 
   include("../Model/API.php");
   $api = new API();
+  $apiv2 = new API();
 
   for ($i = 0; $i != count($classes); $i++) {
-    $res = [find($BDD_tables[$i], $classes[$i]), $BDD_tables[$i]];
+    $find = find($BDD_tables[$i], $classes[$i]);
+    $res = [$find, $BDD_tables[$i]];
     $array = getWhatWeWant($res[0], $whatWeWant[$i]);
     $api->setAttribute($array, $res[1]);
+    $apiv2->setAttribute($find, $res[1]);
   }
 
   $_SESSION["api"] = $api;
+  $_SESSION["apiv2"] = $apiv2;
 
 ?>
