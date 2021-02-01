@@ -30,7 +30,7 @@
 
           if ($decrypted_txt == $_POST['password']) {
 
-            $profil = array(
+            $profil = array (
               "firstname" => $roww["firstname"],
               "name" => $roww["name"],
               "school" => $roww["school"],

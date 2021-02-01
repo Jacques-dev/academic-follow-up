@@ -9,7 +9,8 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12" align="center" id="head-column">
+      <div class="col-lg-12" align="center" id="head-column" style="background-color: <?= $_SESSION['manager'] ? echo '#3978c4' : echo '#63d55f' ?>">
+
         <h3>
         <?php
           if (isset($_SESSION["email"])):
@@ -21,8 +22,6 @@
         show($_SESSION["profil"]["firstname"]); ?>
       </div>
     </div>
-
-    <?php show($_SESSION["api"]->getAttribute("semesters")); ?>
 
   </div>
 

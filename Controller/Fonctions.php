@@ -26,6 +26,20 @@
     return (!preg_match( "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $email)) ? false : true;
   }
 
+  function checkIfIsManager($email) {
+    include("../BDD/Connexion.php");
+    $sql = "SELECT password FROM user WHERE email = '$email'";
+
+    $result = $con->query($sql);
+
+    while($row = $result_marks->fetch_assoc()) {
+      if ($email === $row["email"]) {
+        $_SESSION["manager"] = true;
+      }
+    }
+
+  }
+
   function render(bool $home, string $view, $parameters = []) {
     extract($parameters);
     if ($home) {
