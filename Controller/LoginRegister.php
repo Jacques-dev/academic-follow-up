@@ -13,7 +13,7 @@
         $email = $_POST['email'];
 
         $sql = "SELECT password FROM user WHERE email = '$email'";
-        $sqll = "SELECT firstname, name, school, promotion, td_group FROM student WHERE email = '$email'";
+        $sqll = "SELECT firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
         $notes = "SELECT mark, mark_type FROM student_marks WHERE student = '$email'";
 
         $result = $con->query($sql);
@@ -35,7 +35,8 @@
               "name" => $roww["name"],
               "school" => $roww["school"],
               "td_group" => $roww["td_group"],
-              "promotion" => $roww["promotion"]
+              "promotion" => $roww["promotion"],
+              "confidentiality" => $roww["confidentiality"]
             );
 
             $marks = array(
@@ -86,8 +87,8 @@
         // Profil p = new Profil($name,$school,$promotio);
         $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
         $sql->bind_param('ss', $email, $encrypted_txt);
-        $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
-        $sqll->bind_param('ssssss', $name , $firstname, $school, $promotion, $td_group, $email);
+        $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email, confidentiality) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $sqll->bind_param('sssssss', $name , $firstname, $school, $promotion, $td_group, $email, $default_confidentiality);
 
         $sqlTest = "SELECT * FROM user WHERE email = '".$email."'";
         $result = $con->query($sqlTest);
@@ -99,6 +100,7 @@
           $school = $_POST['school'];
           $promotion = $_POST['promotion'];
           $td_group = $_POST['td_group'];
+          $default_confidentiality = "privée";
           $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
 
           $sql->execute();

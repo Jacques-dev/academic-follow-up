@@ -12,7 +12,7 @@
       Email
     </div>
     <div class="col-lg-12">
-      <input type="text" name="email">
+      <input type="text" placeholder="email" name="email">
     </div>
   </div>
   <div class="row">
@@ -20,7 +20,7 @@
       mot de passe
     </div>
     <div class="col-lg-12">
-      <input type="password" name="password">
+      <input type="password" placeholder="mot de passe" name="password">
     </div>
   </div>
   <div class="row">
@@ -28,7 +28,7 @@
       Prenom
     </div>
     <div class="col-lg-12">
-      <input type="text" name="firstname"/>
+      <input type="text" placeholder="Prenom" name="firstname"/>
     </div>
   </div>
   <div class="row">
@@ -36,7 +36,7 @@
       Nom
     </div>
     <div class="col-lg-12">
-      <input type="text" name="name"/>
+      <input type="text" placeholder="Nom" name="name"/>
     </div>
   </div>
   <div class="row">
@@ -44,7 +44,12 @@
       Ecole
     </div>
     <div class="col-lg-12">
-      <input type="text" name="school"/>
+      <select name="school">
+        <option value="<?= $_SESSION["profil"]["school"]?>" selected> Ecole</option>
+        <option value="EFREI Paris">EFREI Paris</option>
+        <option value="ECE Paris">ECE Paris</option>
+        <option value="EPITA">EPITA</option>
+      </select>
     </div>
   </div>
   <div class="row">
@@ -67,7 +72,7 @@
       Groupe de TD :
     </div>
     <div class="col-lg-12">
-      <input type="text" name="td_group"/>
+      <input type="text" placeholder="groupe de td " name="td_group"/>
     </div>
   </div>
 

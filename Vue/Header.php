@@ -92,6 +92,9 @@
             <li class="nav-item">
               <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Ranking.php">Mon classement</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Research.php">Rechercher</a>
+            </li>
             <?php endif; ?>
           </ul>
         </div>
