@@ -1,13 +1,6 @@
-
-
 <?php
 
   session_start();
-
-  // foreach (glob("classes/*.php") as $filename) {
-  //   include $filename;
-  // }
-
 
   function find ($table, $class) {
     include("../BDD/Connexion.php");
@@ -34,14 +27,12 @@
 
   function getWhatWeWant($table, $whatWeWant) {
     $res = [];
-
     foreach($table as $elt) {
       array_push($res, $elt->getName());
     }
 
     return $res;
   }
-
 
   $classes = ["School", "Semester", "Subject", "TDGroup", "UE", "Year", "MarkType"];
   $BDD_tables = ["school", "semesters", "subject", "td_group", "ue", "year", "mark_type"];
@@ -64,16 +55,23 @@
 
   $apiv3 = [];
 
-  foreach ($apiv2->getSemesters() as $sem) {
-    $array_sem = [$sem->getName(), []];
+  for ($a = 0 ; $a < count($apiv2->getSemesters()) ; $a++) {
+    $array_sem = [$apiv2->getSemesters()[$a]->getName(), []];
 
-    foreach ($apiv2->getUE() as $ue) {
-      if ($ue->getSemester() === $sem->getName()) {
-        array_push($array_sem[1], [$ue->getName(),[]] );
+    for ($b = 0 ; $b < count($apiv2->getUE()); $b++) {
 
+
+      if ($apiv2->getUE()[$b]->getSemester() === $apiv2->getSemesters()[$a]->getName()) {
+
+        array_push($array_sem[1], [$apiv2->getUE()[$b]->getName(),[]] );
+        // show($apiv2->getSubjects());
+        $o = 0;
         for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
-          if ($apiv2->getSubjects()[$i]->getUE() === $ue->getName()) {
-            array_push($array_sem[1][$i][1], [$apiv2->getSubjects()[$i]->getName(),[]] );
+
+          if ($apiv2->getSubjects()[$i]->getUE() === $apiv2->getUE()[$b]->getName()) {
+            // show($apiv2->getSubjects()[$i]->getUE()." = ?". $ue->getName());
+            array_push($array_sem[1][0][1], [$apiv2->getSubjects()[$i]->getName(),[]] );
+            $o++;
           }
         }
       }

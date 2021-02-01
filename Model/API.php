@@ -29,7 +29,6 @@ class API {
         $this->$attr = $attribute_array;
       }
     }
-
   }
 
   public function getAttribute($attribute) {
@@ -58,7 +57,6 @@ class API {
         return $attributesRes[$attr];
       }
     }
-
   }
 
   public function getSemesters() {
@@ -74,8 +72,4 @@ class API {
   }
 
 }
-
-
-
-
 ?>

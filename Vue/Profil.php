@@ -4,7 +4,7 @@
     render(false, "Header", ["activePage" => "Average"]);
   ?>
 
-  
+
 
     <div class="container">
       <div class="row">
@@ -109,179 +109,31 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <p> <h2>Recapitulatif de mes notes</h2> </p>
-      </div>
-      <div class="row">
-        <p> Mon classement général : </p>
-      </div>
-      <div class="container">
+    <div class="container">{
+      <?php for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {
+        ?>
         <div class="row">
-          <div class="col-lg-12">
-            <p>UE 1</p>
-            <div class="col-lg-12">
-              <p>Matiere 1</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 2</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 3</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-          </div>
+          on affiche le semestre
+          <p>--</p><?php echo $_SESSION["apiv3"][$i][0]; ?>
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>UE 2</p>
-            <div class="col-lg-12">
-              <p>Matiere 1</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 2</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 3</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
+        <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i]) ; $j++) {
+          ?>
+          <div class="row">
+            <!-- on affiche l'ue -->
+            <p>-----</p>  <?php echo $_SESSION["apiv3"][$i][1][$j][0]; ?>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>UE 3</p>
-            <div class="col-lg-12">
-              <p>Matiere 1</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
+          
+          <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
+            <div class="row">
+              <!-- on affiche la matiere -->
+              <p>----------</p><?php echo $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?>
             </div>
-            <div class="col-lg-12">
-              <p>Matiere 2</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 3</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>UE 4</p>
-            <div class="col-lg-12">
-              <p>Matiere 1</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 2</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Matiere 3</p>
-              <div class="col-lg-4">
-                <p>TD</p>
-              </div>
-              <div class="col-lg-4">
-                <p>Projet</p>
-              </div>
-              <div class="col-lg-4">
-                <p>DE</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <?php } ?>
+          <?php
+        } ?>
+      <?php
+      } ?>
+    }
 
+    </div>
   <?php render(false, "Footer", []); ?>

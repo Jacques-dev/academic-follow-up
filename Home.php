@@ -1,11 +1,12 @@
-
-  <?php
+<?php
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
   ?>
 
   <div class="container">
-
+    <div class="div">
+      <?php show($_SESSION["apiv3"]); ?>
+    </div>
     <div class="row">
       <div class="col-lg-12" align="center" id="head-column" style="background-color: <?= $_SESSION['manager'] ? '#3978c4' : '#63d55f' ?>">
 
