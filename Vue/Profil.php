@@ -4,6 +4,8 @@
     render(false, "Header", ["activePage" => "Average"]);
   ?>
 
+  
+
     <div class="container">
       <div class="row">
         <div class="col-lg-12" align="center" id="head-column">

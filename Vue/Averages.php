@@ -5,7 +5,7 @@
     render(false, "Header", ["activePage" => "Average"]);
   ?>
 
-
+  <?php show($_SESSION["api"]->getAttribute("school")); ?>
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12" align="center" id="head-column">

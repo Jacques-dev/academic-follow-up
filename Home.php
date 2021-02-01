@@ -1,9 +1,7 @@
 
   <?php
-    include("Controller/StartAPI.php");
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
-
   ?>
 
   <div class="container">

@@ -4,7 +4,7 @@
 
     private $name;
 
-    private $markType = [];
+    private $marks = [];
 
     private $coefficient;
 
@@ -12,12 +12,20 @@
       return $this->name;
     }
 
-    public function getMarkType(): array {
-      return $this->markType;
+    public function getMarks(): array {
+      return $this->marks;
     }
 
     public function getCoefficient(): float {
       return $this->coefficient;
+    }
+
+    public function add(Mark $mark): bool {
+      if ($mark != null) {
+        array_push($this->marks, $mark);
+        return true;
+      }
+      return false;
     }
 
     public function toString(): string {

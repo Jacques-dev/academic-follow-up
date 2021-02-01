@@ -1,5 +1,6 @@
 
 <?php
+  include("../Controller/StartAPI.php");
   include("../BDD/Connexion.php");
 
   session_start();

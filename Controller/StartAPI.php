@@ -10,9 +10,9 @@
 
 
   function find ($table, $class) {
-    include("BDD/Connexion.php");
+    include("../BDD/Connexion.php");
 
-    $include = "Model/".$class.".php";
+    $include = "../Model/".$class.".php";
     include($include);
 
     $sql = "SELECT * FROM $table";
@@ -28,7 +28,7 @@
 
       return $res;
     } else {
-      header('Location: Vue/404.php');
+      header('Location: ../Vue/404.php');
     }
   }
 
@@ -47,7 +47,7 @@
   $BDD_tables = ["school", "semesters", "subject", "td_group", "ue", "year", "mark_type"];
   $whatWeWant = ["name", "num", "name", "td_group", "name", "year", "mark_type"];
 
-  include("Model/API.php");
+  include("../Model/API.php");
   $api = new API();
 
   for ($i = 0; $i != count($classes); $i++) {
