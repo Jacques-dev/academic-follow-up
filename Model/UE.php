@@ -18,15 +18,15 @@
       return $this->name;
     }
 
-    public function getSchool(): School {
+    public function getSchool(): string {
       return $this->school;
     }
 
-    public function getSemester(): Semester {
+    public function getSemester(): string {
       return $this->semester;
     }
 
-    public function getYear(): Year {
+    public function getYear(): string {
       return $this->year;
     }
 

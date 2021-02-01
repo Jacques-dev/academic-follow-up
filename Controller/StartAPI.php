@@ -62,4 +62,36 @@
   $_SESSION["api"] = $api;
   $_SESSION["apiv2"] = $apiv2;
 
+  $apiv3 = [];
+
+  foreach ($apiv2->getSemesters() as $sem) {
+    $array_sem = [$sem->getName(), []];
+
+    foreach ($apiv2->getUE() as $ue) {
+      if ($ue->getSemester() === $sem->getName()) {
+        array_push($array_sem[1], [$ue->getName(),[]] );
+
+        for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
+          if ($apiv2->getSubjects()[$i]->getUE() === $ue->getName()) {
+            array_push($array_sem[1][$i][1], [$apiv2->getSubjects()[$i]->getName(),[]] );
+          }
+        }
+      }
+    }
+    array_push($apiv3, $array_sem);
+  }
+
+
+  $_SESSION["apiv3"] = $apiv3;
+
+
+
+
+
+
+
+
+
+
+
 ?>

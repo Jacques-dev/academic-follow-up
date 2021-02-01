@@ -4,20 +4,26 @@
 
     private $name;
 
-    private $marks = [];
+    // private $marks = [];
 
     private $coefficient;
+
+    private $ue;
 
     public function getName(): string {
       return $this->name;
     }
 
-    public function getMarks(): array {
-      return $this->marks;
-    }
+    // public function getMarks(): array {
+    //   return $this->marks;
+    // }
 
     public function getCoefficient(): float {
       return $this->coefficient;
+    }
+
+    public function getUE(): string {
+      return $this->ue;
     }
 
     public function add(Mark $mark): bool {

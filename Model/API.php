@@ -61,6 +61,18 @@ class API {
 
   }
 
+  public function getSemesters() {
+    return $this->semesters;
+  }
+
+  public function getUE() {
+    return $this->ue;
+  }
+
+  public function getSubjects() {
+    return $this->subject;
+  }
+
 }
 
 
