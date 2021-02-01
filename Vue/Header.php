@@ -85,7 +85,7 @@
             <li class="nav-item">
               <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="/academic-follow-up/Home.php">Home</a>
             </li>
-            <?php if(isset($_SESSION["email"])): ?>
+            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
             <li class="nav-item">
               <a class="nav-link <?= $activePage === 'Average' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Averages.php">Mes notes</a>
             </li>
@@ -95,6 +95,11 @@
             <li class="nav-item">
               <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Research.php">Rechercher</a>
             </li>
+            <?php endif; ?>
+            <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
+              <li class="nav-item">
+                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Management.php">Management</a>
+              </li>
             <?php endif; ?>
           </ul>
         </div>
@@ -109,7 +114,7 @@
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ml-auto">
-            <?php if(isset($_SESSION["email"])): ?>
+            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
               <li class="nav-item">
                 <a class="nav-link" href="/academic-follow-up/Vue/Profil.php">Mon profil</a>
               </li>

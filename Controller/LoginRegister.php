@@ -10,8 +10,8 @@
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
       if (check_email_address($_POST['email'])) {
-        $email = $_POST['email'];
 
+        $email = $_POST['email'];
         $sql = "SELECT password FROM user WHERE email = '$email'";
         $sqll = "SELECT firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
         $notes = "SELECT mark, mark_type FROM student_marks WHERE student = '$email'";
@@ -24,30 +24,35 @@
         $roww = $resultt->fetch_assoc();
         $row = $result->fetch_assoc();
 
+        if (checkIfIsManager($email)){
+          $_SESSION["manager"] = "manager";
+        }
+
         if ($result->num_rows == 1) {
 
           $decrypted_txt = encrypt_decrypt('decrypt', $row['password']);
 
           if ($decrypted_txt == $_POST['password']) {
+            show($_SESSION["manager"]);
+            // if (! checkIfIsManager($email)){
+              $profil = array (
+                "firstname" => $roww["firstname"],
+                "name" => $roww["name"],
+                "school" => $roww["school"],
+                "td_group" => $roww["td_group"],
+                "promotion" => $roww["promotion"],
+                "confidentiality" => $roww["confidentiality"]
+              );
 
-            $profil = array (
-              "firstname" => $roww["firstname"],
-              "name" => $roww["name"],
-              "school" => $roww["school"],
-              "td_group" => $roww["td_group"],
-              "promotion" => $roww["promotion"],
-              "confidentiality" => $roww["confidentiality"]
-            );
+              $marks = array(
+                "mark" => $rowww["mark"],
+                "mark_type" => $rowww["mark_type"],
+                "student" => $rowww["student"]
+              );
+              $_SESSION["marks"] = $marks;
 
-            $marks = array(
-              "mark" => $rowww["mark"],
-              "mark_type" => $rowww["mark_type"],
-              "student" => $rowww["student"]
-            );
-
-            $_SESSION["marks"] = $marks;
-
-            $_SESSION["profil"] = $profil;
+              $_SESSION["profil"] = $profil;
+            // }
 
             $_SESSION["email"] = $email;
 
@@ -58,9 +63,9 @@
               $_SESSION["cookie"] = array($email, $row['password'], $time);
             }
 
-            if (checkIfIsManager($email)) {
-              $_SESSION["manager"] = true;
-            }
+            // if (checkIfIsManager($email)) {
+            //   $_SESSION["manager"] = true;
+            // }
 
           } else {
             $popupResult = array("type" => "warning", "title" => "Attention", "message" => "Mot de passe incorrect.");
@@ -121,9 +126,7 @@
     } else {
       $popupResult = array("type" => "warning", "title" => "Attention", "message" => "Veuillez entrer un email et un mot de passe.");
     }
-
   }
-
   $_SESSION["popupResult"] = $popupResult;
 
   if (isset($_POST['logout'])) {

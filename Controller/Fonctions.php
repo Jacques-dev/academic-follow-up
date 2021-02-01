@@ -28,15 +28,14 @@
 
   function checkIfIsManager($email) {
     include("../BDD/Connexion.php");
-    $sql = "SELECT password FROM user WHERE email = '$email'";
+    $sql = "SELECT * FROM manager WHERE email = '$email'";
 
     $result = $con->query($sql);
 
-    while($row = $result_marks->fetch_assoc()) {
-      if ($email === $row["email"]) {
-        return true;
-      }
+    if ($result->num_rows === 1){
+      return true;
     }
+
     return false;
 
   }

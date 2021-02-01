@@ -1,7 +1,5 @@
 
+<script src="Controller/js/app.js"></script>
 
-
-    <script src="Controller/js/app.js"></script>
-
-  </body>
+</body>
 </html>

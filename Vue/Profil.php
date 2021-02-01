@@ -16,6 +16,7 @@
       </div>
     </div>
     <div class="container">
+
       <div class="row">
         <p><h2>Mon profil</h2> </p>
       </div>
@@ -40,6 +41,7 @@
             <div class="row">
               <div class="col-lg-12">
                 Nom
+
               </div>
               <div class="col-lg-12">
                 <input class="col-lg-4" type="text" value="<?= $_SESSION["profil"]["name"]?>" placeholder="votre nom" name="new_name"/>
@@ -50,7 +52,7 @@
                 Ecole
               </div>
               <div class="col-lg-12">
-                <select class="col-lg-2" name="new_school">
+                <select class="col-lg-4" name="new_school">
                   <option value="<?= $_SESSION["profil"]["school"]?>" selected> <?= $_SESSION["profil"]["school"]?> </option>
                   <option value="EFREI Paris">EFREI Paris</option>
                   <option value="ECE Paris">ECE Paris</option>
@@ -63,7 +65,7 @@
                 Niveau d'étude
               </div>
               <div class="col-lg-12">
-                <select class="col-lg-2" name="new_promotion">
+                <select class="col-lg-6" name="new_promotion">
                   <option value="<?= $_SESSION["profil"]["promotion"]?>" selected> <?= $_SESSION["profil"]["promotion"]?>ème année </option>
                   <option value="1">L1</option>
                   <option value="2">L2</option>
