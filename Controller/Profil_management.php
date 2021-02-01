@@ -5,8 +5,8 @@ session_start();
 
 if (isset($_POST['update_infos'])){
 
-  $sql = $con->prepare('UPDATE student SET firstname = ?, name = ?, school = ?, promotion = ?, td_group = ?, email = ? WHERE email = ?');
-  $sql->bind_param('sssssss', $new_firstname, $new_name, $new_school, $new_promotion, $new_td_group, $new_email, $old_email);
+  $sql = $con->prepare('UPDATE student SET name = ?, firstname = ?, school = ?, promotion = ?, td_group = ?, email = ? WHERE email = ?');
+  $sql->bind_param('sssssss', $new_name, $new_firstname, $new_school, $new_promotion, $new_td_group, $new_email, $old_email);
 
   $new_firstname=$_POST['new_firstname'];
   $new_name=$_POST['new_name'];
@@ -17,6 +17,16 @@ if (isset($_POST['update_infos'])){
   $old_email=$_SESSION["email"];
 
   $sql->execute();
+
+  $profil = array(
+    "firstname" => $new_firstname,
+    "name" => $new_name,
+    "school" => $new_school,
+    "td_group" => $new_td_group,
+    "promotion" => $new_promotion
+  );
+
+  $_SESSION["profil"] = $profil;
 
   $popupResult = array("type" => "success", "title" => "Validé", "message" => "Modification enregistré.");
 

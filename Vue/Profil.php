@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-lg-12">
                   <select class="col-lg-2" name="new_promotion">
-                    <option value="<?= $_SESSION["profil"]["promotion"]?>" disabled selected> <?= $_SESSION["profil"]["promotion"]?>ème année </option>
+                    <option value="<?= $_SESSION["profil"]["promotion"]?>" selected> <?= $_SESSION["profil"]["promotion"]?>ème année </option>
                     <option value="1">L1</option>
                     <option value="2">L2</option>
                     <option value="3">L3</option>
