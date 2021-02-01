@@ -12,13 +12,7 @@
 
     private $coefficient;
 
-    public function __construct($name, $school, $semester, $year, $coefficient) {
-      $this->name = $name;
-      $this->school = $school;
-      $this->semester = $semester;
-      $this->year = $year;
-      $this->coefficient = $coefficient;
-    }
+    private $subjects = [];
 
     public function getName(): string {
       return $this->name;
@@ -40,8 +34,20 @@
       return $this->coefficient;
     }
 
+    public function getSubjects(): array {
+      return $this->subjects;
+    }
+
+    public function add(Subject $subject): bool {
+      if ($subject != null) {
+        $this->subjects[$subject] = $subject;
+        return true;
+      }
+      return false;
+    }
+
     public function toString(): string {
-      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." year: ".$this->year." coefficient: ".$this->coefficient."<br>";
+      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." year: ".$this->year." coefficient: ".$this->coefficient." subjects: ".$this->subjects."<br>";
     }
 
   }

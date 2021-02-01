@@ -1,18 +1,12 @@
 <?php
   class TDGroup {
 
-    private $name;
+    private $td_group;
     private $year;
     private $school;
 
-    public function __construct($name, Year $year, School $school) {
-      $this->name = $name;
-      $this->year = $year;
-      $this->school = $school;
-    }
-
     public function getName(): string {
-      return $this->name;
+      return $this->td_group;
     }
 
     public function getYear(): Year {
@@ -24,7 +18,7 @@
     }
 
     public function toString(): string {
-      return "Name : ".$this->name." year: ".$this->year." school: ".$this->school."<br>";
+      return "Name : ".$this->td_group." year: ".$this->year." school: ".$this->school."<br>";
     }
   }
 ?>

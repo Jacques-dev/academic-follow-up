@@ -8,12 +8,6 @@
 
     private $coefficient;
 
-    public function __construct($name, MarkType $markType, $coefficient) {
-      $this->name = $name;
-      $this->markType = $markType;
-      $this->coefficient = $coefficient;
-    }
-
     public function getName(): string {
       return $this->name;
     }

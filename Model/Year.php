@@ -1,18 +1,14 @@
 <?php
   class Year {
 
-    private $name;
-
-    public function __construct($name) {
-      $this->name = $name;
-    }
+    private $year;
 
     public function getName(): string {
-      return $this->name;
+      return $this->year;
     }
 
     public function toString(): string {
-      return "Name : ".$this->name."<br>";
+      return "Name : ".$this->year."<br>";
     }
   }
 ?>

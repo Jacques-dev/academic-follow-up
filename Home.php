@@ -1,7 +1,9 @@
 
   <?php
+    include("Controller/StartAPI.php");
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
+
   ?>
 
   <div class="container">
@@ -20,13 +22,7 @@
       </div>
     </div>
 
-    <!-- <?php
-      if (!isset($_SESSION["profil"]) && isset($_SESSION["email"])) {
-    ?>
-
-    <?php
-      }
-    ?> -->
+    <?php show($_SESSION["api"]->getAttribute("semesters")); ?>
 
   </div>
 

@@ -1,18 +1,14 @@
 <?php
   class MarkType {
 
-    private $name;
-
-    public function __construct($name) {
-      $this->name = $name;
-    }
+    private $mark_type;
 
     public function getName(): string {
-      return $this->name;
+      return $this->mark_type;
     }
 
     public function toString(): string {
-      return "Name : ".$this->name."<br>";
+      return "Name : ".$this->mark_type."<br>";
     }
   }
 ?>
