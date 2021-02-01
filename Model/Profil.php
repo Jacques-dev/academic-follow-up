@@ -9,7 +9,7 @@
     private $td_group;
     private $promo;
 
-    public function __construct($email, $password, $name, $firstname, $school, $td_group, $promo) {
+    public function __construct($email, $password, $name, $firstname, School $school, TDGroup $td_group, Year $promo) {
       $this->email = $email;
       $this->password = $password;
       $this->name = $name;
@@ -31,13 +31,13 @@
     public function getFirstname(): string {
       return $this->firstname;
     }
-    public function getSchool(): string {
+    public function getSchool(): School {
       return $this->school;
     }
-    public function getTdGroup(): string {
+    public function getTdGroup(): TDGroup {
       return $this->td_group;
     }
-    public function getPromo(): string {
+    public function getPromo(): Year {
       return $this->promo;
     }
 

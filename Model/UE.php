@@ -4,12 +4,19 @@
 
     private $name;
 
-    private $subjects = [];
+    private $school;
+
+    private $semester;
+
+    private $year;
 
     private $coefficient;
 
-    public function __construct($name, $coefficient) {
+    public function __construct($name, $school, $semester, $year, $coefficient) {
       $this->name = $name;
+      $this->school = $school;
+      $this->semester = $semester;
+      $this->year = $year;
       $this->coefficient = $coefficient;
     }
 
@@ -17,33 +24,24 @@
       return $this->name;
     }
 
-    public function getNotes(): array {
-      return $this->subjects;
+    public function getSchool(): School {
+      return $this->school;
+    }
+
+    public function getSemester(): Semester {
+      return $this->semester;
+    }
+
+    public function getYear(): Year {
+      return $this->year;
     }
 
     public function getCoefficient(): float {
       return $this->coefficient;
     }
 
-    public function add(Subject $subject): bool {
-      if ($subject != null) {
-        $this->subjects[$subject] => $subject.getCoefficient();
-        return true;
-      }
-      return false;
-    }
-
-    public function getAverage(): float {
-      $res = 0;
-      foreach ($this->subjects as $subject) {
-        $res += ($subject.getAverage() * $this->subjects[$subject.getCoefficient()]);
-      }
-      $res = $res / count($this->subjects);
-      return $res;
-    }
-
     public function toString(): string {
-      return "Nom: ".$this->name."<br>Matières: ".$this->subjects."<br>Moyenne: ".$this->getAverage();
+      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." year: ".$this->year." coefficient: ".$this->coefficient."<br>";
     }
 
   }

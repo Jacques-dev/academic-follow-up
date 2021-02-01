@@ -13,7 +13,7 @@
         $email = $_POST['email'];
 
         $sql = "SELECT password FROM user WHERE email = '$email'";
-        $sqll = "SELECT firstname, name, school, promotion, td_group FROM test WHERE email = '$email'";
+        $sqll = "SELECT firstname, name, school, promotion, td_group FROM student WHERE email = '$email'";
         $notes = "SELECT mark, mark_type FROM student_marks WHERE student = '$email'";
 
         $result = $con->query($sql);
@@ -30,17 +30,21 @@
 
           if ($decrypted_txt == $_POST['password']) {
 
-            $profil= array("firstname" => $roww["firstname"],
-             "name" => $roww["name"],
-             "school" => $roww["school"],
-             "td_group" => $roww["td_group"],
-             "promotion" => $roww["promotion"]);
+            $profil = array(
+              "firstname" => $roww["firstname"],
+              "name" => $roww["name"],
+              "school" => $roww["school"],
+              "td_group" => $roww["td_group"],
+              "promotion" => $roww["promotion"]
+            );
 
-            $marks= array("mark" => $rowww["mark"],
-             "mark_type" => $rowww["mark_type"],
-             "student" => $rowww["student"]);
+            $marks = array(
+              "mark" => $rowww["mark"],
+              "mark_type" => $rowww["mark_type"],
+              "student" => $rowww["student"]
+            );
 
-             $_SESSION["marks"] = $marks;
+            $_SESSION["marks"] = $marks;
 
             $_SESSION["profil"] = $profil;
 
@@ -76,25 +80,27 @@
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
       if (check_email_address($_POST["email"])) {
-        $firstname = $_POST['firstname'];
-        $name = $_POST['name'];
-        $school = $_POST['school'];
-        $promotion = $_POST['promotion'];
-        $td_group = $_POST['td_group'];
-        $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
-        $email = $_POST['email'];
 
+        $email = $_POST['email'];
         // creer un profil à chaque utilisateur et remplir les champs du profil avec les informations de $_SESSION
         // Profil p = new Profil($name,$school,$promotio);
         $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
         $sql->bind_param('ss', $email, $encrypted_txt);
-        $sqll = $con->prepare("INSERT INTO test (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
+        $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
         $sqll->bind_param('ssssss', $name , $firstname, $school, $promotion, $td_group, $email);
 
         $sqlTest = "SELECT * FROM user WHERE email = '".$email."'";
         $result = $con->query($sqlTest);
 
         if ($result->num_rows == 0) {
+
+          $firstname = $_POST['firstname'];
+          $name = $_POST['name'];
+          $school = $_POST['school'];
+          $promotion = $_POST['promotion'];
+          $td_group = $_POST['td_group'];
+          $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
+
           $sql->execute();
           $sqll->execute();
           $popupResult = array("type" => "success", "title" => "Validé", "message" => "Vous êtes enregistré.", "time" => 1000);

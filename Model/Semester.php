@@ -2,7 +2,16 @@
 
   class Semester {
 
+    private $num;
     private $ues = [];
+
+    public function __construct($num) {
+      $this->num = $num;
+    }
+
+    public function getNum(): string {
+      return $this->num;
+    }
 
     public function add(UE $ue): bool {
       if ($ue != null) {
@@ -12,17 +21,8 @@
       return false;
     }
 
-    public function getAverage(): float {
-      $res = 0;
-      foreach ($this->ues as $ue) {
-        $res += ($ue.getAverage() * $this->ues[$ue.getCoefficient()]);
-      }
-      $res = $res / count($this->ues);
-      return $res;
-    }
-
     public function toString(): string {
-      return "Moyenne: ".$this->getAverage();
+      return "Num: ".$this->num." ues: ".$this->ues."<br>";
     }
 
   }
