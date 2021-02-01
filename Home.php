@@ -15,8 +15,8 @@
           endif;
         ?>
       </h3>
-      blabla
-        <?php show($_SESSION["profil"]); ?>
+        <?php show($_SESSION["profil"]["name"]);
+        show($_SESSION["profil"]["firstname"]); ?>
       </div>
     </div>
 

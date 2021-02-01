@@ -1,5 +1,4 @@
 
-
 <?php
   session_start();
 
@@ -11,10 +10,18 @@
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
       if (check_email_address($_POST['email'])) {
-
         $email = $_POST['email'];
+
         $sql = "SELECT password FROM user WHERE email = '$email'";
+        $sqll = "SELECT firstname, name, school, promotion, td_group FROM test WHERE email = '$email'";
+        $notes = "SELECT mark, mark_type FROM student_marks WHERE student = '$email'";
+
         $result = $con->query($sql);
+        $resultt = $con->query($sqll);
+        $result_marks = $con->query($sqll);
+
+        $rowww = $result_marks->fetch_assoc();
+        $roww = $resultt->fetch_assoc();
         $row = $result->fetch_assoc();
 
         if ($result->num_rows == 1) {
@@ -23,13 +30,19 @@
 
           if ($decrypted_txt == $_POST['password']) {
 
-            $profil= array("firstname" => $_POST["firstname"],
-             "name" => $_POST["name"],
-             "school" => $_POST["school"],
-             "td_group" => $_POST["td_group"],
-             "promotion" => $_POST["promotion"]);
+            $profil= array("firstname" => $roww["firstname"],
+             "name" => $roww["name"],
+             "school" => $roww["school"],
+             "td_group" => $roww["td_group"],
+             "promotion" => $roww["promotion"]);
 
-             $_SESSION["profil"] = $profil;
+            $marks= array("mark" => $rowww["mark"],
+             "mark_type" => $rowww["mark_type"],
+             "student" => $rowww["student"]);
+
+             $_SESSION["marks"] = $marks;
+
+            $_SESSION["profil"] = $profil;
 
             $_SESSION["email"] = $_POST["email"];
 
@@ -75,7 +88,7 @@
         // Profil p = new Profil($name,$school,$promotio);
         $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
         $sql->bind_param('ss', $email, $encrypted_txt);
-        $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
+        $sqll = $con->prepare("INSERT INTO test (name, firstname, school, promotion, td_group, email) VALUES (?, ?, ?, ?, ?, ?)");
         $sqll->bind_param('ssssss', $name , $firstname, $school, $promotion, $td_group, $email);
 
         $sqlTest = "SELECT * FROM user WHERE email = '".$email."'";

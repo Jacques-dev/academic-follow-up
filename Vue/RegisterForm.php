@@ -49,10 +49,17 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      Promotion :
+      Niveau :
     </div>
     <div class="col-lg-12">
-       <input type="text" name="promotion"/>
+      <select name="promotion">
+        <option value="" disabled selected>Niveau d'étude</option>
+        <option value="1">L1</option>
+        <option value="2">L2</option>
+        <option value="3">L3</option>
+        <option value="4">M1</option>
+        <option value="5">M2</option>
+      </select>
     </div>
   </div>
   <div class="row">
