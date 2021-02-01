@@ -56,29 +56,29 @@
   $apiv3 = [];
 
   for ($a = 0 ; $a < count($apiv2->getSemesters()) ; $a++) {
-    $array_sem = [$apiv2->getSemesters()[$a]->getName(), []];
+    $le_semestre = $apiv2->getSemesters()[$a];
+    $un_semestre = [$le_semestre->getName(), []];
 
     for ($b = 0 ; $b < count($apiv2->getUE()); $b++) {
+      $l_ue = $apiv2->getUE()[$b];
+      $une_ue = [$l_ue->getName(), []];
+
+      if ($l_ue->getSemester() === $le_semestre->getName()) {
+        array_push($un_semestre[1], [$l_ue->getName(),[]] );
 
 
-      if ($apiv2->getUE()[$b]->getSemester() === $apiv2->getSemesters()[$a]->getName()) {
+      for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
+          $la_matiere = $apiv2->getSubjects()[$i];
+          $une_matiere = [$la_matiere->getName(), []];
 
-        array_push($array_sem[1], [$apiv2->getUE()[$b]->getName(),[]] );
-        // show($apiv2->getSubjects());
-        $o = 0;
-        for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
-
-          if ($apiv2->getSubjects()[$i]->getUE() === $apiv2->getUE()[$b]->getName()) {
-            // show($apiv2->getSubjects()[$i]->getUE()." = ?". $ue->getName());
-            array_push($array_sem[1][0][1], [$apiv2->getSubjects()[$i]->getName(),[]] );
-            $o++;
+          if ($la_matiere->getUE() === $l_ue->getName()) {
+            array_push($un_semestre[1][$b][1], [$la_matiere->getName(),[]] );
           }
         }
       }
     }
-    array_push($apiv3, $array_sem);
+    array_push($apiv3, $un_semestre);
   }
-
 
   $_SESSION["apiv3"] = $apiv3;
 
