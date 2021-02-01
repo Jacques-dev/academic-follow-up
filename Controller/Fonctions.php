@@ -34,9 +34,10 @@
 
     while($row = $result_marks->fetch_assoc()) {
       if ($email === $row["email"]) {
-        $_SESSION["manager"] = true;
+        return true;
       }
     }
+    return false;
 
   }
 

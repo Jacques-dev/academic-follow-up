@@ -49,13 +49,17 @@
 
             $_SESSION["profil"] = $profil;
 
-            $_SESSION["email"] = $_POST["email"];
+            $_SESSION["email"] = $email;
 
             $popupResult = array("type" => "success", "title" => "Validé", "message" => "Vous êtes connecté.", "time" => 1000);
 
             if (isset($_POST["remember"])) {
               $time = time()*60*60*24*365;  //STOCKS 1 YEAR IN THE VAR
               $_SESSION["cookie"] = array($email, $row['password'], $time);
+            }
+
+            if (checkIfIsManager($email)) {
+              $_SESSION["manager"] = true;
             }
 
           } else {
