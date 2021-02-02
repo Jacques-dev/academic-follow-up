@@ -109,31 +109,24 @@
         </div>
       </div>
     </div>
-    <div class="container">{
-      <?php for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {
-        ?>
+    <div class="container">
+      <?php for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {?>
         <div class="row">
-          on affiche le semestre
-          <p>--</p><?php echo $_SESSION["apiv3"][$i][0]; ?>
+          <p>Semestre ---</p>
+          <?php echo $_SESSION["apiv3"][$i][0]; ?>
         </div>
-        <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i]) ; $j++) {
-          ?>
+        <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
           <div class="row">
-            <!-- on affiche l'ue -->
-            <p>-----</p>  <?php echo $_SESSION["apiv3"][$i][1][$j][0]; ?>
+            <p>UE ---</p>
+            <?php echo $_SESSION["apiv3"][$i][1][$j][0]; ?>
           </div>
-          
           <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
             <div class="row">
-              <!-- on affiche la matiere -->
-              <p>----------</p><?php echo $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?>
+              <p>Matiere ---</p>
+              <?php echo $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?>
             </div>
-          <?php } ?>
-          <?php
-        } ?>
-      <?php
-      } ?>
-    }
-
+          <?php }
+        }
+      } ?>     
     </div>
   <?php render(false, "Footer", []); ?>

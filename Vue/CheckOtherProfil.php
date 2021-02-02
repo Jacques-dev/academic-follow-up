@@ -2,7 +2,7 @@
 <?php
   include("../Controller/Fonctions.php");
   render(false, "Header", ["activePage" => "Research"]);
-  show($_POST["checkProfil"]);
+  include("../BDD/Connexion.php");
 
   if (isset($_POST["checkProfilSubmit"])) {
     $checkProfil = $_POST["checkProfilResults"];
@@ -10,50 +10,33 @@
     header("Location: 404.php");
   }
 
-
+  $idProfil = $checkProfil[0];
 ?>
 
 
 <div class="container">
 
   <div class="row">
-    <h2>Mon profil</h2>
-  </div>
-
-  <div class="row">
     <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-2 ml-lg-auto">
-          Prenom
+      <?php
+      $info = ["id", "Prenom", "Nom", "Ecole", "Niveau d'étude", "Groupe de TD"];
+
+      for ($i = 1 ; $i != count($checkProfil) ; $i++) :?>
+
+        <div class="row">
+          <div class="col-lg-2 ml-lg-auto">
+            <?= $info[$i]; ?>
+          </div>
+          <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[$i]; ?></div>
         </div>
-        <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[0]; ?></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-2 ml-lg-auto">
-          Nom
-        </div>
-        <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[1]; ?></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-2 ml-lg-auto">
-          Ecole
-        </div>
-        <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[2]; ?></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-2 ml-lg-auto">
-          Niveau d'étude
-        </div>
-        <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[3]; ?></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-2 ml-lg-auto">
-          Groupe de TD
-        </div>
-        <div class="col-lg-2 mr-lg-auto"><?= $checkProfil[4]; ?></div>
-      </div>
+
+      <?php endfor; ?>
     </div>
   </div>
+
+  <?php
+  render(false, "Marks", ["idProfil" => $idProfil, "isForm" => false]);
+  ?>
 
 </div>
 

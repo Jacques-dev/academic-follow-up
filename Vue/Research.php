@@ -14,10 +14,11 @@
 
 
     <?php
-    $sql = "SELECT name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
+    $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
     $result = $con->query($sql);
     while ($row = $result->fetch_assoc()) {
       $array = [
+        "id" => $row["id"],
         "name" => $row["name"],
         "firstname" => $row["firstname"],
         "school" => $row["school"],
