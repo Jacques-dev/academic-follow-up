@@ -2,15 +2,21 @@
 
   class UE {
 
+    private $id;
+
     private $name;
 
     private $school;
 
-    private $semester;
+    private $id_semester;
 
     private $coefficient;
 
     private $level;
+
+    public function getId(): string {
+      return $this->id;
+    }
 
     public function getName(): string {
       return $this->name;
@@ -21,7 +27,7 @@
     }
 
     public function getSemester(): string {
-      return $this->semester;
+      return $this->id_semester;
     }
 
     public function getCoefficient(): float {
@@ -33,7 +39,7 @@
     }
 
     public function toString(): string {
-      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." coefficient: ".$this->coefficient." level: ".$this->level."<br>";
+      return "Name : ".$this->name." school: ".$this->school." id_semester: ".$this->id_semester." coefficient: ".$this->coefficient." level: ".$this->level."<br>";
     }
 
   }

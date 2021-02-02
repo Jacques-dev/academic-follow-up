@@ -6,7 +6,7 @@
 
     private $coefficient;
 
-    private $ue;
+    private $id_ue;
 
     public function getName(): string {
       return $this->name;
@@ -17,11 +17,11 @@
     }
 
     public function getUE(): string {
-      return $this->ue;
+      return $this->id_ue;
     }
 
     public function toString(): string {
-      return "Name: ".$this->name." coefficient: ".$this->coefficient." ue: ".$this->ue."<br>";
+      return "Name: ".$this->name." coefficient: ".$this->coefficient." ue: ".$this->id_ue."<br>";
     }
 
   }

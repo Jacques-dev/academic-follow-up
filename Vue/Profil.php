@@ -3,8 +3,6 @@
     include("../Controller/Fonctions.php");
     render(false, "Header", ["activePage" => "Profil"]);
     session_start();
-    show($_SESSION["email"]);
-    show($_SESSION["profil"]);
   ?>
 
 

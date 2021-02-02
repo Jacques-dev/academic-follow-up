@@ -56,23 +56,24 @@
   $apiv3 = [];
 
   for ($a = 0 ; $a < count($apiv2->getSemester()) ; $a++) {
-    // show($apiv2->getSemester()[$a]);
+
     $le_semestre = $apiv2->getSemester()[$a];
     $un_semestre = [$le_semestre->getName(), []];
 
     for ($b = 0 ; $b < count($apiv2->getUE()); $b++) {
+
       $l_ue = $apiv2->getUE()[$b];
       $une_ue = [$l_ue->getName(), []];
 
       if ($l_ue->getSemester() === $le_semestre->getName()) {
-        array_push($un_semestre[1], [$l_ue->getName(),[]] );
+        array_push($un_semestre[1], $une_ue );
 
-      for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
+        for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
           $la_matiere = $apiv2->getSubjects()[$i];
           $une_matiere = [$la_matiere->getName(), []];
 
-          if ($la_matiere->getUE() === $l_ue->getName()) {
-            array_push($un_semestre[1][$b][1], [$la_matiere->getName(),[]] );
+          if ($la_matiere->getUE() === $l_ue->getId()) {
+            array_push($un_semestre[1][$b][1], $une_matiere );
           }
         }
       }
@@ -81,6 +82,5 @@
   }
 
   $_SESSION["apiv3"] = $apiv3;
-  show($_SESSION["apiv3"]);
-  die();
+
 ?>
