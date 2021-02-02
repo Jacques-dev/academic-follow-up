@@ -3,22 +3,18 @@
   class Semester {
 
     private $num;
-    private $ues = [];
+    private $school;
 
     public function getName(): string {
       return $this->num;
     }
 
-    public function add(UE $ue): bool {
-      if ($ue != null) {
-        $this->ues[$ue] = $ue->getCoefficient();
-        return true;
-      }
-      return false;
+    public function getSchool(): string {
+      return $this->school;
     }
 
     public function toString(): string {
-      return "Num: ".$this->num." ues: ".$this->ues."<br>";
+      return "Num: ".$this->num." school: ".$this->school."<br>";
     }
 
   }

@@ -1,5 +1,5 @@
 <?php
-  class Year {
+  class Promotion {
 
     private $year;
 
@@ -8,7 +8,8 @@
     }
 
     public function toString(): string {
-      return "Name : ".$this->year."<br>";
+      return "Year : ".$this->year."<br>";
     }
+
   }
 ?>

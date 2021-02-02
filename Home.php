@@ -1,10 +1,12 @@
 <?php
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
+    show($_SESSION["email"]);
+    show($_SESSION["profil"]);
   ?>
 
   <div class="container">
-    
+
     <div class="row">
       <div class="col-lg-12" align="center" id="head-column" style="background-color: <?= $_SESSION['manager'] ? '#3978c4' : '#63d55f' ?>">
 

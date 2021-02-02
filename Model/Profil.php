@@ -7,16 +7,16 @@
     private $firstname;
     private $school;
     private $td_group;
-    private $promo;
+    private $promotion;
 
-    public function __construct($email, $password, $name, $firstname, School $school, TDGroup $td_group, Year $promo) {
+    public function __construct($email, $password, $name, $firstname, School $school, TDGroup $td_group, Year $promotion) {
       $this->email = $email;
       $this->password = $password;
       $this->name = $name;
       $this->firstname = $firstname;
       $this->school = $school;
       $this->td_group = $td_group;
-      $this->promo = $promo;
+      $this->promotion = $promotion;
     }
 
     public function getEmail(): string {
@@ -31,18 +31,18 @@
     public function getFirstname(): string {
       return $this->firstname;
     }
-    public function getSchool(): School {
+    public function getSchool(): string {
       return $this->school;
     }
-    public function getTdGroup(): TDGroup {
+    public function getTdGroup(): string {
       return $this->td_group;
     }
-    public function getPromo(): Year {
-      return $this->promo;
+    public function getPromotion(): string {
+      return $this->promotion;
     }
 
     public function toString(): string {
-      return "Email : ".$this->email + " password : " + .$this->password + "name : ".$this->name + "firstname : " + .$this->firstname + "school : ".$this->school + "td_group : " + .$this->td_group + "promo : " + .$this->promo;
+      return "Email : ".$this->email + " password : " + .$this->password + "name : ".$this->name + "firstname : " + .$this->firstname + "school : ".$this->school + "td_group : " + .$this->td_group + "promotion : " + .$this->promotion;
     }
   }
 ?>

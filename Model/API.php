@@ -5,22 +5,22 @@
 class API {
 
   private $school;
-  private $semesters;
+  private $semester;
   private $subject;
   private $td_group;
   private $ue;
-  private $year;
+  private $promotion;
   private $mark_type;
 
   public function setAttribute($attribute_array, $attribute_name) {
 
     $allAttributes = [
       "school",
-      "semesters",
+      "semester",
       "subject",
       "td_group",
       "ue",
-      "year",
+      "promotion",
       "mark_type"
     ];
 
@@ -34,21 +34,21 @@ class API {
   public function getAttribute($attribute) {
     $allAttributes = [
       "school",
-      "semesters",
+      "semester",
       "subject",
       "td_group",
       "ue",
-      "year",
+      "promotion",
       "mark_type"
     ];
 
     $attributesRes = [
       "school" => $this->school,
-      "semesters" => $this->semesters,
+      "semester" => $this->semester,
       "subject" => $this->subject,
       "td_group" => $this->td_group,
       "ue" => $this->ue,
-      "year" => $this->year,
+      "promotion" => $this->promotion,
       "mark_type" => $this->mark_type
     ];
 
@@ -59,8 +59,8 @@ class API {
     }
   }
 
-  public function getSemesters() {
-    return $this->semesters;
+  public function getSemester() {
+    return $this->semester;
   }
 
   public function getUE() {

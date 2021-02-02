@@ -14,13 +14,13 @@
         $email = $_POST['email'];
         $sql = "SELECT password FROM user WHERE email = '$email'";
         $sqll = "SELECT firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
-        $notes = "SELECT mark, mark_type FROM student_marks WHERE student = '$email'";
+        // $notes = "SELECT mark, type FROM student_marks WHERE student = '$email'";
 
         $result = $con->query($sql);
         $resultt = $con->query($sqll);
-        $result_marks = $con->query($sqll);
+        // $result_marks = $con->query($sqll);
 
-        $rowww = $result_marks->fetch_assoc();
+        // $rowww = $result_marks->fetch_assoc();
         $roww = $resultt->fetch_assoc();
         $row = $result->fetch_assoc();
 
@@ -44,12 +44,12 @@
                 "confidentiality" => $roww["confidentiality"]
               );
 
-              $marks = array(
-                "mark" => $rowww["mark"],
-                "mark_type" => $rowww["mark_type"],
-                "student" => $rowww["student"]
-              );
-              $_SESSION["marks"] = $marks;
+              // $marks = array(
+              //   "mark" => $rowww["mark"],
+              //   "mark_type" => $rowww["mark_type"],
+              //   "student" => $rowww["student"]
+              // );
+              // $_SESSION["marks"] = $marks;
 
               $_SESSION["profil"] = $profil;
             // }

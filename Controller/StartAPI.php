@@ -34,9 +34,9 @@
     return $res;
   }
 
-  $classes = ["School", "Semester", "Subject", "TDGroup", "UE", "Year", "MarkType"];
-  $BDD_tables = ["school", "semesters", "subject", "td_group", "ue", "year", "mark_type"];
-  $whatWeWant = ["name", "num", "name", "td_group", "name", "year", "mark_type"];
+  $classes    = ["School", "Semester", "Subject", "TDGroup",  "UE",   "Promotion", "MarkType"];
+  $BDD_tables = ["school", "semester", "subject", "td_group", "ue",   "promotion", "mark_type"];
+  $whatWeWant = ["name",   "num",      "name",    "name",     "name", "year",      "name"];
 
   include("../Model/API.php");
   $api = new API();
@@ -55,8 +55,9 @@
 
   $apiv3 = [];
 
-  for ($a = 0 ; $a < count($apiv2->getSemesters()) ; $a++) {
-    $le_semestre = $apiv2->getSemesters()[$a];
+  for ($a = 0 ; $a < count($apiv2->getSemester()) ; $a++) {
+    // show($apiv2->getSemester()[$a]);
+    $le_semestre = $apiv2->getSemester()[$a];
     $un_semestre = [$le_semestre->getName(), []];
 
     for ($b = 0 ; $b < count($apiv2->getUE()); $b++) {
@@ -65,7 +66,6 @@
 
       if ($l_ue->getSemester() === $le_semestre->getName()) {
         array_push($un_semestre[1], [$l_ue->getName(),[]] );
-
 
       for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
           $la_matiere = $apiv2->getSubjects()[$i];
@@ -81,15 +81,6 @@
   }
 
   $_SESSION["apiv3"] = $apiv3;
-
-
-
-
-
-
-
-
-
-
-
+  show($_SESSION["apiv3"]);
+  die();
 ?>

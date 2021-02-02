@@ -8,11 +8,9 @@
 
     private $semester;
 
-    private $year;
-
     private $coefficient;
 
-    private $subjects = [];
+    private $level;
 
     public function getName(): string {
       return $this->name;
@@ -26,28 +24,16 @@
       return $this->semester;
     }
 
-    public function getYear(): string {
-      return $this->year;
-    }
-
     public function getCoefficient(): float {
       return $this->coefficient;
     }
 
-    public function getSubjects(): array {
-      return $this->subjects;
-    }
-
-    public function add(Subject $subject): bool {
-      if ($subject != null) {
-        $this->subjects[$subject] = $subject;
-        return true;
-      }
-      return false;
+    public function getLevel(): string {
+      return $this->level;
     }
 
     public function toString(): string {
-      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." year: ".$this->year." coefficient: ".$this->coefficient." subjects: ".$this->subjects."<br>";
+      return "Name : ".$this->name." school: ".$this->school." semester: ".$this->semester." coefficient: ".$this->coefficient." level: ".$this->level."<br>";
     }
 
   }
