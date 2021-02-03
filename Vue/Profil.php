@@ -64,16 +64,16 @@
             </div>
             <div class="row">
               <div class="col-lg-12">
-                Niveau d'étude
+                Promotion
               </div>
               <div class="col-lg-12">
                 <select class="col-lg-6" name="new_promotion">
                   <option value="<?= $_SESSION["profil"]["promotion"]?>" selected> <?= $_SESSION["profil"]["promotion"]?></option>
-                  <option value="1">L1</option>
-                  <option value="2">L2</option>
-                  <option value="3">L3</option>
-                  <option value="4">M1</option>
-                  <option value="5">M2</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
                 </select>
               </div>
             </div>
@@ -110,24 +110,7 @@
       </div>
     </div>
     <div class="container">
-      <?php for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {?>
-        <div class="row">
-          <p>Semestre ---</p>
-          <?php echo $_SESSION["apiv3"][$i][0]; ?>
-        </div>
-        <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
-          <div class="row">
-            <p>UE ---</p>
-            <?php echo $_SESSION["apiv3"][$i][1][$j][0]; ?>
-          </div>
-          <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
-            <div class="row">
-              <p>Matiere ---</p>
-              <?php echo $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?>
-            </div>
-          <?php }
-        }
-      } ?>
+      <?php render(false, "Marks", ["idProfil" => $_SESSION["profil"]["id"]]); ?>
     </div>
 
   <?php render(false, "Footer", []); ?>

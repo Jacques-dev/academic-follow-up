@@ -1,32 +1,47 @@
 
 
+
+
 <?php
-  include("../BDD/Connexion.php");
+  session_start();
+  include("../Controller/StartMarks.php");
+  show($_SESSION["marksv3"]);
+  for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {?>
 
-  $sql = "SELECT ss.average, ss.semester FROM student s INNER JOIN student_semester ss WHERE s.id = ss.student AND s.id = $idProfil AND s.confidentiality = 'publique' ";
-  $result = $con->query($sql);
-  while ($row = $result->fetch_assoc()) {
+    <div class="row">
+      <p>Semestre <?= $_SESSION["apiv3"][$i][0]; ?> --- (<?= $_SESSION["marksv3"][$i][0]; ?>)</p>
+    </div>
 
-    show("moyenne : ".$row["average"]."<br>");
-    show("semester : ".$row["semester"]."<br>");
-    for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {?>
+    <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
+
       <div class="row">
-        <p>Semestre ---</p>
-        <?php echo $_SESSION["apiv3"][$i][0]; ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <p>UE --- <?= $_SESSION["apiv3"][$i][1][$j][0]; ?> (<?= $_SESSION["marksv3"][$i][1][$j][0]; ?>)</p>
       </div>
-      <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
+
+      <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
+
         <div class="row">
-          <p>UE ---</p>
-          <?php echo $_SESSION["apiv3"][$i][1][$j][0]; ?>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p>Matiere --- <?= $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?> (<?= $_SESSION["marksv3"][$i][1][$j][1][$k][0]; ?>)</p>
         </div>
-        <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
-          <div class="row">
-            <p>Matiere ---</p>
-            <?php echo $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?>
-          </div>
-        <?php }
+
+          <?php for($l = 1 ; $l < count($_SESSION["marksv3"][$i][1][$j][1][$k]) ; $l++ ) { ?>
+
+            <div class="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <p>
+                Note ---
+                <?= $_SESSION["marksv3"][$i][1][$j][1][$k][$l][0]; ?>
+                <?= $_SESSION["marksv3"][$i][1][$j][1][$k][$l][1]; ?>/20
+                coef <?= $_SESSION["marksv3"][$i][1][$j][1][$k][$l][2]; ?>
+              </p>
+            </div>
+
+          <?php
+        }
       }
     }
-
   }
 ?>

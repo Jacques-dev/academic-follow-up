@@ -50,8 +50,7 @@
     $apiv2->setAttribute($find, $res[1]);
   }
 
-  $_SESSION["api"] = $api;
-  $_SESSION["apiv2"] = $apiv2;
+
 
   $apiv3 = [];
 
@@ -65,10 +64,12 @@
       $l_ue = $apiv2->getUE()[$b];
       $une_ue = [$l_ue->getName(), []];
 
-      if ($l_ue->getSemester() === $le_semestre->getName()) {
-        array_push($un_semestre[1], $une_ue );
+
+      if ($l_ue->getSemester() === $le_semestre->getId()) {
+        array_push($un_semestre[1], $une_ue);
 
         for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
+
           $la_matiere = $apiv2->getSubjects()[$i];
           $une_matiere = [$la_matiere->getName(), []];
 
@@ -81,6 +82,8 @@
     array_push($apiv3, $un_semestre);
   }
 
+  $_SESSION["api"] = $api;
+  $_SESSION["apiv2"] = $apiv2;
   $_SESSION["apiv3"] = $apiv3;
 
 ?>

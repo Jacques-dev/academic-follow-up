@@ -2,8 +2,13 @@
 
   class Semester {
 
+    private $id;
     private $num;
     private $school;
+
+    public function getId(): string {
+      return $this->id;
+    }
 
     public function getName(): string {
       return $this->num;
@@ -14,7 +19,7 @@
     }
 
     public function toString(): string {
-      return "Num: ".$this->num." school: ".$this->school."<br>";
+      return "Id: ".$this->id." num: ".$this->num." school: ".$this->school."<br>";
     }
 
   }

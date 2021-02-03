@@ -13,7 +13,7 @@
 
         $email = $_POST['email'];
         $sql = "SELECT password FROM user WHERE email = '$email'";
-        $sqll = "SELECT firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
+        $sqll = "SELECT id, firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
         // $notes = "SELECT mark, type FROM student_marks WHERE student = '$email'";
 
         $result = $con->query($sql);
@@ -36,6 +36,7 @@
             show($_SESSION["manager"]);
             // if (! checkIfIsManager($email)){
               $profil = array (
+                "id" => $roww["id"],
                 "firstname" => $roww["firstname"],
                 "name" => $roww["name"],
                 "school" => $roww["school"],
