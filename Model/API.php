@@ -59,6 +59,10 @@ class API {
     }
   }
 
+  public function getSchool() {
+    return $this->school;
+  }
+
   public function getSemester() {
     return $this->semester;
   }
@@ -91,6 +95,14 @@ class API {
     foreach ($this->subject as $sub) {
       if ($sub->getId() === $id) {
         return $sub->getNameFromId($id);
+      }
+    }
+  }
+
+  public function getSemesterFromSchool($name) {
+    foreach ($this->school as $sch) {
+      if ($sch->getName() === $name) {
+        return $sch->getNumberOfSemester();
       }
     }
   }
