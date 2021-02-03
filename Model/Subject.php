@@ -2,11 +2,17 @@
 
   class Subject {
 
+    private $id;
+
     private $name;
 
     private $coefficient;
 
     private $id_ue;
+
+    public function getId(): string {
+      return $this->id;
+    }
 
     public function getName(): string {
       return $this->name;
@@ -21,7 +27,7 @@
     }
 
     public function getNameFromId($id): string {
-      if ($id === $this->id_ue) {
+      if ($id === $this->id) {
         return $this->name;
       }
     }

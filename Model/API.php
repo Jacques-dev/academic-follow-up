@@ -64,9 +64,7 @@ class API {
   }
 
   public function getSemesterId($id) {
-
     foreach ($this->semester as $sem) {
-
       if ($sem->getId() === $id) {
         return $sem->getNameFromId($id);
       }
@@ -78,9 +76,7 @@ class API {
   }
 
   public function getUEId($id) {
-
     foreach ($this->ue as $ue) {
-
       if ($ue->getId() === $id) {
         return $ue->getNameFromId($id);
       }
@@ -92,9 +88,7 @@ class API {
   }
 
   public function getSubjectId($id) {
-
     foreach ($this->subject as $sub) {
-      show($sub);
       if ($sub->getId() === $id) {
         return $sub->getNameFromId($id);
       }
