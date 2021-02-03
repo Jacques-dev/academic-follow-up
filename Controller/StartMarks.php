@@ -14,7 +14,7 @@
     if ($markToAdd[$i] != "marks") {
       $sql = "SELECT sx.average FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     } else {
-      $sql = "SELECT sx.mark, sx.type, sx.coefficient FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
+      $sql = "SELECT sx.mark, sx.type, sx.coefficient, sx.id_subject FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     }
 
     $result = $con->query($sql);
@@ -50,31 +50,28 @@
   // show($marksv2);
 
   $marksv3 = [];
-  show(count($marksv2["subject"]));
+
   for ($a = 0 ; $a != count($marksv2["semester"]) ; $a++) {
 
     $le_semestre = $marksv2["semester"][$a];
-    $un_semestre = [$le_semestre["average"]." SEMESTRE", []];
+    $un_semestre = [$le_semestre["id_semester"], $le_semestre["average"], []];
 
     for ($b = 0 ; $b != count($marksv2["ue"]); $b++) {
 
       $l_ue = $marksv2["ue"][$b];
-      $une_ue = [$l_ue["average"]." UE", []];
-
+      $une_ue = [$l_ue["id_ue"], $l_ue["average"], []];
+      $o = 0;
 
       if ($l_ue["id_semester"] === $le_semestre["id_semester"]) {
-        array_push($un_semestre[1], $une_ue);
-
+        array_push($un_semestre[2], $une_ue);
 
         for ($i = 0; $i != count($marksv2["subject"]); $i++) {
 
           $la_matiere = $marksv2["subject"][$i];
-          $une_matiere = [$la_matiere["average"]." MATIERE"];
-
-          show("matière: ".$la_matiere["id_ue"]." --- "."ue: ".$l_ue["id_ue"]);
+          $une_matiere = [$la_matiere["id_subject"], $la_matiere["average"]];
 
           if ($la_matiere["id_ue"] === $l_ue["id_ue"]) {
-            array_push($un_semestre[1][$b][1], $une_matiere);
+            array_push($un_semestre[2][$b][2], $une_matiere);
 
             for ($j = 0; $j != count($marksv2["marks"]); $j++) {
 
@@ -82,15 +79,21 @@
               $une_note = [$la_note["type"], $la_note["mark"], $la_note["coefficient"]];
 
               if ($la_note["id_subject"] === $la_matiere["id_subject"]) {
-                array_push($un_semestre[1][$b][1][$i], $une_note);
+                array_push($un_semestre[2][$b][2][$o], $une_note);
+
               }
+
             }
+
+            $o++;
 
           }
 
         }
 
       }
+
+
     }
     array_push($marksv3, $un_semestre);
   }

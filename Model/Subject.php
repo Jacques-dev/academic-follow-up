@@ -20,6 +20,12 @@
       return $this->id_ue;
     }
 
+    public function getNameFromId($id): string {
+      if ($id === $this->id_ue) {
+        return $this->name;
+      }
+    }
+
     public function toString(): string {
       return "Name: ".$this->name." coefficient: ".$this->coefficient." ue: ".$this->id_ue."<br>";
     }

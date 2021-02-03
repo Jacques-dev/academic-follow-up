@@ -63,12 +63,42 @@ class API {
     return $this->semester;
   }
 
+  public function getSemesterId($id) {
+
+    foreach ($this->semester as $sem) {
+
+      if ($sem->getId() === $id) {
+        return $sem->getNameFromId($id);
+      }
+    }
+  }
+
   public function getUE() {
     return $this->ue;
   }
 
+  public function getUEId($id) {
+
+    foreach ($this->ue as $ue) {
+
+      if ($ue->getId() === $id) {
+        return $ue->getNameFromId($id);
+      }
+    }
+  }
+
   public function getSubjects() {
     return $this->subject;
+  }
+
+  public function getSubjectId($id) {
+
+    foreach ($this->subject as $sub) {
+      show($sub);
+      if ($sub->getId() === $id) {
+        return $sub->getNameFromId($id);
+      }
+    }
   }
 
 }

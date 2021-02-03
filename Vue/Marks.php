@@ -5,22 +5,29 @@
 <?php
   session_start();
   include("../Controller/StartMarks.php");
-  show($_SESSION["marksv3"]);
-  for($i = 0 ; $i < count($_SESSION["apiv3"]) ; $i++) {?>
+  // show($_SESSION["marksv3"]);
 
+  for($i = 0 ; $i < count($_SESSION["marksv3"]) ; $i++) {?>
+    <?php
+      $sem = $_SESSION["apiv2"]->getSemesterId($_SESSION["marksv3"][$i][0]);
+    ?>
     <div class="row">
-      <p>Semestre <?= $_SESSION["apiv3"][$i][0]; ?> --- (<?= $_SESSION["marksv3"][$i][0]; ?>)</p>
+      <p>Semestre <?= $sem; ?> --- (<?= $_SESSION["marksv3"][$i][1]; ?>/20)</p>
     </div>
 
-    <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
-
+    <?php for($j = 0 ; $j < count($_SESSION["marksv3"][$i]) ; $j++) {?>
+      <?php
+        $ue = $_SESSION["apiv2"]->getUEId($_SESSION["marksv3"][$i][0][$j][0]);
+      ?>
       <div class="row">
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <p>UE --- <?= $_SESSION["apiv3"][$i][1][$j][0]; ?> (<?= $_SESSION["marksv3"][$i][1][$j][0]; ?>)</p>
+        <p>UE --- <?= $ue; ?> (<?= $_SESSION["marksv3"][$i][2][$j][1]; ?>/20)</p>
       </div>
 
-      <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
-
+      <?php for($k = 0 ; $k < count($_SESSION["marksv3"][$i][$j]) ; $k++ ) { ?>
+        <?php
+          $sub = $_SESSION["apiv2"]->getSubjectId($_SESSION["marksv3"][$i][0][$j][0][$k][0]);
+        ?>
         <div class="row">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <p>Matiere --- <?= $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?> (<?= $_SESSION["marksv3"][$i][1][$j][1][$k][0]; ?>)</p>
