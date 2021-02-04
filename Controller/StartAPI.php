@@ -79,7 +79,7 @@
             for ($j = 0; $j < count($apiv2->getMark()); $j++) {
 
               $la_note = $apiv2->getMark()[$j];
-              $une_note = [$la_note->getType(), $la_note->getCoefficient()];
+              $une_note = [$la_note->getId(), $la_note->getType(), $la_note->getCoefficient(), $la_note->getSubject()];
               if ((int)$la_note->getSubject() === (int)$la_matiere->getId()) {
                 array_push($un_semestre[1][$b][1][$o][1], $une_note);
               }

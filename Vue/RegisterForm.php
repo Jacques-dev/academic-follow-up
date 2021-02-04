@@ -54,16 +54,16 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      Niveau :
+      Promotion :
     </div>
     <div class="col-lg-12">
       <select name="promotion">
-        <option value="" disabled selected>Niveau d'étude</option>
-        <option value="1">L1</option>
-        <option value="2">L2</option>
-        <option value="3">L3</option>
-        <option value="4">M1</option>
-        <option value="5">M2</option>
+        <option value="" disabled selected>Promotion</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
       </select>
     </div>
   </div>

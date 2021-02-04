@@ -131,7 +131,7 @@
         // creer un profil à chaque utilisateur et remplir les champs du profil avec les informations de $_SESSION
         // Profil p = new Profil($name,$school,$promotio);
         $sql = $con->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
-        $sql->bind_param('ss', $email, $encrypted_txt);
+        $sql->bind_param('ss', $email, $password);
         $sqll = $con->prepare("INSERT INTO student (name, firstname, school, promotion, td_group, email, confidentiality) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $sqll->bind_param('sssssss', $name , $firstname, $school, $promotion, $td_group, $email, $default_confidentiality);
 
@@ -140,16 +140,20 @@
 
         if ($result->num_rows == 0) {
 
+
+          $email = $_POST['email'];
+          $password = encrypt_decrypt('encrypt', $_POST['password']);
           $firstname = $_POST['firstname'];
           $name = $_POST['name'];
           $school = $_POST['school'];
           $promotion = $_POST['promotion'];
           $td_group = $_POST['td_group'];
           $default_confidentiality = "privée";
-          $encrypted_txt = encrypt_decrypt('encrypt', $_POST['password']);
 
           $sql->execute();
+
           $sqll->execute();
+
           $popupResult = array("type" => "success", "title" => "Validé", "message" => "Vous êtes enregistré.", "time" => 1000);
         } else {
           $popupResult = array("type" => "warning", "title" => "Attention", "message" => "Ce compte existe déjà.");

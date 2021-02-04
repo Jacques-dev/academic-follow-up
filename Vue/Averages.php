@@ -16,46 +16,54 @@
         </div>
       </div>
 
-      <?php
-        // show($_SESSION["profil"]["school"]);
-        // show($_SESSION["apiv2"]);
-        // show($_SESSION["apiv3"]);
+      <form action="../Controller/Average.php" method="post">
+        <button type="submit" name="button">Enregistrer</button>
+        <?php
+          // show($_SESSION["profil"]["school"]);
+          // show($_SESSION["apiv2"]);
+          // show($_SESSION["apiv3"]);
 
-        for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {?>
-          <div class="row">
-            <p>Semestre <?= $_SESSION["apiv3"][$i][0]; ?> --- (MOYENNE/20)</p>
-          </div>
-
-          <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
+          for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {?>
             <div class="row">
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <p>UE --- <?= $_SESSION["apiv3"][$i][1][$j][0]; ?> (MOYENNE/20)</p>
+              <p>Semestre <?= $_SESSION["apiv3"][$i][0]; ?></p>
             </div>
 
-            <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
+            <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
               <div class="row">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Matiere --- <?= $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?> (MOYENNE/20)</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <p>UE --- <?= $_SESSION["apiv3"][$i][1][$j][0]; ?></p>
               </div>
 
-                <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][1][$j][1][$k][1]) ; $l++ ) { ?>
-                  <div class="row">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <p>
-                      Note ---
-                      <?= $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][0]; ?>
-                      <input type="text" name="" value="">/20
-                      coef <?= $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][1]; ?>
-                    </p>
-                  </div>
+              <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
+                <div class="row">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <p>Matiere --- <?= $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?></p>
+                </div>
 
-                <?php
+                  <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][1][$j][1][$k][1]) ; $l++ ) { ?>
+                    <div class="row">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <p>
+                        Note ---
+                        <?php
+                        $markId = $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][0];
+                        $markSubject = $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][3];
+                        $markStudent = $_SESSION["profil"]["id"];
+
+                        $mark = "mark_".$markId."_".$markSubject."_".$markStudent; ?>
+                        <input type="text" name=<?= $mark; ?> placeholder="entrz votre note">/20
+                        coef <?= $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][2]; ?>
+                      </p>
+                    </div>
+
+                  <?php
+                }
               }
             }
           }
-        }
-      ?>
+        ?>
+      </form>
 
 
       <!-- <div class="row">
