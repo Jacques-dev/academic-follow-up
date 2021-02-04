@@ -1,9 +1,6 @@
 <?php
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
-    show($_SESSION["email"]);
-    show($_SESSION["profil"]);
-    // show($_SESSION["apiv3"]);
   ?>
 
   <div class="container">

@@ -71,9 +71,7 @@ class API {
   }
 
   public function getSemesterName($id) {
-    show($id);
     foreach ($this->semester as $sem) {
-      show($sem->getId());
       if ($sem->getId() === $id) {
 
         return $sem->getNameFromId($id);

@@ -5,7 +5,6 @@
   // show($_SESSION["marksv2"]);
   // show($_SESSION["marks"]);
   // show($_SESSION["apiv3"]);
-  // show($_SESSION["marksv3"][0][2][0][0]);
   for($i = 0 ; $i < count($_SESSION["marksv3"]) ; $i++) {?>
     <?php
       $sem = $_SESSION["apiv2"]->getSemesterName($_SESSION["marksv3"][$i][0]);
