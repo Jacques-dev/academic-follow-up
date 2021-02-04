@@ -14,17 +14,17 @@
 
 
     <?php
-    $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
-    $result = $con->query($sql);
-    while ($row = $result->fetch_assoc()) {
-      $array = [
-        "id" => $row["id"],
-        "name" => $row["name"],
-        "firstname" => $row["firstname"],
-        "school" => $row["school"],
-        "promotion" => $row["promotion"],
-        "td_group" => $row["td_group"]
-      ];
+      $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
+      $result = $con->query($sql);
+      while ($row = $result->fetch_assoc()) {
+        $array = [
+          "id" => $row["id"],
+          "name" => $row["name"],
+          "firstname" => $row["firstname"],
+          "school" => $row["school"],
+          "promotion" => $row["promotion"],
+          "td_group" => $row["td_group"]
+        ];
       ?>
 
       <form class="row" action="CheckOtherProfil.php" method="post">

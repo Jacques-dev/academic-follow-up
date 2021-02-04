@@ -19,44 +19,34 @@
       <?php
         // show($_SESSION["profil"]["school"]);
         // show($_SESSION["apiv2"]);
-        // show($_SESSION["apiv3"]->getSemester());
-        // show($_SESSION["apiv2"]->getSchool());
+        // show($_SESSION["apiv3"]);
 
-        for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {
-            $sem = $_SESSION["apiv2"]->getSemesterId($_SESSION["apiv3"][$i][0]);
-          ?>
+        for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {?>
           <div class="row">
-            <p>Semestre <?= $sem; ?> --- (<?= $_SESSION["apiv3"][$i][1]; ?>/20)</p>
+            <p>Semestre <?= $_SESSION["apiv3"][$i][0]; ?> --- (MOYENNE/20)</p>
           </div>
 
-          <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][2]) ; $j++) {?>
-            <?php
-              $ue = $_SESSION["apiv2"]->getUEId($_SESSION["apiv3"][$i][2][$j][0]);
-            ?>
+          <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][1]) ; $j++) {?>
             <div class="row">
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <p>UE --- <?= $ue; ?> (<?= $_SESSION["apiv3"][$i][2][$j][1]; ?>/20)</p>
+              <p>UE --- <?= $_SESSION["apiv3"][$i][1][$j][0]; ?> (MOYENNE/20)</p>
             </div>
 
-            <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][2][$j][2]) ; $k++ ) { ?>
-              <?php
-                $sub = $_SESSION["apiv2"]->getSubjectId($_SESSION["apiv3"][$i][2][$j][2][$k][0]);
-              ?>
+            <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][1][$j][1]) ; $k++ ) { ?>
               <div class="row">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Matiere --- <?= $sub; ?> (<?= $_SESSION["apiv3"][$i][2][$j][2][$k][1]; ?>/20)</p>
+                <p>Matiere --- <?= $_SESSION["apiv3"][$i][1][$j][1][$k][0]; ?> (MOYENNE/20)</p>
               </div>
 
-                <?php for($l = 2 ; $l < count($_SESSION["apiv3"][$i][2][$j][2][$k]) ; $l++ ) { ?>
-
+                <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][1][$j][1][$k][1]) ; $l++ ) { ?>
                   <div class="row">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <p>
                       Note ---
-                      <?= $_SESSION["apiv3"][$i][2][$j][2][$k][$l][0]; ?>
-                      <?= $_SESSION["apiv3"][$i][2][$j][2][$k][$l][1]; ?>/20
-                      coef <?= $_SESSION["apiv3"][$i][2][$j][2][$k][$l][2]; ?>
+                      <?= $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][0]; ?>
+                      <input type="text" name="" value="">/20
+                      coef <?= $_SESSION["apiv3"][$i][1][$j][1][$k][1][$l][1]; ?>
                     </p>
                   </div>
 

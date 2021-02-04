@@ -34,9 +34,9 @@
     return $res;
   }
 
-  $classes    = ["School", "Semester", "Subject", "TDGroup",  "UE",   "Promotion", "MarkType"];
-  $BDD_tables = ["school", "semester", "subject", "td_group", "ue",   "promotion", "mark_type"];
-  $whatWeWant = ["name",   "num",      "name",    "name",     "name", "year",      "name"];
+  $classes    = ["School", "Semester", "Subject", "TDGroup",  "UE",   "Promotion", "MarkType",  "Mark"];
+  $BDD_tables = ["school", "semester", "subject", "td_group", "ue",   "promotion", "mark_type", "mark"];
+  $whatWeWant = ["name",   "num",      "name",    "name",     "name", "year",      "name",      "type"];
 
   include("../Model/API.php");
   $api = new API();
@@ -63,7 +63,7 @@
 
       $l_ue = $apiv2->getUE()[$b];
       $une_ue = [$l_ue->getName(), []];
-
+      $o = 0;
 
       if ($l_ue->getSemester() === $le_semestre->getId()) {
         array_push($un_semestre[1], $une_ue);
@@ -75,6 +75,16 @@
 
           if ($la_matiere->getUE() === $l_ue->getId()) {
             array_push($un_semestre[1][$b][1], $une_matiere );
+
+            for ($j = 0; $j < count($apiv2->getMark()); $j++) {
+
+              $la_note = $apiv2->getMark()[$j];
+              $une_note = [$la_note->getType(), $la_note->getCoefficient()];
+              if ((int)$la_note->getSubject() === (int)$la_matiere->getId()) {
+                array_push($un_semestre[1][$b][1][$o][1], $une_note);
+              }
+            }
+            $o++;
           }
         }
       }

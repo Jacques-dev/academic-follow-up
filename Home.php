@@ -1,8 +1,6 @@
 <?php
     include("Controller/Fonctions.php");
     render(true, "Header", ["activePage" => "Home"]);
-    show($_SESSION["email"]);
-    show($_SESSION["profil"]);
   ?>
 
   <div class="container">

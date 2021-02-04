@@ -13,8 +13,10 @@
 
         $email = $_POST['email'];
         $sql = "SELECT password FROM user WHERE email = '$email'";
+
         $sqll = "SELECT id, firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
         // $notes = "SELECT mark, type FROM student_marks WHERE student = '$email'";
+        // show($sql_count_student);
 
         $result = $con->query($sql);
         $resultt = $con->query($sqll);
@@ -33,7 +35,40 @@
           $decrypted_txt = encrypt_decrypt('decrypt', $row['password']);
 
           if ($decrypted_txt == $_POST['password']) {
-            show($_SESSION["manager"]);
+
+            // $sql_count_student = "SELECT COUNT(*) FROM student";
+            // $nb_student_bdd = $con->query($sql_count_student);
+            // $row_nb_student = $nb_student_bdd->fetch_assoc();
+            // $global_infos = array(
+            // "nb_student" => $row_nb_student["COUNT(*)"]
+            //   );
+
+            // $all_student = [];
+            // $sql_all_student = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
+            // $result_all_student = $con->query($sql_all_student);
+            //   while ($row = $result_all_student->fetch_assoc()) {
+            //     $array = [
+            //       "id" => $row["id"],
+            //       "name" => $row["name"],
+            //       "firstname" => $row["firstname"],
+            //       "school" => $row["school"],
+            //       "promotion" => $row["promotion"],
+            //       "td_group" => $row["td_group"]
+            //     ];
+            //     array_push($all_student,$array);
+            //   }
+            //   $_SESSION["l_student"] = $all_student;
+
+              //
+              // $all_student_marks = [];
+              // $sql_all_student_marks = "SELECT mark, id_student, id_subject, coefficient FROM student_marks s_m INNER JOIN student s WHERE s.id = s_m.id_student and confidentiality  = 'publique'";
+              // $result_all_student_marks = $con->query($sql_all_student_marks);
+
+              $_SESSION["l_student_with_marks"] = $all_student_marks;
+
+              $_SESSION["global_infos"] = $global_infos;
+            // show($_SESSION["global_infos"]["nb_student"]);
+            // die();
             // if (! checkIfIsManager($email)){
               $profil = array (
                 "id" => $roww["id"],

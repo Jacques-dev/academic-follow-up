@@ -21,7 +21,8 @@ class API {
       "td_group",
       "ue",
       "promotion",
-      "mark_type"
+      "mark_type",
+      "mark"
     ];
 
     foreach ($allAttributes as $attr) {
@@ -39,7 +40,8 @@ class API {
       "td_group",
       "ue",
       "promotion",
-      "mark_type"
+      "mark_type",
+      "mark"
     ];
 
     $attributesRes = [
@@ -49,7 +51,8 @@ class API {
       "td_group" => $this->td_group,
       "ue" => $this->ue,
       "promotion" => $this->promotion,
-      "mark_type" => $this->mark_type
+      "mark_type" => $this->mark_type,
+      "mark" => $this->mark
     ];
 
     foreach ($allAttributes as $attr) {
@@ -67,9 +70,12 @@ class API {
     return $this->semester;
   }
 
-  public function getSemesterId($id) {
+  public function getSemesterName($id) {
+    show($id);
     foreach ($this->semester as $sem) {
+      show($sem->getId());
       if ($sem->getId() === $id) {
+
         return $sem->getNameFromId($id);
       }
     }
@@ -79,7 +85,7 @@ class API {
     return $this->ue;
   }
 
-  public function getUEId($id) {
+  public function getUEName($id) {
     foreach ($this->ue as $ue) {
       if ($ue->getId() === $id) {
         return $ue->getNameFromId($id);
@@ -91,12 +97,16 @@ class API {
     return $this->subject;
   }
 
-  public function getSubjectId($id) {
+  public function getSubjectName($id) {
     foreach ($this->subject as $sub) {
       if ($sub->getId() === $id) {
         return $sub->getNameFromId($id);
       }
     }
+  }
+
+  public function getMark() {
+    return $this->mark;
   }
 
   public function getSemesterFromSchool($name) {

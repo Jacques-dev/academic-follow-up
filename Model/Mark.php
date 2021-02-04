@@ -1,35 +1,34 @@
 <?php
   class Mark {
 
-    private $mark;
+    private $id;
     private $type;
-    private $id_student;
     private $coefficient;
     private $id_subject;
 
 
-    public function getMark(): float {
-      return $this->mark;
+    public function getId(): int {
+      return $this->id;
     }
 
-    public function getType(): float {
+    public function getName(): string {
       return $this->type;
     }
 
-    public function getIdStudent(): int {
-      return $this->id_student;
+    public function getType(): string {
+      return $this->type;
     }
 
     public function getCoefficient(): float {
       return $this->coefficient;
     }
 
-    public function getIdSubject(): int {
+    public function getSubject(): int {
       return $this->id_subject;
     }
 
     public function toString(): string {
-      return "Mark : ".$this->mark." type : ".$this->type." id_student : ".$this->id_student." coefficient : ".$this->coefficient." id_subject : ".$this->id_subject."<br>";
+      return "id : ".$this->id." type : ".$this->type." coefficient : ".$this->coefficient." id_subject : ".$this->id_subject."<br>";
     }
   }
 ?>
