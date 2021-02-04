@@ -45,8 +45,6 @@
 
     <?php } ?>
 
-
-
   </div>
 
 <?php render(false, "Footer", []); ?>

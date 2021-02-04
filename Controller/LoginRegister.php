@@ -58,15 +58,15 @@
             //     array_push($all_student,$array);
             //   }
             //   $_SESSION["l_student"] = $all_student;
-
-              //
-              // $all_student_marks = [];
-              // $sql_all_student_marks = "SELECT mark, id_student, id_subject, coefficient FROM student_marks s_m INNER JOIN student s WHERE s.id = s_m.id_student and confidentiality  = 'publique'";
-              // $result_all_student_marks = $con->query($sql_all_student_marks);
-
-              $_SESSION["l_student_with_marks"] = $all_student_marks;
-
-              $_SESSION["global_infos"] = $global_infos;
+            //
+            //   //
+            //   $all_student_marks = [];
+            //   $sql_all_student_marks = "SELECT mark, id_student, id_subject, coefficient FROM student_marks s_m INNER JOIN student s WHERE s.id = s_m.id_student and confidentiality  = 'publique'";
+            //   $result_all_student_marks = $con->query($sql_all_student_marks);
+            //
+            //   $_SESSION["l_student_with_marks"] = $all_student_marks;
+            //
+            //   $_SESSION["global_infos"] = $global_infos;
             // show($_SESSION["global_infos"]["nb_student"]);
             // die();
             // if (! checkIfIsManager($email)){
