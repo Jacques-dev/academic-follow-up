@@ -20,6 +20,10 @@ function dropdown(ue) {
   // }
 }
 
+function changeRankingVue() {
+  document.getElementById("RankingVue").submit();
+}
+
 // Side navigation
 // Dropdown type side navigation (multiple dropdown) for admin dashboard & themes
 // Deigned by Nishant Dogra

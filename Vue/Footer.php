@@ -1,5 +1,5 @@
 
-<script src="Controller/js/app.js"></script>
+<script src="/academic-follow-up/Controller/js/app.js"></script>
 
 </body>
 </html>

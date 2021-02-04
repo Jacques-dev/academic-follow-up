@@ -303,16 +303,15 @@
 
 
  <div class="container">
-   <form  method="post">
+   <form method="post" id="RankingVue">
         <div class="row">
-           <select name="print_type">
+           <select name="print_type" onchange="changeRankingVue()">
              <option value="<?= $print_type?>" disabled selected>Que voulez vous afficher ?</option>
              <option value="print_all_marks">afficher toutes les notes</option>
              <option value="print_subject">afficher par matiere</option>
              <option value="print_ue">afficher par ue</option>
              <option value="print_semester">afficher par semestre</option>
            </select>
-           <input type="submit" name="print_ranking_submit" value="Valider">
          </div>
    </form>
  </div>
