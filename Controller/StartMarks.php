@@ -2,8 +2,12 @@
 
 
 <?php
-  session_start();
+
   include("../BDD/Connexion.php");
+  session_start();
+  $idProfil = $_SESSION["profil"]["id"];
+  $apiv2 = $_SESSION["apiv2"];
+  $apiv3 = $_SESSION["apiv3"];
 
   $markToAdd = ["semester", "ue", "subject", "marks"];
 
@@ -11,14 +15,14 @@
   for ($i = 0 ; $i != count($markToAdd) ; $i++) {
     $pile = [];
 
-    if ($markToAdd[$i] != "marks") {
-      $sql = "SELECT sx.average FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
+    $table = $markToAdd[$i];
+    if ($table != "marks") {
+      $sql = "SELECT sx.average FROM student s INNER JOIN student_$table sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     } else {
-      $sql = "SELECT sx.mark, sx.type, sx.coefficient, sx.id_subject FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
+      $sql = "SELECT sx.mark, sx.id_mark, sx.id_student, sx.id_subject FROM student s INNER JOIN student_$table sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     }
 
     $result = $con->query($sql);
-
     while ($row = $result->fetch_assoc()) {
       array_push($pile, $row);
     }
@@ -26,7 +30,7 @@
     $marks[$markToAdd[$i]] =  $pile;
   }
 
-
+  // show($marks);
 
   $marksv2 = [];
   for ($i = 0 ; $i != count($markToAdd) ; $i++) {
@@ -35,7 +39,7 @@
     if ($markToAdd[$i] != "marks") {
       $sql = "SELECT sx.* FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     } else {
-      $sql = "SELECT sx.mark, sx.type, sx.coefficient, sx.id_subject FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
+      $sql = "SELECT sx.mark, sx.id_mark, sx.id_student, sx.id_subject FROM student s INNER JOIN student_$markToAdd[$i] sx WHERE s.id = sx.id_student AND s.id = $idProfil";
     }
 
     $result = $con->query($sql);
@@ -50,6 +54,7 @@
   // show($marksv2);
 
   $marksv3 = [];
+
 
   for ($a = 0 ; $a != count($marksv2["semester"]) ; $a++) {
 
@@ -76,7 +81,7 @@
             for ($j = 0; $j != count($marksv2["marks"]); $j++) {
 
               $la_note = $marksv2["marks"][$j];
-              $une_note = [$la_note["type"], $la_note["mark"], $la_note["coefficient"]];
+              $une_note = [$la_note["mark"]];
 
               if ($la_note["id_subject"] === $la_matiere["id_subject"]) {
                 array_push($un_semestre[2][$b][2][$o], $une_note);
@@ -98,7 +103,90 @@
     array_push($marksv3, $un_semestre);
   }
 
+  $marksv4 = [];
+
+  // show($apiv3);
+  // show($marksv2);
+
+  $indexSemester = 0;
+  $indexUE = 0;
+  $indexSubject = 0;
+  $indexMark = 0;
+
+  for ($a = 0 ; $a != count($apiv3) ; $a++) {
+
+    if ($marksv2["semester"][$indexSemester]["id_semester"] === $apiv3[$a][0]) {
+      $le_semestre = $marksv2["semester"][$indexSemester];
+      $un_semestre = [$le_semestre["id_semester"], $le_semestre["average"], []];
+      $indexSemester ++;
+    } else {
+      $un_semestre = [$apiv3[$a][0]];
+    }
+
+    $indexUE = 0;
+    for ($b = 0 ; $b != count($apiv3[$a][2]); $b++) {
+
+      if ($marksv2["ue"][$indexUE]["id_ue"] == $apiv3[$a][2][$b][0]) {
+        $l_ue = $marksv2["ue"][$indexUE];
+        $une_ue = [$l_ue["id_ue"], $l_ue["average"], []];
+        $indexUE ++;
+      } else {
+        $une_ue = [$apiv3[$a][2][$b][0]];
+      }
+
+
+      if ($l_ue["id_semester"] === $le_semestre["id_semester"]) {
+        array_push($un_semestre[2], $une_ue);
+
+        $indexSubject = 0;
+        for ($i = 0; $i != count($apiv3[$a][2][$b][2]); $i++) {
+
+          if ($marksv2["subject"][$indexSubject]["id_subject"] == $apiv3[$a][2][$b][2][$i][0]) {
+            $la_matiere = $marksv2["subject"][$indexSubject];
+            $une_matiere = [$la_matiere["id_subject"], $la_matiere["average"], []];
+            $indexSubject ++;
+          } else {
+            $une_matiere = [$apiv3[$a][2][$b][2][$i][0]];
+          }
+          show($un_semestre[2]);
+
+          // if ($la_matiere["id_ue"] === $l_ue["id_ue"]) {
+          //   array_push($un_semestre[2][$b][2], $une_matiere, []);
+          //
+          //   $indexMark = 0;
+          //   for ($j = 0; $j != count($apiv3[$a][2][$b][2][$i][2]); $j++) {
+          //
+          //     if ($marksv2["marks"][$indexMark]["id_mark"] == $apiv3[$a][2][$b][2][$i][2][$j][0]) {
+          //       $la_note = $marksv2["marks"][$indexMark];
+          //       $une_note = $la_note["mark"];
+          //       $indexMark ++;
+          //     } else {
+          //       $une_note = null;
+          //     }
+          //
+          //     if ($la_note["id_subject"] === $la_matiere["id_subject"]) {
+          //       array_push($un_semestre[2][$b][2][$i][2], $une_note);
+          //
+          //     }
+          //
+          //   }
+          //
+          // }
+
+        }
+
+      }
+
+
+    }
+    array_push($marksv4, $un_semestre);
+  }
+
+  // show($_SESSION["apiv3"]);
+  // show($marksv4);
+
   $_SESSION["marks"] = $marks;
   $_SESSION["marksv2"] = $marksv2;
   $_SESSION["marksv3"] = $marksv3;
+  $_SESSION["marksv4"] = $marksv4;
 ?>

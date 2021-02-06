@@ -1,9 +1,8 @@
 
 <?php
+  session_start();
   include("../Controller/StartAPI.php");
   include("../BDD/Connexion.php");
-
-  session_start();
 
   if (isset($_SESSION["cookie"])) {
     $emailCookie = $_SESSION["cookie"][0];
@@ -51,8 +50,8 @@
     <!-- Popup CSS -->
     <link href="https://cdn.isfidev.net/asalertmessage/v1.0/css/as-alert-message.min.css" rel="stylesheet">
     <script src="https://cdn.isfidev.net/asalertmessage/v1.0/js/as-alert-message.min.js"></script>
-    <link rel="stylesheet" href="/academic-follow-up/Vue/CSS/Main.css">
-    <link rel="stylesheet" href="/academic-follow-up/Vue/CSS/Average.css">
+    <link rel="stylesheet" href="CSS/Main.css">
+    <link rel="stylesheet" href="CSS/Average.css">
 
     </head>
     <body>
@@ -81,25 +80,25 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <img class="nav-link" src="/academic-follow-up/Vue/IMAGES/logo1.png" id="logo1">
+              <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="/academic-follow-up/Home.php">Home</a>
+              <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="Home.php">Home</a>
             </li>
             <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Average' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Averages.php">Mes notes</a>
+              <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="MarksForm.php">Mes notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Ranking.php">Mon classement</a>
+              <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Ranking.php">Mon classement</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Research.php">Rechercher</a>
+              <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Research.php">Rechercher</a>
             </li>
             <?php endif; ?>
             <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
               <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="/academic-follow-up/Vue/Management.php">Management</a>
+                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Management.php">Management</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -117,7 +116,7 @@
           <ul class="navbar-nav ml-auto">
             <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
               <li class="nav-item">
-                <a class="nav-link" href="/academic-follow-up/Vue/Profil.php">Mon profil</a>
+                <a class="nav-link" href="Profil.php">Mon profil</a>
               </li>
             <?php endif; ?>
             <?php include("LoginForm.php"); ?>

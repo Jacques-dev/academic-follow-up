@@ -1,14 +1,14 @@
 
   <?php
     include("../Controller/Fonctions.php");
-    render(false, "Header", ["activePage" => "Profil"]);
+    render("Header", ["activePage" => "Profil"]);
     session_start();
   ?>
 
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-12" align="center" id="head-column">
+        <div class="col-lg-12" align="center" id="head-column" style="background-color: <?= $_SESSION['manager'] ? '#3978c4' : '#63d55f' ?>">
           <?php
             if (isset($_SESSION["email"])):
               echo $_SESSION["email"];
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="container">
-      <?php render(false, "Marks", ["idProfil" => $_SESSION["profil"]["id"]]); ?>
+      <?php render("MyMarks", []); ?>
     </div>
 
-  <?php render(false, "Footer", []); ?>
+<?php render("Footer", []); ?>

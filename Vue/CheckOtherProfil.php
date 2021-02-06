@@ -1,7 +1,7 @@
 
 <?php
   include("../Controller/Fonctions.php");
-  render(false, "Header", ["activePage" => "Research"]);
+  render("Header", ["activePage" => "Research"]);
   include("../BDD/Connexion.php");
 
   if (isset($_POST["checkProfilSubmit"])) {
@@ -42,4 +42,4 @@
 
 
 
-<?php render(false, "Footer", []); ?>
+<?php render("Footer", []); ?>

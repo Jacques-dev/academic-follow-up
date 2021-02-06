@@ -1,7 +1,7 @@
 <?php
   include("../Controller/Fonctions.php");
 
-  render(false, "Header", ["activePage" => "Management"]);
+  render("Header", ["activePage" => "Management"]);
 ?>
 
 <!--MBL Animated CSS3 Multi Drop Down Menu For Blogger-->
@@ -80,4 +80,4 @@
 </nav>
 
 
-<?php render(false, "Footer", []); ?>
+<?php render("Footer", []); ?>

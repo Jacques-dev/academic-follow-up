@@ -40,7 +40,7 @@
 
 
 
-  header('Location: ../Home.php');
+  header('Location: /academic-follow-up/Vue/Home.php');
   exit();
 
 ?>

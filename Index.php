@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> <!-- family-font-->
     <link rel="stylesheet" type="text/css" href="Vue/CSS/Index.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <meta http-equiv="refresh" content="0.1; Home.php">
+    <meta http-equiv="refresh" content="0.1; Vue/Home.php">
 
     <title>Jacques Tellier</title>
 

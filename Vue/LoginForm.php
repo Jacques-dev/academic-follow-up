@@ -2,7 +2,7 @@
   if (isset($_SESSION["email"])) {
 ?>
   <li class="nav-item">
-    <form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
+    <form action="../Controller/LoginRegister.php" method="post" id="LoginRegisterButton">
       <button type="submit" class="nav-link popupLoginLogoutButton" name="logout">logout</button>
     </form>
   </li>
@@ -19,7 +19,7 @@
   }
 ?>
 
-  <form class="row" action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupLogin">
+  <form class="row" action="../Controller/LoginRegister.php" method="post" id="popupLogin">
     Se connecter
     <div class="col-lg-12">
       <input type="text" name="email" placeholder="email">
