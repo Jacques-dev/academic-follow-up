@@ -4,7 +4,7 @@
   include("../BDD/Connexion.php");
   include("../Controller/Fonctions.php");
   render("Header", ["activePage" => "Home"]);
-  // show($_SESSION["apiv3"]);
+  // show($_SESSION["marksv4"]);
 ?>
 
 <div class="container">

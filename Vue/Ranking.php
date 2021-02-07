@@ -3,6 +3,7 @@
     include("../Controller/Fonctions.php");
     include("../BDD/Connexion.php");
     render("Header", ["activePage" => "Ranking"]);
+    // show($_SESSION["marksv2"]);
   ?>
     <div class="container">
       <div class="row">

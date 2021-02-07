@@ -37,7 +37,7 @@
           </p>
         </div>
 
-          <?php for($l = 2 ; $l < count($_SESSION["marksv4"][$i][2][$j][2][$k]) ; $l++ ) { ?>
+          <?php for($l = 0 ; $l < count($_SESSION["marksv4"][$i][2][$j][2][$k][2]) ; $l++ ) { ?>
 
             <div class="row">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,7 +45,7 @@
               <p>
                 Note ---
                 <?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][1]; ?>
-                <?= $_SESSION["marksv4"][$i][2][$j][2][$k][2][$l][0]; ?>/20
+                <?= $_SESSION["marksv4"][$i][2][$j][2][$k][2][$l]; ?>/20
                 coef <?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][2]; ?>
               </p>
             </div>

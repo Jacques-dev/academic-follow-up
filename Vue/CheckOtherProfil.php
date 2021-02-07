@@ -35,7 +35,7 @@
   </div>
 
   <?php
-  render(false, "Marks", ["idProfil" => $idProfil, "isForm" => false]);
+  render("MyMarks", []);
   ?>
 
 </div>

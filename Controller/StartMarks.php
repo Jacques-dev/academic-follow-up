@@ -114,72 +114,71 @@
   $indexMark = 0;
 
   for ($a = 0 ; $a != count($apiv3) ; $a++) {
-
+    // show("semester : ".$marksv2["semester"][$indexSemester]["id_semester"]." == ".$apiv3[$a][0]);
     if ($marksv2["semester"][$indexSemester]["id_semester"] === $apiv3[$a][0]) {
       $le_semestre = $marksv2["semester"][$indexSemester];
       $un_semestre = [$le_semestre["id_semester"], $le_semestre["average"], []];
       $indexSemester ++;
     } else {
-      $un_semestre = [$apiv3[$a][0]];
+      $un_semestre = [$apiv3[$a][0], null, []];
     }
 
-    $indexUE = 0;
+    // show("count ue : ".count($apiv3[$a][2]));
     for ($b = 0 ; $b != count($apiv3[$a][2]); $b++) {
-
-      if ($marksv2["ue"][$indexUE]["id_ue"] == $apiv3[$a][2][$b][0]) {
+      // show("ue : ".$marksv2["ue"][$indexUE]["id_ue"]." == ".$apiv3[$a][2][$b][0]);
+      if ($marksv2["ue"][$indexUE]["id_ue"] === $apiv3[$a][2][$b][0]) {
         $l_ue = $marksv2["ue"][$indexUE];
         $une_ue = [$l_ue["id_ue"], $l_ue["average"], []];
         $indexUE ++;
       } else {
-        $une_ue = [$apiv3[$a][2][$b][0]];
+        $une_ue = [$apiv3[$a][2][$b][0], null, []];
       }
-
 
       if ($l_ue["id_semester"] === $le_semestre["id_semester"]) {
         array_push($un_semestre[2], $une_ue);
+      }
 
-        $indexSubject = 0;
-        for ($i = 0; $i != count($apiv3[$a][2][$b][2]); $i++) {
-
-          if ($marksv2["subject"][$indexSubject]["id_subject"] == $apiv3[$a][2][$b][2][$i][0]) {
-            $la_matiere = $marksv2["subject"][$indexSubject];
-            $une_matiere = [$la_matiere["id_subject"], $la_matiere["average"], []];
-            $indexSubject ++;
-          } else {
-            $une_matiere = [$apiv3[$a][2][$b][2][$i][0]];
+      // show("count subject : ".count($apiv3[$a][2][$b][2]));
+      for ($i = 0; $i != count($apiv3[$a][2][$b][2]); $i++) {
+        // show("subject : ".$marksv2["subject"][$indexSubject]["id_subject"]." == ".$apiv3[$a][2][$b][2][$i][0]);
+        if ($marksv2["subject"][$indexSubject]["id_subject"] === $apiv3[$a][2][$b][2][$i][0]) {
+          $la_matiere = $marksv2["subject"][$indexSubject];
+          $une_matiere = [$la_matiere["id_subject"], $la_matiere["average"], []];
+          $indexSubject ++;
+          if ($la_matiere["id_ue"] === $l_ue["id_ue"]) {
+            array_push($un_semestre[2][$b][2], $une_matiere);
           }
-          show($un_semestre[2]);
+        } else {
+          $une_matiere = [$apiv3[$a][2][$b][2][$i][0], null, []];
+          if ($la_matiere["id_ue"] === $l_ue["id_ue"]) {
+            array_push($un_semestre[2][$b][2], $une_matiere);
+          }
+        }
 
-          // if ($la_matiere["id_ue"] === $l_ue["id_ue"]) {
-          //   array_push($un_semestre[2][$b][2], $une_matiere, []);
-          //
-          //   $indexMark = 0;
-          //   for ($j = 0; $j != count($apiv3[$a][2][$b][2][$i][2]); $j++) {
-          //
-          //     if ($marksv2["marks"][$indexMark]["id_mark"] == $apiv3[$a][2][$b][2][$i][2][$j][0]) {
-          //       $la_note = $marksv2["marks"][$indexMark];
-          //       $une_note = $la_note["mark"];
-          //       $indexMark ++;
-          //     } else {
-          //       $une_note = null;
-          //     }
-          //
-          //     if ($la_note["id_subject"] === $la_matiere["id_subject"]) {
-          //       array_push($un_semestre[2][$b][2][$i][2], $une_note);
-          //
-          //     }
-          //
-          //   }
-          //
-          // }
+
+        // show("count mark : ".count($apiv3[$a][2][$b][2][$i][2]));
+        for ($j = 0; $j != count($apiv3[$a][2][$b][2][$i][2]); $j++) {
+
+          // show("mark : ".$marksv2["marks"][$indexMark]["id_mark"]." == ".$apiv3[$a][2][$b][2][$i][2][$j][0]);
+          if ((int)$marksv2["marks"][$indexMark]["id_mark"] === (int)$apiv3[$a][2][$b][2][$i][2][$j][0]) {
+            $la_note = $marksv2["marks"][$indexMark];
+            $une_note = $la_note["mark"];
+            $indexMark ++;
+          } else {
+            $une_note = null;
+          }
+
+          if ($la_note["id_subject"] === $la_matiere["id_subject"]) {
+            array_push($un_semestre[2][$b][2][$i][2], $une_note);
+          }
 
         }
 
       }
 
-
     }
     array_push($marksv4, $un_semestre);
+    // $indexSemester = 0;
   }
 
   // show($_SESSION["apiv3"]);

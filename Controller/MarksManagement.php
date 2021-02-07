@@ -6,7 +6,7 @@
   include('Fonctions.php');
   session_start();
 
-  // show($_POST);
+  show($_POST);
 
   // $studentId = $_SESSION["profil"]["id"];
 
@@ -61,10 +61,10 @@
           $averageUE = 0;
           $averageSemester = 0;
 
-          // $sqlMark->execute();
-          // $sqlSubject->execute();
-          // $sqlUE->execute();
-          // $sqlSemester->execute();
+          $sqlMark->execute();
+          $sqlSubject->execute();
+          $sqlUE->execute();
+          $sqlSemester->execute();
 
         }
 
