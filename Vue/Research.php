@@ -26,7 +26,8 @@
 
 
     <?php
-      $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'publique'";
+      $email = $_SESSION["email"];
+      $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality = 'Publique' AND email != '$email'";
       $result = $con->query($sql);
       while ($row = $result->fetch_assoc()) {
         $array = [

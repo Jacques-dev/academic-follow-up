@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="container">
-      <?php render("MyMarks", []); ?>
+      <?php render("MyMarks", ["idProfil" => $_SESSION["profil"]["id"]]); ?>
     </div>
 
 <?php render("Footer", []); ?>

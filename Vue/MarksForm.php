@@ -3,6 +3,7 @@
   <?php
     include("../Controller/Fonctions.php");
     render("Header", ["activePage" => "MarksForm"]);
+    $idProfil = $_SESSION["profil"]["id"];
     include("../Controller/StartMarks.php");
     // show($_SESSION["profil"]["school"]);
     // show($_SESSION["apiv2"]);

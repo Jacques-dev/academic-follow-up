@@ -5,7 +5,6 @@
 
   include("../BDD/Connexion.php");
   session_start();
-  $idProfil = $_SESSION["profil"]["id"];
   $apiv2 = $_SESSION["apiv2"];
   $apiv3 = $_SESSION["apiv3"];
 

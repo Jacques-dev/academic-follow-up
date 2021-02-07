@@ -35,7 +35,7 @@
   </div>
 
   <?php
-  render("MyMarks", []);
+    render("MyMarks", ["idProfil" => $idProfil]);
   ?>
 
 </div>
