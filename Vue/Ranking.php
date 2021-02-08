@@ -92,7 +92,9 @@
           "average" => $b[$j][0],
           "id_student" => $b[$j][1],
           "id_subject" => $b[$j][2],
-          "id_ue" => $b[$j][3]
+          "id_ue" => $b[$j][3],
+          "name" => $b[$j][4],
+          "coefficient" => $b[$j][5]
         ];
         // show($a_mark);
         // show($a_mark["id_student"]);
@@ -120,7 +122,9 @@
           "average" => $c[$j][0],
           "id_student" => $c[$j][1],
           "id_ue" => $c[$j][2],
-          "id_semester" => $c[$j][3]
+          "id_semester" => $c[$j][3],
+          "name" => $c[$j][4],
+          "coefficient" => $c[$j][5]
         ];
         // show($a_mark);
         // show($a_mark["id_student"]);
@@ -148,7 +152,9 @@
         $a_semester = [
           "average" => $d[$j][0],
           "id_student" => $d[$j][1],
-          "id_semester" => $d[$j][2]
+          "id_semester" => $d[$j][2],
+          "num" => $d[$j][3],
+          "school" => $d[$j][4]
         ];
         // show($a_mark);
         // show($a_mark["id_student"]);
