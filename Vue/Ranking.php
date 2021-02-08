@@ -19,10 +19,10 @@
 
     <?php
     $sql = "SELECT id, name, firstname, school, promotion, td_group FROM student WHERE confidentiality  = 'Publique'";
-    $sql_all_student_marks = "SELECT mark, id_student, id_subject, coefficient, type FROM student_marks s_m INNER JOIN student s WHERE s.id = s_m.id_student and confidentiality  = 'Publique'";
-    $sql_all_student_subject = "SELECT average, id_student, id_subject, id_ue FROM student_subject s_s INNER JOIN student s WHERE s.id = s_s.id_student and confidentiality  = 'Publique'";
-    $sql_all_student_ue = "SELECT average, id_student, id_ue, id_semester FROM student_ue s_ue INNER JOIN student s WHERE s.id = s_ue.id_student and confidentiality  = 'Publique'";
-    $sql_all_student_semester = "SELECT average, id_student, id_semester FROM student_semester s_s INNER JOIN student s WHERE s.id = s_s.id_student and confidentiality  = 'Publique'";
+    $sql_all_student_marks = "SELECT s_m.mark, s_m.id_student, s_m.id_subject, t.type, t.coefficient FROM student_marks s_m INNER JOIN student s INNER JOIN mark t WHERE t.id = s_m.id_mark AND s.id = s_m.id_student AND confidentiality  = 'Publique'";
+    $sql_all_student_subject = "SELECT s_s.average, s_s.id_student, s_s.id_subject, s_s.id_ue, t.name, t.coefficient FROM student_subject s_s INNER JOIN subject t INNER JOIN student s WHERE t.id = s_s.id_subject AND s.id = s_s.id_student AND confidentiality  = 'Publique'";
+    $sql_all_student_ue = "SELECT s_ue.average, s_ue.id_student, s_ue.id_ue, s_ue.id_semester, t.name, t.coefficient FROM student_ue s_ue INNER JOIN ue t INNER JOIN student s WHERE t.id = s_ue.id_ue AND s.id = s_ue.id_student AND confidentiality  = 'Publique'";
+    $sql_all_student_semester = "SELECT s_s.average, s_s.id_student, s_s.id_semester, t.num, t.school FROM student_semester s_s INNER JOIN semester t INNER JOIN student s WHERE t.id = s_s.id_semester AND s.id = s_s.id_student AND confidentiality  = 'Publique'";
 
     $result = $con->query($sql);
     $result_student_marks_bdd = $con->query($sql_all_student_marks);
@@ -44,7 +44,7 @@
     // show($result);
     // show($d);
       // show($result->fetch_all());
-      $print_type = "print_semester";
+    $print_type = "print_semester";
 
     for ($i = 0 ; $i < $result->num_rows ; $i++) {
 

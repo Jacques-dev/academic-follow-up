@@ -71,7 +71,8 @@
 
         // UNE FOIS LA NOTE AJOUTE AU BON ENDROIT ON CALCULE LES MOYENNES
 
-
+        // show("markSubject : ".$markSubject." - markStudent : ".$markStudent);
+        // die();
         $sqlSubjectUpdate = $con->prepare("UPDATE student_subject SET average = ? WHERE id_subject = $markSubject AND id_student = $markStudent");
         $sqlSubjectUpdate->bind_param('d', $averageSubject);
 
@@ -81,15 +82,15 @@
         $sqlSemesterUpdate = $con->prepare("UPDATE student_semester SET average = ? WHERE id_semester = $markSemester AND id_student = $markStudent");
         $sqlSemesterUpdate->bind_param('d', $averageSemester);
 
-        $averageSubject = getAverage("student_marks", "mark", $markSubject, $markStudent, "mark", "subject");
+        (float)$averageSubject = getAverage("student_marks", "mark", $markSubject, $markStudent, "mark", "subject");
         // show("moyenne subject = ".$averageSubject);
         $sqlSubjectUpdate->execute();
 
-        $averageUE = getAverage("student_subject", "subject", $markUE, $markStudent, "average", "ue");
+        (float)$averageUE = getAverage("student_subject", "subject", $markUE, $markStudent, "average", "ue");
         // show("moyenne ue = ".$averageUE);
         $sqlUEUpdate->execute();
 
-        $averageSemester = getAverage("student_ue", "ue", $markSemester, $markStudent, "average", "semester");
+        (float)$averageSemester = getAverage("student_ue", "ue", $markSemester, $markStudent, "average", "semester");
         // show("moyenne semester = ".$averageSemester);
         $sqlSemesterUpdate->execute();
 
