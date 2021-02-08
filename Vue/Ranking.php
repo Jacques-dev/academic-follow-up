@@ -307,16 +307,28 @@
    // show($all_student_semester);
    ?>
 
-
  <div class="container">
    <form method="post" id="RankingVue">
         <div class="row">
            <select name="print_type" onchange="changeRankingVue()">
-             <option value="<?= $print_type?>" disabled selected>Que voulez vous afficher ?</option>
-             <option value="print_all_marks">afficher toutes les notes</option>
-             <option value="print_subject">afficher par matiere</option>
-             <option value="print_ue">afficher par ue</option>
-             <option value="print_semester">afficher par semestre</option>
+             <?php
+              $options = ["Tout afficher", "Afficher par matière", "Afficher par UE", "Afficher par Semestre"];
+
+              if (isset($_POST["print_type"])) {
+                $_SESSION["filterRanking"] = $_POST["print_type"];
+              }
+
+              if (isset($_SESSION["filterRanking"])) {
+                for( $i=0; $i<count($options); $i++ ) {
+                  echo '<option '. ( $_SESSION["filterRanking"] == $options[$i] ? 'selected="selected"' : '' ) . '>'. $options[$i]. '</option>';
+                }
+              } else {
+                for( $i=0; $i<count($options); $i++ ) {
+                  echo '<option '. ( $_POST['print_type'] == $options[$i] ? 'selected="selected"' : '' ) . '>'. $options[$i]. '</option>';
+                }
+              }
+
+             ?>
            </select>
          </div>
    </form>
@@ -325,23 +337,26 @@
   <div class="container">
 
     <?php
-      $print_type = $_POST["print_type"];
-      if ($print_type === "print_semester") {
 
-        show($all_student_semester);
-      }
-      if ($print_type === "print_ue") {
 
-        show($all_student_ue);
-      }
-      if ($print_type === "print_subject") {
-
-        show($all_student_subject);
-      }
-      if ($print_type === "print_all_marks") {
-
+      if (isset($_SESSION["filterRanking"])) {
+        $print_type = $_SESSION["filterRanking"];
+        if ($print_type === "Afficher par Semestre") {
+          show($all_student_semester);
+        }
+        if ($print_type === "Afficher par UE") {
+          show($all_student_ue);
+        }
+        if ($print_type === "Afficher par matière") {
+          show($all_student_subject);
+        }
+        if ($print_type === "Tout afficher") {
+          show($all_student_marks);
+        }
+      } else {
         show($all_student_marks);
       }
+
     ?>
 
   </div>
