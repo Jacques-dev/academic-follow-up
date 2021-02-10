@@ -6,7 +6,7 @@
   include('Fonctions.php');
   session_start();
 
-  show($_POST);
+  // show($_POST);
 
   // $studentId = $_SESSION["profil"]["id"];
 
