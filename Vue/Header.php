@@ -52,6 +52,7 @@
     <script src="https://cdn.isfidev.net/asalertmessage/v1.0/js/as-alert-message.min.js"></script>
     <link rel="stylesheet" href="CSS/Main.css">
     <link rel="stylesheet" href="CSS/Average.css">
+    <link rel="stylesheet" href="CSS/Manager.css">
 
     </head>
     <body>

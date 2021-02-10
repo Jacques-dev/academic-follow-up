@@ -17,14 +17,18 @@
         $sqll = "SELECT id, firstname, name, school, promotion, td_group, confidentiality FROM student WHERE email = '$email'";
         // $notes = "SELECT mark, type FROM student_marks WHERE student = '$email'";
         // show($sql_count_student);
+        $sqlll = "SELECT school FROM manager WHERE email = '$email'";
 
         $result = $con->query($sql);
         $resultt = $con->query($sqll);
+        $resulttt = $con->query($sqlll);
         // $result_marks = $con->query($sqll);
 
         // $rowww = $result_marks->fetch_assoc();
-        $roww = $resultt->fetch_assoc();
+
         $row = $result->fetch_assoc();
+        $roww = $resultt->fetch_assoc();
+        $rowww = $resulttt->fetch_assoc();
 
         if (checkIfIsManager($email)){
           $_SESSION["manager"] = "manager";
@@ -69,7 +73,7 @@
             //   $_SESSION["global_infos"] = $global_infos;
             // show($_SESSION["global_infos"]["nb_student"]);
             // die();
-            // if (! checkIfIsManager($email)){
+            if (! checkIfIsManager($email)){
               $profil = array (
                 "id" => $roww["id"],
                 "firstname" => $roww["firstname"],
@@ -79,6 +83,11 @@
                 "promotion" => $roww["promotion"],
                 "confidentiality" => $roww["confidentiality"]
               );
+            } else {
+              $profil = array (
+                "school" => $rowww["school"]
+              );
+            }
 
               // $marks = array(
               //   "mark" => $rowww["mark"],

@@ -146,7 +146,7 @@
         "td_group" => $m[$i][5]
       ];
       array_push($all_student_semester,[]);
-
+      show($result_student_semester_bdd->num_rows);
       for ($j = 0 ; $j < $result_student_semester_bdd->num_rows ; $j++){
         // show($a_semester);
         $a_semester = [
@@ -312,20 +312,18 @@
         <div class="row">
            <select name="print_type" onchange="changeRankingVue()">
              <?php
-              $options = ["Tout afficher", "Afficher par matière", "Afficher par UE", "Afficher par Semestre"];
+              $options = ["Afficher par matière", "Afficher par UE", "Afficher par Semestre"];
 
               if (isset($_POST["print_type"])) {
                 $_SESSION["filterRanking"] = $_POST["print_type"];
+              } else {
+                if (!isset($_SESSION["filterRanking"])) {
+                  $_SESSION["filterRanking"] = "Afficher par Semestre";
+                }
               }
 
-              if (isset($_SESSION["filterRanking"])) {
-                for( $i=0; $i<count($options); $i++ ) {
-                  echo '<option '. ( $_SESSION["filterRanking"] == $options[$i] ? 'selected="selected"' : '' ) . '>'. $options[$i]. '</option>';
-                }
-              } else {
-                for( $i=0; $i<count($options); $i++ ) {
-                  echo '<option '. ( $_POST['print_type'] == $options[$i] ? 'selected="selected"' : '' ) . '>'. $options[$i]. '</option>';
-                }
+              for( $i=0; $i<count($options); $i++ ) {
+                echo '<option '. ( $_SESSION["filterRanking"] == $options[$i] ? 'selected="selected"' : '' ) . '>'. $options[$i]. '</option>';
               }
 
              ?>
@@ -350,11 +348,11 @@
         if ($print_type === "Afficher par matière") {
           show($all_student_subject);
         }
-        if ($print_type === "Tout afficher") {
-          show($all_student_marks);
-        }
+        // if ($print_type === "Tout afficher") {
+        //   show($all_student_marks);
+        // }
       } else {
-        show($all_student_marks);
+        // show($all_student_marks);
       }
 
     ?>

@@ -1,83 +1,107 @@
 <?php
   include("../Controller/Fonctions.php");
-
+  include("../BDD/Connexion.php");
   render("Header", ["activePage" => "Management"]);
+  $apiv3 = $_SESSION["apiv3"];
+  // show($apiv3);
 ?>
 
-<!--MBL Animated CSS3 Multi Drop Down Menu For Blogger-->
-<link rel="stylesheet" type="text/css" href="http://mybloggerlab.com/StyleSheet/MBLNAV.css"/>
 
 
-<nav id="mbl-menu-wrap">
+<div class="container-fluid" id="manager">
 
- <ul id="mbl-menu">
-
-  <li><a href="URL-Here">Semestre 1</a></li>
-
-  <li>
-   <a href="URL-Here">Semestre 2</a>
-   <ul>
-    <li>
-      <a href="URL-Here">CSS</a>
-     <ul>
-      <li><a href="URL-Here">Item 11</a></li>
-      <li><a href="URL-Here">Item 12</a></li>
-      <li><a href="URL-Here">Item 13</a></li>
-      <li><a href="URL-Here">Item 14</a></li>
-     </ul>
-    </li>
-    <li>
-     <a href="URL-Here">Graphic design</a>
-
-     <ul>
-      <li><a href="URL-Here">Item 21</a></li>
-      <li><a href="URL-Here">Item 22</a></li>
-      <li><a href="URL-Here">Item 23</a></li>
-      <li><a href="URL-Here">Item 24</a></li>
-     </ul>
-    </li>
-
-    <li>
-     <a href="URL-Here">Development tools</a>
-     <ul>
-      <li><a href="URL-Here">Item 31</a></li>
-      <li><a href="URL-Here">Item 32</a></li>
-      <li><a href="URL-Here">Item 33</a></li>
-      <li><a href="URL-Here">Item 34</a></li>
-
-     </ul>
-    </li>
-    <li>
-     <a href="URL-Here">Web design</a>
-     <ul>
-      <li><a href="URL-Here">Item 41</a></li>
-      <li><a href="URL-Here">Item 42</a></li>
-      <li><a href="URL-Here">Item 43</a></li>
-
-      <li><a href="URL-Here">Item 44</a></li>
-     </ul>
-    </li>
-   </ul>
-  </li>
-  <li>
-   <a href="URL-Here">Semestre 1</a>
-<ul>
-<li><a href="URL-Here">Work1</a></li>
-<li><a href="URL-Here">Work2</a></li>
-<li><a href="URL-Here">Work3</a></li>
-<li><a href="URL-Here">Work4</a></li>
-            </ul>
+  <nav>
+    <ul>
+      <?php
+        for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {?>
+          <li class="downTag">Semestre <?= $_SESSION["apiv3"][$i][1]; ?>
+            <i class="fas fa-arrow-down"></i>
+            <ul>
+              <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][2]) ; $j++) {?>
+                <li class="rightTag">
+                  <?= $_SESSION["apiv3"][$i][2][$j][1]; ?>
+                  <i class="fas fa-arrow-right"></i>
+                  <ul>
+                    <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][2][$j][2]) ; $k++ ) { ?>
+                      <li class="rightTag">
+                        <?= $_SESSION["apiv3"][$i][2][$j][2][$k][1]; ?>
+                        <i class="fas fa-arrow-right"></i>
+                        <ul>
+                          <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][2][$j][2][$k][2]) ; $l++ ) { ?>
+                            <li><?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][1]; ?></li>
+                          <?php } ?>
+                          <li><a href="#"><i class="fas fa-plus-square"></i></a></li>
+                        </ul>
+                      </li>
+                    <?php } ?>
+                    <li><a href="#"><i class="fas fa-plus-square"></i></a></li>
+                  </ul>
+                </li>
+              <?php } ?>
             </li>
-<li><a href="URL-Here">Semestre 1</a></li>
-<li><a href="URL-Here">Semestre 1</a></li>
-<li><a href="URL">Semestre 1</a></li>
-<li><a href="URL-Here">Semestre 1</a></li>
-<li><a href="URL-Here">Semestre 1</a></li>
-<li><a href="URL">Semestre 1</a></li>
+            <li><a href="#"><i class="fas fa-plus-square"></i></a></li>
+          </ul>
 
-</ul>
+        <?php }
+      ?>
+      <li><a href="#"><i class="fas fa-plus-square"></i></a></li>
+    </ul>
+  </nav>
 
-</nav>
+  <!-- <nav>
+    <ul>
+      <li class="downTag">menu 1
+        <i class="fas fa-arrow-down"></i>
+        <ul>
+          <li>item 1_1</li>
+          <li class="rightTag">item 1_2
+            <i class="fas fa-arrow-right"></i>
+            <ul>
+              <li>item 1_2-1</li>
+              <li>item 1_2-2</li>
+              <li>item 1_2-3</li>
+              <li>item 1_2-4</li>
+            </ul>
+          </li>
+          <li class="rightTag">item 1_3
+            <i class="fas fa-arrow-right"></i>
+            <ul>
+              <li>item 1_3-1</li>
+              <li>item 1_3-2</li>
+              <li>item 1_3-3</li>
+            </ul>
+          </li>
+          <li class="rightTag">item 1_4
+            <i class="fas fa-arrow-right"></i>
+            <ul>
+              <li>item 1_4-1</li>
+              <li>item 1_4-2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="downTag">menu 2
+        <i class="fas fa-arrow-down"></i>
+        <ul>
+          <li>item 2_1</li>
+          <li>item 2_1</li>
+          <li class="rightTag">item 2_1
+            <i class="fas fa-arrow-right"></i>
+            <ul>
+              <li>item 2_1-1</li>
+              <li>item 2_1-2</li>
+              <li>item 2_1-3</li>
+              <li>item 2_1-4</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li> <a href="#"><i class="fas fa-plus-square"></i></a> </li>
+    </ul>
+  </nav> -->
+
+</div>
+
 
 
 <?php render("Footer", []); ?>
