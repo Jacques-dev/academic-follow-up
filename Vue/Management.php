@@ -19,6 +19,7 @@
               <?php } else { ?>
                 <input type="text" placeholder="num">
               <?php } ?>
+              <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
               <i class="fas fa-arrow-down"></i>
               <ul>
                 <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][2]) ; $j++) {?>
@@ -37,6 +38,7 @@
                       <input type="text" placeholder="coef">
                     <?php } ?>
 
+                    <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
                     <i class="fas fa-arrow-right"></i>
                     <ul>
                       <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][2][$j][2]) ; $k++ ) { ?>
@@ -55,6 +57,7 @@
                             <input type="text" placeholder="coef">
                           <?php } ?>
 
+                          <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
                           <i class="fas fa-arrow-right"></i>
                           <ul>
                             <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][2][$j][2][$k][2]) ; $l++ ) { ?>
@@ -72,22 +75,22 @@
                                 <?php } else { ?>
                                   <input type="text" placeholder="coef">
                                 <?php } ?>
-
+                                <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
                               </li>
                             <?php } ?>
-                            <li><button type="button" name="button"><i class="fas fa-plus-square"></i></button></li>
+                            <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
                           </ul>
                         </li>
                       <?php } ?>
-                      <li><button type="button" name="button"><i class="fas fa-plus-square"></i></button></li>
+                      <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
                     </ul>
                   </li>
                 <?php } ?>
               </li>
-              <li><button type="button" name="button"><i class="fas fa-plus-square"></i></button></li>
+              <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
             </ul>
           <?php } ?>
-          <li><button type="button" name="button" onclick="popupAddElementInSchool()"><i class="fas fa-plus-square"></i></button></li>
+          <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
       </ul>
     </nav>
   </div>
