@@ -114,6 +114,15 @@ class API {
       }
     }
   }
+  public function getNumberOfUEFromSemester($id) {
+    $counter = 0;
+    foreach ($this->ue as $u) {
+      if ($u->getSemester() == $id) {
+        $counter++;
+      }
+    }
+    return $counter;
+  }
 
 }
 ?>

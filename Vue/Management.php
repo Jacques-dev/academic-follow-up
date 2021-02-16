@@ -28,7 +28,7 @@
               <ul>
                 <?php for($j = 0 ; $j < count($_SESSION["apiv3"][$i][2]) ; $j++) {?>
                   <li class="rightTag">
-
+                    UE
                     <?php $nomUE = str_replace(' ', '-', $_SESSION["apiv3"][$i][2][$j][1]); ?>
                     <?php $ueInputName = "ue_".$_SESSION["apiv3"][$i][2][$j][0]."_name"; ?>
                     <?php if (isset($_SESSION["apiv3"][$i][2][$j][1])) { ?>
@@ -44,12 +44,12 @@
                       <input type="text" placeholder="coef">
                     <?php } ?>
 
-                    <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
+                    <button name="deleteUE" value=<?= $_SESSION["apiv3"][$i][2][$j][0]; ?>><i class="fas fa-trash"></i></button>
                     <i class="fas fa-arrow-right"></i>
                     <ul>
                       <?php for($k = 0 ; $k < count($_SESSION["apiv3"][$i][2][$j][2]) ; $k++ ) { ?>
                         <li class="rightTag">
-
+                          Matière
                           <?php $nomSubject = str_replace(' ', '-', $_SESSION["apiv3"][$i][2][$j][2][$k][1]); ?>
                           <?php $subjectInputName = "subject_".$_SESSION["apiv3"][$i][2][$j][2][$k][0]."_name"; ?>
                           <?php if (isset($_SESSION["apiv3"][$i][2][$j][1])) { ?>
@@ -65,7 +65,7 @@
                             <input type="text" placeholder="coef">
                           <?php } ?>
 
-                          <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
+                          <button name="deleteSubject" value=<?= $_SESSION["apiv3"][$i][2][$j][2][$k][0]; ?>><i class="fas fa-trash"></i></button>
                           <i class="fas fa-arrow-right"></i>
                           <ul>
                             <?php for($l = 0 ; $l < count($_SESSION["apiv3"][$i][2][$j][2][$k][2]) ; $l++ ) { ?>
@@ -85,19 +85,21 @@
                                 <?php } else { ?>
                                   <input type="text" placeholder="coef">
                                 <?php } ?>
-                                <button onclick="deleteInputForManager()"><i class="fas fa-trash"></i></button>
+                                <button name="deleteMark" value=<?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][0]; ?>><i class="fas fa-trash"></i></button>
                               </li>
                             <?php } ?>
-                            <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
+                            <?php $insertMark = $_SESSION["apiv3"][$i][2][$j][2][$k][0]; ?>
+                            <li><button name="insertMark" value=<?= $insertMark; ?>><i class="fas fa-plus-square"></i></button></li>
                           </ul>
                         </li>
                       <?php } ?>
-                      <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
+                      <?php $insertSubject = $_SESSION["apiv3"][$i][2][$j][0]; ?>
+                      <li><button name="insertSubject" value=<?= $insertSubject; ?>><i class="fas fa-plus-square"></i></button></li>
                     </ul>
                   </li>
                 <?php } ?>
-
-                <li><button onclick="addInputForManager()"><i class="fas fa-plus-square"></i></button></li>
+                <?php $insertUE = $_SESSION["apiv3"][$i][0]; ?>
+                <li><button name="insertUE" value=<?= $insertUE; ?>><i class="fas fa-plus-square"></i></button></li>
               </ul>
             </li>
           <?php } ?>

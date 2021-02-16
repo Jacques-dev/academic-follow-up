@@ -61,6 +61,7 @@
   for ($a = 0 ; $a < count($apiv2->getSemester()) ; $a++) {
 
     $le_semestre = $apiv2->getSemester()[$a];
+    $p = 0;
     if ($le_semestre->getSchool() === $_SESSION["profil"]["school"]) {
       $un_semestre = [$le_semestre->getId(), $le_semestre->getName(), []];
 
@@ -72,31 +73,33 @@
 
         if ($l_ue->getSemester() === $le_semestre->getId()) {
           array_push($un_semestre[2], $une_ue);
-
           for ($i = 0; $i != count($apiv2->getSubjects()); $i++) {
 
             $la_matiere = $apiv2->getSubjects()[$i];
             $une_matiere = [$la_matiere->getId(), $la_matiere->getName(), [], $la_matiere->getCoefficient()];
 
-            if ($la_matiere->getUE() === $l_ue->getId()) {
-              array_push($un_semestre[2][$b][2], $une_matiere);
+            if ((int)$la_matiere->getUE() === (int)$l_ue->getId()) {
+
+              array_push($un_semestre[2][$p][2], $une_matiere);
 
               for ($j = 0; $j < count($apiv2->getMark()); $j++) {
 
                 $la_note = $apiv2->getMark()[$j];
                 $une_note = [$la_note->getId(), $la_note->getType(), $la_note->getCoefficient()];
                 if ((int)$la_note->getSubject() === (int)$la_matiere->getId()) {
-                  array_push($un_semestre[2][$b][2][$o][2], $une_note);
+                  array_push($un_semestre[2][$p][2][$o][2], $une_note);
                 }
               }
               $o++;
             }
           }
+          $p++;
         }
       }
       array_push($apiv3, $un_semestre);
     }
   }
+  // show($apiv3);
 
   $_SESSION["api"] = $api;
   $_SESSION["apiv2"] = $apiv2;
