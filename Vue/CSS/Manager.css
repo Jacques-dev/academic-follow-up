@@ -18,7 +18,6 @@
 }
 #manager nav > ul > li {
   position: relative;
-
 }
 #manager nav > ul > li:hover > ul {
   opacity: 1;
@@ -77,16 +76,18 @@
   border: 1px solid #1e1548;
   border-radius: 5px;
   /* width: 90px; */
+  background-color: white;
 }
 #manager ul li:hover {
   background-color: #c8c8c8;
+  z-index: 2;
 }
 
 #manager .downTag:before {
   display: block;
   position: absolute;
-  /* top: calc(50% - 3px); */
-  /* right: 10px; */
+  top: calc(50% - 3px);
+  right: 10px;
   border: 10px solid transparent;
   border-top: 10px solid black;
 }
@@ -94,8 +95,8 @@
 #manager .rightTag:before {
   display: block;
   position: absolute;
-  /* top: calc(50% - 10px);
-  right: 10px; */
+  top: calc(50% - 10px);
+  right: 10px;
   border: 11px solid transparent;
   border-left: 11px solid black;
 }

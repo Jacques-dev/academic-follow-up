@@ -30,7 +30,7 @@ if (isset($_POST['update_infos'])){
 
   $_SESSION["profil"] = $profil;
 
-  $popupResult = array("type" => "success", "title" => "Validé", "message" => "Modification enregistré.");
+  $popupResult = array("type" => "success", "title" => "Validé", "message" => "Modification enregistré.", "time" => 1000);
 
 } else {
   $popupResult = array("type" => "warning", "title" => "Attention", "message" => "Erreur dans la modification.");
