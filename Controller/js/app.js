@@ -23,3 +23,7 @@ function dropdown(ue) {
 function changeRankingVue() {
   document.getElementById("RankingVue").submit();
 }
+
+function submitLoadData() {
+  document.getElementById("loadDataForm").submit();
+}

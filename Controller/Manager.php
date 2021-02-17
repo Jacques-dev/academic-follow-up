@@ -6,7 +6,7 @@
   include('Fonctions.php');
   session_start();
 
-  show($_POST);
+  // show($_POST);
 
   if (isset($_POST["insertSemester"])) {
     $sql = $con->prepare("INSERT INTO semester (num, school) VALUES (?, ?)");
@@ -158,6 +158,36 @@
       }
     }
 
+  }
+
+  if (isset($_POST["save"])) {
+    $tab = $_SESSION["apiv3"];
+    $var = urlencode(serialize($tab));
+    // show($tab);
+    // die();
+    // Enregistrement de l'information
+    $fp = fopen('../Model/Save.txt', 'w');
+    fputs($fp, $var);
+    fclose($fp);
+    $file = "../Model/Save.txt";
+
+    header("Cache-control: public");
+    header("Content-description: File Transfer");
+    header("Content-Disposition: attachment; filename=".basename($file));
+    header("Content-Type: text/plain");
+    header("Content-Transfer-Encoding: binary");
+    readfile($file);
+    exit;
+  }
+
+  if (isset($_POST["load"])) {
+    //// LECTURE
+    // Chargement du fichier
+    $tab = file('../Model/Save.txt');
+
+    // Désérialisation
+    $var = unserialize(urldecode($tab[0]));
+    $_SESSION["load"] = $var;
   }
 
 

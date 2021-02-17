@@ -146,7 +146,7 @@
         "td_group" => $m[$i][5]
       ];
       array_push($all_student_semester,[]);
-      show($result_student_semester_bdd->num_rows);
+      // show($result_student_semester_bdd->num_rows);
       for ($j = 0 ; $j < $result_student_semester_bdd->num_rows ; $j++){
         // show($a_semester);
         $a_semester = [
