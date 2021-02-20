@@ -4,7 +4,8 @@
   // show($_SESSION["marksv4"]);
   // show($_SESSION["marksv2"]);
   // show($_SESSION["marks"]);
-  // show($_SESSION["apiv3"]);
+  // show($_SESSION["apiv2"]);
+
   for($i = 0 ; $i < count($_SESSION["marksv4"]) ; $i++) {?>
     <?php
       $sem = $_SESSION["apiv2"]->getSemesterName($_SESSION["marksv4"][$i][0]);
@@ -22,6 +23,9 @@
         <p>
           UE --- <?= $ue; ?> (<?= $_SESSION["marksv4"][$i][2][$j][1]; ?>/20)
           coef <?= $_SESSION["apiv3"][$i][2][$j][3]; ?>
+          <?php if ($_SESSION["marksv4"][$i][2][$j][1] < 10 && isset($_SESSION["marksv4"][$i][2][$j][1])) { ?>
+            <span style="color: red">Cette UE n'est pas acceptable...</span>
+          <?php } ?>
         </p>
       </div>
 
@@ -34,6 +38,18 @@
           <p>
             Matiere --- <?= $sub; ?> (<?= $_SESSION["marksv4"][$i][2][$j][2][$k][1]; ?>/20)
             coef <?= $_SESSION["apiv3"][$i][2][$j][2][$k][3]; ?>
+
+            <?php if ($_SESSION["marksv4"][$i][2][$j][2][$k][1] < 6 && isset($_SESSION["marksv4"][$i][2][$j][2][$k][1])) { ?>
+              <span style="color: red">Cette matière n'est pas acceptable...</span>
+            <?php } elseif (!isset($_SESSION["marksv4"][$i][2][$j][2][$k][1]) && isset($_SESSION["marksv4"][$i][2][$j][1])) { ?>
+              <span style="color: blue">
+                Espérons un
+                <?= whatMarkINeed(10, $_SESSION["apiv3"][$i][2][$j][2], $_SESSION["marksv4"][$i][2][$j][2], $_SESSION["apiv3"][$i][2][$j][2][$k][3], true); ?>
+                pour celle-ci !
+              </span>
+            <?php } elseif ($_SESSION["marksv4"][$i][2][$j][2][$k][1] >= 6 && isset($_SESSION["marksv4"][$i][2][$j][2][$k][1])) { ?>
+              <span style="color: green">La matière est sauve</span>
+            <?php } ?>
           </p>
         </div>
 
@@ -47,6 +63,17 @@
                 <?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][1]; ?>
                 <?= $_SESSION["marksv4"][$i][2][$j][2][$k][2][$l]; ?>/20
                 coef <?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][2]; ?>
+                <?php if ($_SESSION["marksv4"][$i][2][$j][2][$k][1] < 6 && isset($_SESSION["marksv4"][$i][2][$j][2][$k][1])) {
+                  if (!isset($_SESSION["marksv4"][$i][2][$j][2][$k][2][$l])) { ?>
+                    <span style="color: red">
+                      Un petit
+                      <?= whatMarkINeed(6, $_SESSION["apiv3"][$i][2][$j][2][$k][2], $_SESSION["marksv4"][$i][2][$j][2][$k][2], $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][2], false); ?>
+                      pour remonter ça ?
+                    </span>
+                 <?php
+                  }
+                } ?>
+
               </p>
             </div>
 

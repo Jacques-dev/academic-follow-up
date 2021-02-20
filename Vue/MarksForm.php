@@ -56,11 +56,11 @@
                         $markUE = $_SESSION["apiv3"][$i][2][$j][0];
                         $markSubject = $_SESSION["apiv3"][$i][2][$j][2][$k][0];
                         $markId = $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][0];
-
+                        
                         $mark = $markStudent."_".$markSemester."_".$markUE."_".$markSubject."_".$markId; ?>
                         <?= $_SESSION["apiv3"][$i][2][$j][2][$k][2][$l][1]; ?>
                         <?php if (isset($_SESSION["marksv4"][$i][2][$j][2][$k][2][$l][0])) { ?>
-                          <input type="text" name=<?= $mark; ?> value=<?= $_SESSION["marksv4"][$i][2][$j][2][$k][2][$l][0]; ?> placeholder="entrez votre note">/20
+                          <input type="text" name=<?= $mark; ?> value=<?= $_SESSION["marksv4"][$i][2][$j][2][$k][2][$l]; ?> placeholder="entrez votre note">/20
                         <?php } else { ?>
                           <input type="text" name=<?= $mark; ?> placeholder="entrez votre note">/20
                         <?php } ?>
