@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="CSS/Main.css">
     <link rel="stylesheet" href="CSS/Average.css">
     <link rel="stylesheet" href="CSS/Manager.css">
+    <link rel="stylesheet" href="CSS/Ranking.css">
 
     </head>
     <body>
