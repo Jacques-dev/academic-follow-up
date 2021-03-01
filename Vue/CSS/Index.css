@@ -7,7 +7,6 @@ html {
 }
 
 body{
-  /* Setting default text color, background and a font stack */
   font-size: 5vw;
 }
 
@@ -16,11 +15,10 @@ body{
   width: 100%;
   height: auto;
   text-align: center;
-  color: var(--c4);
+  color: var(--c1);
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #intro2 {
@@ -28,71 +26,132 @@ body{
   width: 100%;
   height: auto;
   text-align: center;
-  color: var(--c4);
+  color: var(--c1);
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateY(-50%);
 }
 
 /*----------------------------------------------------------------------------
 /*----------------------------------INTRO-------------------------------------
 /*----------------------------------------------------------------------------*/
-.introANI1 {
-  -webkit-animation: introANI1 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
-          animation: introANI1 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+.slide-in-top {
+	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-@-webkit-keyframes introANI1 {
+
+@-webkit-keyframes slide-in-top {
   0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    letter-spacing: -0.5em;
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
     opacity: 0;
   }
-}
-@keyframes introANI1 {
-  0% {
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
   }
-  50% {
-    opacity: 1;
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
   }
   100% {
-    letter-spacing: -0.5em;
-    opacity: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
   }
 }
 
-
-.introANI2 {
-  -webkit-animation: introANI2 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-          animation: introANI2 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.slide-rotate-hor-top {
+	-webkit-animation: slide-rotate-hor-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-rotate-hor-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-@-webkit-keyframes introANI2 {
+@-webkit-keyframes slide-rotate-hor-top {
   0% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.8;
+    -webkit-transform: translateY(0) rotateX(0deg);
+            transform: translateY(0) rotateX(0deg);
   }
   100% {
-    letter-spacing: 1em;
+    -webkit-transform: translateY(-150px) rotateX(-90deg);
+            transform: translateY(-150px) rotateX(-90deg);
+  }
+}
+@keyframes slide-rotate-hor-top {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0deg);
+            transform: translateY(0) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-150px) rotateX(-90deg);
+            transform: translateY(-150px) rotateX(-90deg);
+  }
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.puff-out-center {
+	-webkit-animation: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+	        animation: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+@-webkit-keyframes puff-out-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
     opacity: 0;
   }
 }
-@keyframes introANI2 {
+@keyframes puff-out-center {
   0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
     opacity: 1;
   }
-  60% {
-    opacity: 0.8;
-  }
   100% {
-    letter-spacing: 0.75em;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
     opacity: 0;
   }
 }

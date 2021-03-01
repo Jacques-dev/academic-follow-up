@@ -16,20 +16,17 @@
   --cam_color2:#BC6D3E;
   --orange_logo:#B17047;
 
-  --orange_logo_o: rgba(177, 112, 71,0.8);
-  --bleu_logo_o: rgba(46, 65, 67,0.9);
-  --cam_color2_o: rgba(188, 109, 62, 0.70);
-  --cam_color_o: rgba(196, 195, 149,0.8);
-  --violet_o:rgba(144, 118, 157,0.65);
-  --bleu_ciel_o:rgba(115, 187, 188, 0.65);
-  --cyan_o:rgba(81, 169, 171,0.55);
-  --cyan_o2:rgba(81, 169, 171,0.80);
-  --jaune_o: rgba(232,197,66,0.7);
-  --beige_fonce_o: rgba(242,237,219,0.82);
-  --vert_o: rgba(9,55,31,0.70);
-  --vert_o2: rgba(9,55,31,0.65);
-  --vert_clair:rgba(154, 188, 157,0.92);
-  --vert_clair_o:rgba(154, 188, 157,0.2);
-  --rouge: rgb(225, 51, 45);
-  --rouge_clair:rgb(234, 116, 112);
+  --orange_o: rgba(177, 112, 71,0.8);
+  --bleu_o: rgba(46, 65, 67,0.8);
+  --violet_o:rgba(144, 118, 157,0.8);
+  --cyan_o:rgba(81, 169, 171,0.8);
+  --jaune_o: rgba(232,197,66,0.8);
+  --vert_o: rgba(9,55,31,0.8);
+  --rouge_o: rgb(225, 51, 45, 0.8);
+
+  --c1: #2B54FA;
+  --c2: #545454;
+  --c3: #D6D6D6;
+  --c4: #FB9E20;
+  --c5: #F0C080;
 }
