@@ -1,10 +1,7 @@
 
+  <?php include("../BDD/Connexion.php"); ?>
+
   <?php
-    include("../Controller/Fonctions.php");
-    include("../BDD/Connexion.php");
-    render("Header", ["activePage" => "Ranking"]);
-    // show($_SESSION["marksv2"]);
-    // show($_POST);
     if (!isset($_SESSION["RankingSelectionHistory"])) {
       $_SESSION["RankingSelectionHistory"] = [["École", null, null]];
       $_SESSION["RankingSelectionIndex"] = 0;
@@ -109,5 +106,3 @@
 
     </div>
   </div>
-
-  <?php render("Footer", []); ?>

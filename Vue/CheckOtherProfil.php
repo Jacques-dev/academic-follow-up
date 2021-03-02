@@ -1,8 +1,5 @@
 
 <?php
-  include("../Controller/Fonctions.php");
-  render("Header", ["activePage" => "Research"]);
-  include("../BDD/Connexion.php");
 
   if (isset($_POST["checkProfilSubmit"])) {
     $checkProfil = $_POST["checkProfilResults"];
@@ -39,7 +36,3 @@
   ?>
 
 </div>
-
-
-
-<?php render("Footer", []); ?>

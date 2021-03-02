@@ -6,7 +6,7 @@ html {
   font-family: 'Roboto', sans-serif !important;
 }
 
-body{
+body {
   font-size: 5vw;
 }
 
@@ -153,5 +153,27 @@ body{
     -webkit-filter: blur(4px);
             filter: blur(4px);
     opacity: 0;
+  }
+}
+
+
+.color-change-2x {
+	-webkit-animation: color-change-2x 4s linear infinite both;
+	        animation: color-change-2x 4s linear infinite both;
+}
+@-webkit-keyframes color-change-2x {
+  0% {
+    background: var(--c2);
+  }
+  100% {
+    background: var(--c3);
+  }
+}
+@keyframes color-change-2x {
+  0% {
+    background: var(--c2);
+  }
+  100% {
+    background: var(--c3);
   }
 }

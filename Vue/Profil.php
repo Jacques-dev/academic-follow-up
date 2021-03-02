@@ -1,14 +1,14 @@
 
-  <?php
-    include("../Controller/Fonctions.php");
-    render("Header", ["activePage" => "Profil"]);
-    session_start();
-  ?>
-  
-    <div class="container">
 
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-10">
       <div class="row">
-        <p><h2>Mon profil</h2> </p>
+        <h2>Mon profil</h2>
       </div>
       <div class="row">
         <form class="col-lg-8" name="inscription" method="post" action="/academic-follow-up/Controller/Profil_management.php">
@@ -96,9 +96,11 @@
           <img src="" alt="">
         </div>
       </div>
-    </div>
-    <div class="container">
-      <?php render("MyMarks", ["idProfil" => $_SESSION["profil"]["id"]]); ?>
-    </div>
 
-<?php render("Footer", []); ?>
+      <div class="row">
+        <?php render("MyMarks", ["idProfil" => $_SESSION["profil"]["id"]]); ?>
+      </div>
+
+    </div>
+  </div>
+</div>

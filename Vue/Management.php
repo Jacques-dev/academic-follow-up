@@ -1,7 +1,4 @@
 <?php
-  include("../Controller/Fonctions.php");
-  include("../BDD/Connexion.php");
-  render("Header", ["activePage" => "Management"]);
   $apiv3 = $_SESSION["apiv3"];
   // show($apiv3);
   // show($_SESSION["load"]);
@@ -114,7 +111,3 @@
     </nav>
   </div>
 </form>
-
-
-
-<?php render("Footer", []); ?>

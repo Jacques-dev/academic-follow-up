@@ -78,29 +78,23 @@
         </script>
       <?php } ?>
 
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-md">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="Home.php">Home</a>
+              <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="Body?page=Home">Home</a>
             </li>
             <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
-            <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="MarksForm.php">Mes notes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Ranking.php">Mon classement</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Research.php">Rechercher</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link <?= $activePage === 'Contact' ? 'active' : '' ?>" href="Body?page=Contact">Nous contacter</a>
+              </li>
             <?php endif; ?>
             <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
               <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Management.php">Management</a>
+                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Body?page=Management">Management</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -118,11 +112,29 @@
           <ul class="navbar-nav ml-auto">
             <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
               <li class="nav-item">
-                <a class="nav-link" href="Profil.php">Mon profil</a>
+                <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil">Mon profil</a>
               </li>
             <?php endif; ?>
             <?php include("LoginForm.php"); ?>
             <?php include("RegisterForm.php"); ?>
+          </ul>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-expand-md">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+          <ul class="navbar-nav mr-auto">
+            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
+              <li class="nav-item">
+                <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="Body?page=MarksForm">Mes notes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Body?page=Ranking">Mon classement</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Body?page=Research">Rechercher</a>
+              </li>
+            <?php endif; ?>
           </ul>
         </div>
       </nav>
