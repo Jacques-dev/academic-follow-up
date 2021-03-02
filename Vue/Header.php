@@ -35,8 +35,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Academix Follow-Up</title>
     <!-- Font family -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/krona-one" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/fredoka-one" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" rel="stylesheet">
 
     <!-- icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -54,6 +55,8 @@
     <link rel="stylesheet" href="CSS/Average.css">
     <link rel="stylesheet" href="CSS/Manager.css">
     <link rel="stylesheet" href="CSS/Ranking.css">
+    <link rel="stylesheet" href="CSS/Research.css">
+    <link rel="stylesheet" href="CSS/Buttons.css">
 
     </head>
     <body>
@@ -78,63 +81,50 @@
         </script>
       <?php } ?>
 
-      <nav class="navbar navbar-expand-md">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <img class="nav-link" src="IMAGES/logo1.png" id="logo1">
-            </li>
-            <li class="nav-item">
-              <a class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" href="Body?page=Home">Home</a>
-            </li>
-            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
+      <div id="navbar">
+        <nav id="navbarSub1" class="navbar navbar-expand-md">
+          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Contact' ? 'active' : '' ?>" href="Body?page=Contact">Nous contacter</a>
+                <img class="<?= $activePage === 'Home' ? 'active' : '' ?>" src="IMAGES/logo1.png" id="logo1">
               </li>
-            <?php endif; ?>
-            <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
-              <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Body?page=Management">Management</a>
-              </li>
-            <?php endif; ?>
-          </ul>
-        </div>
-        <div class="mx-auto order-0">
-          <div class="navbar-brand mx-auto">
-            My Academic Follow-Up<br>
+              <a class="navbarSub1" href="Body?page=Contact">Nous contacter</a>
+              <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
+                <li class="nav-item">
+                  <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Management.php">Management</a>
+                </li>
+              <?php endif; ?>
+            </ul>
           </div>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-          <ul class="navbar-nav ml-auto">
-            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
-              <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil">Mon profil</a>
-              </li>
-            <?php endif; ?>
-            <?php include("LoginForm.php"); ?>
-            <?php include("RegisterForm.php"); ?>
-          </ul>
-        </div>
-      </nav>
+          <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+              <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
+                <li class="nav-item">
+                  <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil">Mon profil</a>
+                </li>
+              <?php endif; ?>
+              <?php include("LoginForm.php"); ?>
+              <?php include("RegisterForm.php"); ?>
+            </ul>
+          </div>
+        </nav>
 
-      <nav class="navbar navbar-expand-md">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-          <ul class="navbar-nav mr-auto">
-            <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
-              <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="Body?page=MarksForm">Mes notes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Body?page=Ranking">Mon classement</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Body?page=Research">Rechercher</a>
-              </li>
-            <?php endif; ?>
-          </ul>
-        </div>
-      </nav>
+        <nav id="navbarSub2" class="navbar navbar-expand-md">
+          <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+              <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
+                <li class="nav-item">
+                  <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="Body?page=MarksForm">Mes notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Body?page=Ranking">Mon classement</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Body?page=Research">Rechercher</a>
+                </li>
+              <?php endif; ?>
+            </ul>
+          </div>
+        </nav>
+      </div>

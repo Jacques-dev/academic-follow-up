@@ -107,6 +107,6 @@
       return $row["average"];
     }
 
-    header('Location: /academic-follow-up/Vue/MarksForm.php');
+    header('Location: /academic-follow-up/Vue/Body?page=MarksForm');
     exit();
 ?>

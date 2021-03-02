@@ -38,6 +38,6 @@ if (isset($_POST['update_infos'])){
 
 $_SESSION["popupResult"] = $popupResult;
 
-header('Location: /academic-follow-up/Vue/Profil.php');
+header('Location: /academic-follow-up/Vue/Body?page=Profil');
 exit();
 ?>

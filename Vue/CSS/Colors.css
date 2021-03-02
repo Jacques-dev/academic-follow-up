@@ -1,6 +1,7 @@
 :root {
   --noir: #000;
   --blanc: #fff;
+  --gris: #bcbcbc;
   --jaune: #E8C542;
   --jaune2: #F1BC71;
   --beige: #FBFBF3;
@@ -16,17 +17,20 @@
   --cam_color2:#BC6D3E;
   --orange_logo:#B17047;
 
+  --gris_o: rgba(188, 188, 188,0.3);
+  --gris_o2: rgba(188, 188, 188,0.45);
   --orange_o: rgba(177, 112, 71,0.8);
   --bleu_o: rgba(46, 65, 67,0.8);
   --violet_o:rgba(144, 118, 157,0.8);
   --cyan_o:rgba(81, 169, 171,0.8);
   --jaune_o: rgba(232,197,66,0.8);
   --vert_o: rgba(9,55,31,0.8);
-  --rouge_o: rgb(225, 51, 45, 0.8);
+  --rouge_o: rgba(225, 51, 45, 0.8);
 
   --c1: #2B54FA;
+  --c1_o: rgba(43, 84, 250, 0.5);
   --c2: #3b3b3b;
-  --c3: #d9cfcf;
+  --c3: #dedede;
   --c4: #FB9E20;
   --c5: #F0C080;
 }

@@ -9,10 +9,16 @@
   // show($_SESSION["marksv4"]);
 ?>
 
-  <div class="container">
+  <div class="container-fluid">
 
     <form action="../Controller/MarksManagement.php" method="post" class="formContainer">
-      <button type="submit" name="button">Enregistrer</button>
+      <!-- <button type="submit" name="button" class="button">Enregistrer</button> -->
+      <button class="learn-more btn-1" type="submit" name="button">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Enregistrer</span>
+      </button>
       <?php
 
         for($i = 0 ; $i < $_SESSION["apiv2"]->getSemesterFromSchool($_SESSION["profil"]["school"]) ; $i++) {?>

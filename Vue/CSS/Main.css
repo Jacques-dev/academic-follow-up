@@ -1,13 +1,16 @@
 @import url("Colors.css");
 
 html, body {
-  position: relative;
-  font-size: 14px;
   margin: 0 !important;
   padding: 0;
-  color: var(--noir);
-  height: 100%;
-  background-color: var(--blanc);
+  color: var(--blanc);
+  background: url("../IMAGES/Background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* font-family: 'Krona One', sans-serif !important; */
+  /* font-family: 'Fredoka One', sans-serif !important; */
+  font-family: 'Recursive', sans-serif !important;
+
 }
 
 #LoginRegisterButton {
@@ -56,26 +59,82 @@ html, body {
   width: 50px !important;
   height: 50px !important;
   border-radius: 25% !important;
+  background-color: none !important;
 }
 
 .navbar {
-  background-color: var(--c2) !important;
+  /* background-color: var(--c2) !important; */
+}
+.navbarSub1 {
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 10px !important;
+  color: var(--c3) !important;
+}
+.navbarSub1:hover {
+  text-decoration: none;
+  color: var(--blanc) !important;
+  background-color: var(--gris_o2) !important;
+}
+.navbar-nav {
+  border-radius: 15px;
+  background-color: var(--gris_o) !important;
 }
 .nav-link {
   color: var(--c3) !important;
+  /* background-color: var(--gris_o) !important; */
 }
 .nav-link.active {
-  color: var(--c4) !important;
+  color: var(--blanc) !important;
+  background-color: var(--gris_o2) !important;
+  border-radius: 15px;
 }
 .nav-link:hover {
-  color: var(--c5) !important;
+  color: var(--blanc) !important;
+  background-color: var(--gris_o2) !important;
+  border-radius: 15px;
 }
 .navbar-brand {
   color: var(--c4) !important;
+
 }
-.container {
-  background-color: var(--c3) !important;
+.container, .container-fluid {
+  /* background-color: var(--c3) !important; */
 }
 .formContainer {
   padding: 10px;
+}
+
+.scroll {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+
+#navbar {
+  /* height: 20vh !important;
+  margin: 0; */
+}
+
+#navbarSub1 {
+  height: 7.5vh !important;
+}
+
+#navbarSub2 {
+  height: 7.5vh !important;
+}
+
+#body {
+  margin: 0;
+}
+
+#leftpan {
+
+}
+
+#rightpan {
+  height: 85vh !important;
+  overflow-y: scroll;
+  background-color: var(--gris_o2);
+  border-radius: 15px;
 }

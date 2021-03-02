@@ -1,12 +1,17 @@
 
 <?php include("../BDD/Connexion.php"); ?>
 
-<div class="container">
-  <p> Recherchez le profil d'une connaissance</p>
-  <form class="row" action="CheckOtherProfil.php" method="post">
-    <input type="text" name="SearchProfilName" placeholder="Nom">
-    <input type="text" name="SearchProfilFirstName" placeholder="Prénom">
-    <input type="submit" name="SearchProfilSubmit" value="Chercher">
+<div class="container-fluid">
+
+  <form class="row formResearch" action="Body?page=CheckOtherProfil" method="post">
+    <div class="col-lg-4">
+      <p> Recherchez le profil d'une connaissance</p>
+    </div>
+    <div class="col-lg-6 mr-lg-auto">
+      <input type="text" name="SearchProfilName" placeholder="Nom" required>
+      <input type="text" name="SearchProfilFirstName" placeholder="Prénom" required>
+      <input type="submit" name="SearchProfilSubmit" value="Chercher" class="btn btn-primary">
+    </div>
   </form>
 
 
@@ -26,9 +31,9 @@
 
     ?>
 
-    <form class="row" action="CheckOtherProfil.php" method="post">
+    <form class="row formResearch" action="Body?page=CheckOtherProfil" method="post">
       <div class="col-lg-2 ml-lg-auto mr-lg-auto">
-        <input type="submit" name="checkProfilSubmit" id="checkProfil" value="Voir +">
+        <input type="submit" name="checkProfilSubmit" id="checkProfil" value="Voir +" class="btn btn-primary">
       </div>
 
         <?php foreach($array as $attr) :?>

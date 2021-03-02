@@ -31,7 +31,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4">
-        <form action="" method="post">
+        <form action="" method="post" class="formRanking">
           <?php
           $school = $_SESSION["profil"]["school"];
           if ($selection === "Semestre") {
@@ -76,9 +76,13 @@
           </div>
 
           <div class="row">
-            <button type="submit" name="preSelection" value=<?= true; ?>><i class="fas fa-arrow-circle-left"></i></button>
+            <button type="submit" name="preSelection" class="btn-2" value=<?= true; ?>>
+              <i class="fas fa-arrow-circle-left"></i>
+            </button>
             <?php if ($selection != "Notes") {?>
-              <button type="submit" name="nextSelection" value=<?= true; ?>><i class="fas fa-arrow-circle-right"></i></button>
+              <button type="submit" name="nextSelection" class="btn-2" value=<?= true; ?>>
+                <i class="fas fa-arrow-circle-right"></i>
+              </button>
             <?php } ?>
           </div>
 
@@ -86,7 +90,9 @@
           $result = $con->query($sql);
           while($row = $result->fetch_assoc()) { ?>
             <?php if ($selection != "Notes") { ?>
-              <button class="row" type="submit" name="rankingSelection" value=<?= $table."_".$row["id"]."_".$row[$elementPrinted]; ?>><?= $table." ".$row[$elementPrinted]; ?></button>
+              <button class="row raise" type="submit" name="rankingSelection" value=<?= $table."_".$row["id"]."_".$row[$elementPrinted]; ?>>
+                <?= $table." ".$row[$elementPrinted]; ?>
+              </button>
             <?php }
           } ?>
         </form>
