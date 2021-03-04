@@ -3,6 +3,7 @@
   include("../BDD/Connexion.php");
   include("../Controller/Fonctions.php");
   render("Header", ["activePage" => $page]);
+  // show($_SESSION["marksv4"]);
 ?>
 
 <div class="container-fluid" id="body">

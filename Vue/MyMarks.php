@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <?php
     session_start();
-    include("../Controller/StartMarks.php");
+    // include("../Controller/StartMarks.php");
     // show($_SESSION["marksv4"]);
     // show($_SESSION["marksv2"]);
     // show($_SESSION["marks"]);

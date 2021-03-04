@@ -26,7 +26,7 @@
       array_push($pile, $row);
     }
 
-    $marks[$markToAdd[$i]] =  $pile;
+    $marks[$markToAdd[$i]] = $pile;
   }
 
   // show($marks);
