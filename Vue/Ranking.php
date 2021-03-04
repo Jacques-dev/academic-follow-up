@@ -71,11 +71,11 @@
           }
 
           ?>
-          <div class="row">
+          <div class="row frame">
             <?= "Selection : ".$selection." ".$name; ?>
           </div>
 
-          <div class="row">
+          <div class="row frame">
             <button type="submit" name="preSelection" class="btn-2" value=<?= true; ?>>
               <i class="fas fa-arrow-circle-left"></i>
             </button>
@@ -90,9 +90,13 @@
           $result = $con->query($sql);
           while($row = $result->fetch_assoc()) { ?>
             <?php if ($selection != "Notes") { ?>
-              <button class="row raise" type="submit" name="rankingSelection" value=<?= $table."_".$row["id"]."_".$row[$elementPrinted]; ?>>
-                <?= $table." ".$row[$elementPrinted]; ?>
-              </button>
+              <div class="frame">
+                <button class="row custom-btn btn-3" type="submit" name="rankingSelection" value=<?= $table."_".$row["id"]."_".$row[$elementPrinted]; ?>>
+                  <span>
+                    <?= $table." ".$row[$elementPrinted]; ?>
+                  </span>
+                </button>
+              </div>
             <?php }
           } ?>
         </form>
