@@ -8,9 +8,27 @@
       <p> Recherchez le profil d'une connaissance</p>
     </div>
     <div class="col-lg-6 mr-lg-auto">
-      <input type="text" name="SearchProfilName" placeholder="Nom" required>
-      <input type="text" name="SearchProfilFirstName" placeholder="Prénom" required>
-      <input type="submit" name="SearchProfilSubmit" value="Chercher" class="btn btn-primary">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Nom" name="SearchProfilName" id="SearchProfilName" required />
+            <label for="SearchProfilName" class="form__label"></label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Prénom" name="SearchProfilFirstName" id="SearchProfilFirstName" required />
+            <label for="SearchProfilFirstName" class="form__label"></label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <input type="submit" name="SearchProfilSubmit" value="Chercher" class="btn btn-primary">
+        </div>
+      </div>
+
+      <!-- <input type="text" name="SearchProfilName" placeholder="Nom" required> -->
+      <!-- <input type="text" name="SearchProfilFirstName" placeholder="Prénom" required> -->
+      <!-- <input type="submit" name="SearchProfilSubmit" value="Chercher" class="btn btn-primary"> -->
     </div>
   </form>
 

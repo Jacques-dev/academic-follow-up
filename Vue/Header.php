@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="CSS/Ranking.css">
     <link rel="stylesheet" href="CSS/Research.css">
     <link rel="stylesheet" href="CSS/Buttons.css">
+    <link rel="stylesheet" href="CSS/Input.css">
 
     </head>
     <body>
@@ -86,7 +87,9 @@
           <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <img class="<?= $activePage === 'Home' ? 'active' : '' ?>" src="IMAGES/logo1.png" id="logo1">
+                <a href="Body?page=Home">
+                  <img class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" src="IMAGES/logo1.png" id="logo1">
+                </a>
               </li>
               <a class="navbarSub1" href="Body?page=Contact">Nous contacter</a>
               <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
@@ -101,7 +104,7 @@
             <ul class="navbar-nav ml-auto">
               <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
                 <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil">Mon profil</a>
+                  <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil"><?= $_SESSION["profil"]["firstname"]; ?></a>
                 </li>
               <?php endif; ?>
               <?php include("LoginForm.php"); ?>
