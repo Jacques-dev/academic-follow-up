@@ -10,49 +10,33 @@
       <div class="row">
         <form class="col-lg-8" name="inscription" method="post" action="/academic-follow-up/Controller/Profil_management.php">
           <div class="row">
-            <div class="col-lg-12">
-              Email
+            <div class="form__group field">
+              <input type="input" class="form__field" placeholder="Email" name="new_email" id="emailProfil" value="<?= $_SESSION["email"]?>"/>
             </div>
-            <div class="col-lg-12">
-              <input class="col-lg-4" type="text" value="<?= $_SESSION["email"]?>" placeholder="votre email" name="new_email"/>
+          </div>
+          <div class="row">
+            <div class="form__group field">
+              <input type="input" class="form__field" placeholder="Prénom" name="new_firstname" id="firstNameProfil" value="<?= $_SESSION["profil"]["firstname"]?>"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form__group field">
+              <input type="input" class="form__field" placeholder="Nom" name="new_name" id="firstNameProfil" value="<?= $_SESSION["profil"]["name"]?>"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form__group field">
+              <select class="form__field" name="new_school" id="new_school">
+                <option value="<?= $_SESSION["profil"]["school"]?>" selected> <?= $_SESSION["profil"]["school"]?> </option>
+                <option value="EFREI Paris">EFREI Paris</option>
+                <option value="ECE Paris">ECE Paris</option>
+                <option value="EPITA">EPITA</option>
+              </select>
             </div>
           </div>
             <div class="row">
-              <div class="col-lg-12">
-                Prenom
-              </div>
-              <div class="col-lg-12">
-                <input class="col-lg-4" type="text" value="<?= $_SESSION["profil"]["firstname"]?>" placeholder="votre prenom" name="new_firstname"/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                Nom
-
-              </div>
-              <div class="col-lg-12">
-                <input class="col-lg-4" type="text" value="<?= $_SESSION["profil"]["name"]?>" placeholder="votre nom" name="new_name"/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                Ecole
-              </div>
-              <div class="col-lg-12">
-                <select class="col-lg-4" name="new_school">
-                  <option value="<?= $_SESSION["profil"]["school"]?>" selected> <?= $_SESSION["profil"]["school"]?> </option>
-                  <option value="EFREI Paris">EFREI Paris</option>
-                  <option value="ECE Paris">ECE Paris</option>
-                  <option value="EPITA">EPITA</option>
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                Promotion
-              </div>
-              <div class="col-lg-12">
-                <select class="col-lg-6" name="new_promotion">
+              <div class="form__group field">
+                <select class="form__field" name="new_promotion" id="new_promotion">
                   <option value="<?= $_SESSION["profil"]["promotion"]?>" selected> <?= $_SESSION["profil"]["promotion"]?></option>
                   <option value="2021">2021</option>
                   <option value="2022">2022</option>
@@ -63,19 +47,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12">
-                Groupe de TD
-              </div>
-              <div class="col-lg-12">
-                <input class="col-lg-2" type="text" value="<?= $_SESSION["profil"]["td_group"]?>" placeholder="votre groupe de td" name="new_td_group"/>
+              <div class="form__group field">
+                <input type="input" class="form__field" placeholder="Nom" name="new_td_group" id="new_td_group" value="<?= $_SESSION["profil"]["td_group"]?>"/>
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12">
-                confidentialité de vos notes
-              </div>
-              <div class="col-lg-12">
-                <select class="col-lg-2" name="new_confidentiality">
+              <div class="form__group field">
+                <select class="form__field" name="new_confidentiality" id="new_confidentiality">
                   <option value="<?= $_SESSION["profil"]["confidentiality"]?>" selected> <?= $_SESSION["profil"]["confidentiality"]?></option>
                   <option value="Privée">Privée</option>
                   <option value="Publique">Publique</option>
@@ -83,9 +61,12 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12">
-                <button type="submit" name="update_infos">Modifier mes informations</button>
-              </div>
+              <button class="learn-more btn-1" type="submit" name="update_infos">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Enregistrer</span>
+              </button>
             </div>
         </form>
         <div class="col-lg-4">
