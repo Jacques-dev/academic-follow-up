@@ -56,9 +56,11 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="CSS/Main.css">
+    <link rel="stylesheet" href="CSS/Home.css">
     <link rel="stylesheet" href="CSS/Average.css">
     <link rel="stylesheet" href="CSS/Manager.css">
     <link rel="stylesheet" href="CSS/Ranking.css">
+    <link rel="stylesheet" href="CSS/Contact.css">
     <link rel="stylesheet" href="CSS/Research.css">
     <link rel="stylesheet" href="CSS/MyMarks.css">
     <link rel="stylesheet" href="CSS/Buttons.css">
