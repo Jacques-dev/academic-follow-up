@@ -75,6 +75,28 @@
 
 }
 
+#mymarks .tree-toggle {
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#mymarks .tree-toggle:hover {
+  background-color: var(--c3);
+  color: var(--c2);
+}
+
+#mymarks .tree1 {
+  margin-left: 25px;
+}
+
+#mymarks .tree2 {
+  margin-left: 50px;
+}
+
+#mymarks .tree3 {
+  margin-left: 75px;
+}
+
 #mymarks ul.kas-icon-aero li a:before{
   font-family: 'Glyphicons Halflings';
   font-size: 9px;
