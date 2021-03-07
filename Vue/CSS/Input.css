@@ -31,10 +31,10 @@ input[type="submit"]:hover {
   outline: 0;
   background: transparent;
   transition: border-color 0.2s;
-  color: var(--blanc);
+  color: var(--c2);
 }
 .form__field::placeholder {
-  color: var(--blanc);
+  color: var(--c2);
 }
 .form__field:placeholder-shown ~ .form__label {
   cursor: text;
@@ -49,11 +49,11 @@ input[type="submit"]:hover {
 }
 
 .form__field:focus {
-  color: var(--c4);
+  color: var(--c3);
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, var(--c4), var(--c5));
+  border-image: linear-gradient(to right, var(--c2), var(--c3));
   border-image-slice: 1;
 }
 .form__field:focus ~ .form__label {
@@ -62,7 +62,7 @@ input[type="submit"]:hover {
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: var(--c4);
+  color: var(--c3);
   font-weight: 700;
 }
 

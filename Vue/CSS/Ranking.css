@@ -5,3 +5,16 @@
 .formRanking {
   margin: 25px 0 !important;
 }
+
+
+.ranking-container {
+  background-color: var(--c3);
+  border-radius: 10px;
+  box-shadow: 1px 1px var(--c2);
+  color: var(--c2);
+}
+
+.rankingView {
+  margin: 10px auto;
+  border-bottom: 1px solid var(--c4);
+}

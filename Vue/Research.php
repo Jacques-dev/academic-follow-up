@@ -3,11 +3,11 @@
 
 <div class="container-fluid">
 
-  <form class="row formResearch" action="Body?page=CheckOtherProfil" method="post">
-    <div class="col-lg-4">
+  <form class="row formResearch1" action="Body?page=CheckOtherProfil" method="post">
+    <div class="col-lg-4 research-container-title">
       <p> Recherchez le profil d'une connaissance</p>
     </div>
-    <div class="col-lg-6 mr-lg-auto">
+    <div class="col-lg-6 mr-lg-auto research-container">
       <div class="row">
         <div class="col-lg-4">
           <div class="form__group field">
@@ -49,14 +49,14 @@
 
     ?>
 
-    <form class="row formResearch" action="Body?page=CheckOtherProfil" method="post">
+    <form class="row formResearch2" action="Body?page=CheckOtherProfil" method="post">
       <div class="col-lg-2 ml-lg-auto mr-lg-auto">
         <input type="submit" name="checkProfilSubmit" id="checkProfil" value="Voir +" class="btn btn-primary">
       </div>
 
-        <?php foreach($array as $attr) :?>
-          <input type="hidden" name="checkProfilResults[]" value="<?= $attr; ?>">
-        <?php endforeach; ?>
+      <?php foreach($array as $attr) :?>
+        <input type="hidden" name="checkProfilResults[]" value="<?= $attr; ?>">
+      <?php endforeach; ?>
 
       <div class="col-lg-2 ml-lg-auto mr-lg-auto"><?= $row["name"]; ?></div>
       <div class="col-lg-2 ml-lg-auto mr-lg-auto"><?= $row["firstname"]; ?></div>

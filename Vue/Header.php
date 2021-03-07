@@ -53,11 +53,14 @@
     <!-- Popup CSS -->
     <link href="https://cdn.isfidev.net/asalertmessage/v1.0/css/as-alert-message.min.css" rel="stylesheet">
     <script src="https://cdn.isfidev.net/asalertmessage/v1.0/js/as-alert-message.min.js"></script>
+
+    <!-- My CSS -->
     <link rel="stylesheet" href="CSS/Main.css">
     <link rel="stylesheet" href="CSS/Average.css">
     <link rel="stylesheet" href="CSS/Manager.css">
     <link rel="stylesheet" href="CSS/Ranking.css">
     <link rel="stylesheet" href="CSS/Research.css">
+    <link rel="stylesheet" href="CSS/MyMarks.css">
     <link rel="stylesheet" href="CSS/Buttons.css">
     <link rel="stylesheet" href="CSS/Input.css">
 

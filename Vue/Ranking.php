@@ -28,7 +28,7 @@
     // show("Selection : ".$selection." id : ".$id." name : ".$name);
   ?>
 
-  <div class="container-fluid">
+  <div class="container-fluid h-100">
     <div class="row">
       <div class="col-lg-4">
         <form action="" method="post" class="formRanking">
@@ -103,13 +103,14 @@
 
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-8 ranking-container">
         <?php
         $sql = "SELECT name, firstName, $whatWeWant FROM student s INNER JOIN $innerJoin ss WHERE s.id = ss.id_student AND ss.id_$idLink = $id AND s.confidentiality = 'Publique' ORDER BY $whatWeWant";
         $result = $con->query($sql);
+        $rank = 1;
         while($row = $result->fetch_assoc()) { ?>
-          <div class="">
-            <?= $row["name"]." ".$row["firstName"]." : ".$row[$whatWeWant]; ?>
+          <div class="rankingView">
+            <?= $rank." - ".$row["name"]." ".$row["firstName"]." : ".$row[$whatWeWant]; ?>
           </div>
         <?php } ?>
       </div>

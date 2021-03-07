@@ -1,3 +1,5 @@
+
+
 @import url("Colors.css");
 
 html, body {
@@ -137,4 +139,35 @@ html, body {
   overflow-y: scroll;
   background-color: var(--gris_o2);
   border-radius: 15px;
+}
+
+.ue-big-container {
+  background-color: var(--c2) !important;
+  border-radius: 10px;
+}
+
+.ue-container {
+  padding-top: 15px;
+  padding-left: 25px;
+  margin: 0;
+}
+
+.subject-big-container {
+  background-color: var(--c5) !important;
+  margin-left: 25px;
+  border-radius: 10px;
+}
+.subject-container {
+  margin: 0;
+  padding-top: 15px;
+  padding-left: 25px;
+}
+
+.mark-container {
+  background-color: var(--c4) !important;
+  color: var(--c2) !important;
+  margin-left: 25px;
+  margin-right: 0px;
+  padding-top: 15px;
+  padding-left: 25px;
 }
