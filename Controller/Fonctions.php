@@ -46,7 +46,7 @@
   }
 
   function show($x) {
-    echo "<pre>";
+    echo "<pre class='show'>";
     print_r($x);
     echo "</pre>";
   }

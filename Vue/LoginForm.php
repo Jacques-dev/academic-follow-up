@@ -19,7 +19,7 @@
   }
 ?>
 
-  <form class="row" action="../Controller/LoginRegister.php" method="post" id="popupLogin" class="popupLoginRegister">
+  <form action="../Controller/LoginRegister.php" method="post" id="popupLogin" class="popupLoginRegister">
     Se connecter
     <div class="col-lg-12">
       <input type="text" name="email" placeholder="email">
@@ -32,9 +32,11 @@
       <label for="remember">Se souvenir de moi</label>
     </div>
     <div class="col-lg-12">
-      <button type="submit" name="submitConnexion">Se connecter</button>
+      <input type="submit" name="submitConnexion" value="Se connecter" class="btn btn-primary">
+      <!-- <button type="submit" name="submitConnexion">Se connecter</button> -->
     </div>
     <div class="col-lg-12">
-      <button type="submit">Annuler</button>
+      <input type="submit" value="Annuler" class="btn btn-primary">
+      <!-- <button type="submit">Annuler</button> -->
     </div>
   </form>

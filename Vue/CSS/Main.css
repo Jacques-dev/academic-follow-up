@@ -173,3 +173,7 @@ html, body {
   margin: 2.5px 0 2.5px 25px;
   padding: 7.5px 25px;
 }
+
+.show {
+  color: var(--cyan) !important;
+}

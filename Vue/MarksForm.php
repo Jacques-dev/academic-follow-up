@@ -4,10 +4,12 @@
   include("../BDD/Connexion.php");
   $idProfil = $_SESSION["profil"]["id"];
 
-  if (!isset($_SESSION["MarkSelectionHistory"])) {
-    $SemesterSelection = explode("_", $_POST["SemesterSelection"]);
-    $_SESSION["MarkSelectionHistory"] = [$SemesterSelection[0], $SemesterSelection[1], $SemesterSelection[2]];
-  }
+  // if (!isset($_SESSION["MarkSelectionHistory"])) {
+  $SemesterSelection = explode("_", $_POST["SemesterSelection"]);
+  $_SESSION["MarkSelectionHistory"] = [$SemesterSelection[0], $SemesterSelection[1], $SemesterSelection[2]];
+  // } else {
+  //   show($_SESSION["MarkSelectionHistory"]);
+  // }
 
   $selection = $_SESSION["MarkSelectionHistory"][0];
   $id = $_SESSION["MarkSelectionHistory"][1];

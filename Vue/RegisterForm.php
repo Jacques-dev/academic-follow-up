@@ -76,7 +76,8 @@
     </div>
   </div>
 
-  <button type="submit" name="submitRegister">Je m'inscris</button>
-
-  <button type="submit">Annuler</button>
+  <input type="submit" name="submitRegister" value="Je m'inscris" class="btn btn-primary">
+  <!-- <button type="submit" name="submitRegister">Je m'inscris</button> -->
+  <input type="submit" value="Annuler" class="btn btn-primary">
+  <!-- <button type="submit">Annuler</button> -->
 </form>
