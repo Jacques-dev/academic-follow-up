@@ -1,10 +1,10 @@
 
 
-<form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupRegister">
+<form action="/academic-follow-up/Controller/LoginRegister.php" method="post" id="popupRegister" class="popupLoginRegister">
 
   <div class="row">
     <div class="col-lg-12">
-        <h1>Inscription</h1>
+      <h1>Inscription</h1>
     </div>
   </div>
   <div class="row">
@@ -17,10 +17,10 @@
   </div>
   <div class="row">
     <div class="col-lg-12">
-      mot de passe
+      Mot de passe
     </div>
     <div class="col-lg-12">
-      <input type="password" placeholder="mot de passe" name="password">
+      <input type="password" placeholder="Mot de passe" name="password">
     </div>
   </div>
   <div class="row">

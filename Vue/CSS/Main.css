@@ -12,7 +12,6 @@ html, body {
   /* font-family: 'Krona One', sans-serif !important; */
   /* font-family: 'Fredoka One', sans-serif !important; */
   font-family: 'Recursive', sans-serif !important;
-
 }
 
 #LoginRegisterButton {
@@ -35,20 +34,25 @@ html, body {
 
 #popupLogin {
   display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
 }
 
 #popupRegister {
   display: none;
+}
+
+.popupLoginRegister {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  background-color: var(--c4);
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.popupLoginRegister h1 {
+  color: var(--c2);
 }
 
 #cookies {

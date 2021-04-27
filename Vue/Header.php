@@ -1,9 +1,13 @@
 
 <?php
   session_start();
-  $idProfil = $_SESSION["profil"]["id"];
-  include("../Controller/StartAPI.php");
-  include("../Controller/StartMarks.php");
+
+  if (isset($_SESSION["profil"]["id"])) {
+    $idProfil = $_SESSION["profil"]["id"];
+    include("../Controller/StartAPI.php");
+    include("../Controller/StartMarks.php");
+  }
+
   include("../BDD/Connexion.php");
 
   if (isset($_SESSION["cookie"])) {

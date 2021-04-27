@@ -19,7 +19,7 @@
   }
 ?>
 
-  <form class="row" action="../Controller/LoginRegister.php" method="post" id="popupLogin">
+  <form class="row" action="../Controller/LoginRegister.php" method="post" id="popupLogin" class="popupLoginRegister">
     Se connecter
     <div class="col-lg-12">
       <input type="text" name="email" placeholder="email">
