@@ -38,7 +38,7 @@
                               coef <?= $_SESSION["apiv3"][$i][2][$j][2][$k][3]; ?>
 
                               <?php if ($_SESSION["marksv4"][$i][2][$j][2][$k][1] < 6 && isset($_SESSION["marksv4"][$i][2][$j][2][$k][1])) { ?>
-                                <span style="color: red">Cette matière n'est pas acceptable...</span>
+                                <span style="color: red">Un petit coup de pouce ?</span>
                               <?php } elseif (!isset($_SESSION["marksv4"][$i][2][$j][2][$k][1]) && isset($_SESSION["marksv4"][$i][2][$j][1])) { ?>
                                 <span style="color: blue">
                                   Espérons un

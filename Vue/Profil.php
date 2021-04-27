@@ -69,10 +69,10 @@
               </button>
             </div>
         </form>
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
           <p>ON MET LA PHOTO ICI</p>
           <img src="" alt="">
-        </div>
+        </div> -->
       </div>
 
       <div class="row">
