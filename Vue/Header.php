@@ -2,12 +2,10 @@
 <?php
   session_start();
 
-  if (isset($_SESSION["profil"]["id"])) {
-    $idProfil = $_SESSION["profil"]["id"];
-    include("../Controller/StartAPI.php");
-    include("../Controller/StartMarks.php");
+  if (isset($_SESSION["email"])) {
+    $idProfil = $_SESSION["email"];
   }
-  
+
   include("../BDD/Connexion.php");
 
   if (isset($_SESSION["cookie"])) {
@@ -55,18 +53,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Popup CSS -->
-    <link href="https://cdn.isfidev.net/asalertmessage/v1.0/css/as-alert-message.min.css" rel="stylesheet">
-    <script src="https://cdn.isfidev.net/asalertmessage/v1.0/js/as-alert-message.min.js"></script>
+    <link href="https://cdn.isfidev.com/asalertmessage/v1.0/css/as-alert-message.min.css" rel="stylesheet">
+    <script src="https://cdn.isfidev.com/asalertmessage/v1.0/js/as-alert-message.min.js"></script>
 
     <!-- My CSS -->
     <link rel="stylesheet" href="CSS/Main.css">
     <link rel="stylesheet" href="CSS/Home.css">
-    <link rel="stylesheet" href="CSS/Average.css">
-    <link rel="stylesheet" href="CSS/Manager.css">
-    <link rel="stylesheet" href="CSS/Ranking.css">
     <link rel="stylesheet" href="CSS/Contact.css">
-    <link rel="stylesheet" href="CSS/Research.css">
-    <link rel="stylesheet" href="CSS/MyMarks.css">
     <link rel="stylesheet" href="CSS/Buttons.css">
     <link rel="stylesheet" href="CSS/Input.css">
 
@@ -86,7 +79,7 @@
             title: "<?= $title ?>",
             message: "<?= $message ?>",
             timer: <?= $time ?>
-          })
+          });
           setTimeout(function() {
             <?php unset($_SESSION["popupResult"]); ?>
           }, 2000);
@@ -103,21 +96,16 @@
                 </a>
               </li>
               <a class="navbarSub1" href="Body?page=Contact">Nous contacter</a>
-              <?php if(isset($_SESSION["email"]) && isset($_SESSION["manager"])): ?>
-                <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'Management' ? 'active' : '' ?>" href="Management.php">Management</a>
-                </li>
-              <?php endif; ?>
             </ul>
           </div>
 
           <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <?php
+            if (isset($idProfil)):
+              ?>Je suis connecté<?php
+            endif;
+            ?>
             <ul class="navbar-nav ml-auto">
-              <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"]) ): ?>
-                <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'Profil' ? 'active' : '' ?>" href="Body?page=Profil"><?= $_SESSION["profil"]["firstname"]; ?></a>
-                </li>
-              <?php endif; ?>
               <?php include("LoginForm.php"); ?>
               <?php include("RegisterForm.php"); ?>
             </ul>
@@ -127,17 +115,7 @@
         <nav id="navbarSub2" class="navbar navbar-expand-md">
           <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
-              <?php if(isset($_SESSION["email"]) && !isset($_SESSION["manager"])): ?>
-                <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="Body?page=MarksForm">Mes notes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'Ranking' ? 'active' : '' ?>" href="Body?page=Ranking">Mon classement</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link <?= $activePage === 'Research' ? 'active' : '' ?>" href="Body?page=Research">Rechercher</a>
-                </li>
-              <?php endif; ?>
+              <!-- ajouter onglets -->
             </ul>
           </div>
         </nav>

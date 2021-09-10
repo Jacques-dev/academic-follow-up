@@ -3,7 +3,6 @@
   include("../BDD/Connexion.php");
   include("../Controller/Fonctions.php");
   render("Header", ["activePage" => $page]);
-  
 ?>
 
 <div class="container-fluid" id="body">
