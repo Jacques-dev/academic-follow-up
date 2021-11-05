@@ -62,6 +62,7 @@
     <link rel="stylesheet" href="CSS/Contact.css">
     <link rel="stylesheet" href="CSS/Buttons.css">
     <link rel="stylesheet" href="CSS/Input.css">
+    <link rel="stylesheet" href="CSS/Manager.css">
 
     </head>
     <body>
@@ -95,7 +96,9 @@
                   <img class="nav-link <?= $activePage === 'Home' ? 'active' : '' ?>" src="IMAGES/logo1.png" id="logo1">
                 </a>
               </li>
-              <a class="navbarSub1" href="Body?page=Contact">Nous contacter</a>
+              <li class="nav-item">
+                <a class="nav-link navbarSub1 <?= $activePage === 'Contact' ? 'active' : '' ?>" href="Body?page=Contact">Nous contacter</a>
+              </li>
             </ul>
           </div>
 
@@ -115,7 +118,14 @@
         <nav id="navbarSub2" class="navbar navbar-expand-md">
           <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
-              <!-- ajouter onglets -->
+              <?php if(isset($_SESSION["email"])): ?>
+                <li class="nav-item">
+                  <a class="nav-link  <?= $activePage === 'MarksForm' ? 'active' : '' ?>" href="Body?page=MarksForm">Mes notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  <?= $activePage === 'Management' ? 'active' : '' ?>" href="Body?page=Management">Management</a>
+                </li>
+              <?php endif; ?>
             </ul>
           </div>
         </nav>
